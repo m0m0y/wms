@@ -5,7 +5,7 @@
         <title><?= isset($meta_title) ? $meta_title : '404' ?></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="format-detection" content="telephone=no">
-        <link rel="icon" type="image/png" href="/wms/static/ico.png">
+        <link rel="icon" type="image/png" href="/wms/static/icons.ico">
         <link rel="stylesheet" href="/wms/lib/bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="/wms/lib/toast/toast.min.css">
         <link rel="stylesheet" href="/wms/static/css/font.css?v=2">
