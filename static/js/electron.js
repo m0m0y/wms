@@ -76,7 +76,7 @@ const embedpdf = (url, to) => {
         <style>
             #p-g-back {
                 color: #fff;
-                background: #ff7c00 !important;
+                background: #009999 !important;
                 position: fixed;
                 padding: 20px;
                 cursor: pointer;

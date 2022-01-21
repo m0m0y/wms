@@ -6,16 +6,16 @@
 .btn-primary:active,
 .btn-primary:focus {
     color: white !important;
-    border-color: #ff7c00 !important;
-    background-color: #ff7c00 !important;
+    border-color: #009999 !important;
+    background-color: #009999 !important;
 }
 
 .bg-primary {
-    background-color: #ff7c00 !important;
+    background-color: #009999 !important;
 }
 
 .progress-bar {
-    background-color: #ff7c00
+    background-color: #009999
 }
 
 .page-link {
