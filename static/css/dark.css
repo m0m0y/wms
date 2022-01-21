@@ -1,0 +1,133 @@
+.user-picking, #main-loader,
+body {
+    background: #0d1117;
+    color: rgb(220, 220, 220);
+}
+
+.bg-white {
+    color: rgb(220, 220, 220);
+    background-color: #0d1117 !important;
+}
+
+.input-group-text,
+.btn {
+    color: rgb(220, 220, 220);
+}
+.table thead th {
+    border-color:  #0d1117 !important;
+}
+
+.sidebar li.active {
+    background: #0d1117;
+}
+
+.sidebar ul.dropdown.active li a {
+    padding-left: 0;
+}
+
+#navbar-wms,
+.card-panel .comment,
+.input-group-text {
+    background: #161b22;
+    border-color: #161b22 !important;
+}
+
+#slip-result li,
+#slip-result,
+.card-panel .controls a,
+.check-card.has-image,
+.image-area, .as-table, .card-panel.empty,
+.page-item.disabled .page-link,
+.pagination li a,
+.sidebar ul.dropdown,
+.modal-header,
+.modal-body, .modal-footer,
+.form-control,
+.pick-button.active,
+.card-panel {
+    background: #161b22;
+    border-color: #161b22 !important;
+}
+.navbar-search i,
+#slip-result a,
+.pagination li a {
+    color: rgb(220, 220, 220);
+}
+
+.user-control {
+    border-bottom-color: transparent;
+}
+.table-bordered {
+    border: 1px solid #161b22;
+}
+
+html table td ,
+html table th {
+    background: #161b22 !important;
+}
+.bg-light {
+    background-color: #161b22 !important;
+}
+.modal-content {
+    background-color: transparent;
+}
+.receipt .border-bottom,
+.border-right,
+.modal .form-control,
+html table tr, html table td {
+    border-color: #161b22 !important;
+}
+
+.form-control {
+    color: rgb(220, 220, 220) !important;
+    background: #161b22 !important;
+}
+
+.close,
+.modal .form-control {
+    color: rgb(220, 220, 220);
+    background: #313131 !important;
+}
+.user-control,
+.sidebar,
+.receipt {
+    background-color: #161b22 !important;
+}
+.border {
+    border: 1px solid #161b22 !important;
+}
+#side-icon,
+.pick-button * {
+    color: rgb(220, 220, 220);
+}
+.text-muted {
+    color: #cccccc !important;
+}
+.border-bottom-dashed {
+    border: none !important;
+}
+.progress {
+    background: #585858;
+}
+
+@media screen and (min-width: 1200px) {
+
+    .sidebar::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    .sidebar::-webkit-scrollbar-thumb {
+        background-color: #292929;
+        outline: 1px solid #161b22;
+    }
+
+}
+
+.login-wrapper {
+    background: #000000 !important;
+}
+
+.user-control input {
+    background: #2b2b2b;
+    color: white;
+}

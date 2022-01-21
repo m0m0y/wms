@@ -1,0 +1,39 @@
+/* inmed theme */
+
+.page-item.active .page-link,
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    color: white !important;
+    border-color: #009999 !important;
+    background-color: #009999 !important;
+}
+
+.bg-primary {
+    background-color: #009999 !important;
+}
+
+.progress-bar {
+    background-color: #009999
+}
+
+.page-link {
+    color: #111 !important;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(247, 136, 128, 0.5);
+}
+
+/* rounded theme */
+.page-item .page-link,
+.btn,
+.card-panel,
+.card-panel .controls a,
+.user-control input,
+table.dataTable,
+.modal-content,
+.form-control {
+    border-radius: 0px !important;
+}
