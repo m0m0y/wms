@@ -75,6 +75,7 @@ require_once "./component/sidebar.php";
                         <option value="Cage"> Cage </option>
                         <option value="Truck"> Delivery Truck </option>
                         <option value="Crate"> Crate </option>
+                        <option value="Quarantine"> Quarantine </option>
                         <option value="Crate Return"> Crate Return </option>
                     </select>
                 </div>
