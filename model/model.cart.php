@@ -72,4 +72,28 @@ class Cart extends DBHandler {
         return $this->execute($stmt);
     }
 
+    public function getCartOnly()
+    {
+        $location_type = "Cart";
+        $query = "SELECT cart_id, location_name, location_type, location_status FROM cart WHERE location_type='$location_type'";
+        $stmt = $this->prepareQuery($this->conn, $query);
+        return $this->fetchAssoc($stmt);
+    }
+
+    public function getTableOnly()
+    {
+        $location_type = "Table";
+        $query = "SELECT cart_id, location_name, location_type, location_status FROM cart WHERE location_type='$location_type'";
+        $stmt = $this->prepareQuery($this->conn, $query);
+        return $this->fetchAssoc($stmt);
+    }
+
+    public function getTruckOnly()
+    {
+        $location_type = "Truck";
+        $query = "SELECT cart_id, location_name, location_type, location_status FROM cart WHERE location_type='$location_type'";
+        $stmt = $this->prepareQuery($this->conn, $query);
+        return $this->fetchAssoc($stmt);
+    }
+
 }

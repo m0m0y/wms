@@ -140,16 +140,22 @@ switch($mode) {
                     }
                     $moved_box = ($v['box_number_Status']=="") ?"" : "";
                     $tabindex = ($v['box_number_Status']=="") ? "1" : "";
-                    $jerico = ($v['box_number_Status']=="") ? "" : "jerico";
+                    $aaa = ($v['box_number_Status']=="") ? "" : "aaa";
 
                     ?>
                 <div class="col mb-4 pick" data-id="<?= $sorter ?>">
 
-                    <div class="card-panel has-thumb p-4 mb-0 pick-main card_box <?= $jerico ?>" style="<?= $moved_box ?>" data-box_number="<?= $v['box_number'] ?>" tabindex="<?= $tabindex ?>">
+                    <div class="card-panel has-thumb p-4 mb-0 pick-main card_box <?= $aaa ?>" style="<?= $moved_box ?>" data-box_number="<?= $v['box_number'] ?>" tabindex="<?= $tabindex ?>">
                         <img class="thumb" src="static/box.png">
                         
                         <p class="m-0 text-muted"><small>BOX NUMBER:</small></p>
                         <p class="m-0 font-weight-bold mb-2"><?= $v['box_number'] ?></p>
+
+                        <div class="controls">
+                            <a href="#!" tabindex="-1" class="manual_btn" data-box_number="<?= $v['box_number'] ?>" onclick="manualInput(<?= $slip_id ?>)">
+                                <i class="material-icons">touch_app</i>
+                            </a>
+                        </div>
 
 
                         <?php if($v['box_number_Status']=="Moved"){ ?>
@@ -195,6 +201,17 @@ switch($mode) {
        
         $response = array("code"=>1, "view"=>$view);            
         break;
+
+    case "dropdown_truck";
+        require_once "../model/model.cart.php";
+        $truck = new Cart();
+        $units = $truck->getTruckOnly();
+        $option = "<option value='' disabled='' selected=''>--Select Table--</option>";
+        foreach($units as $k=>$v) {
+            $option.="<option value='".$v['cart_id']."'>".$v['location_name']."</option>";
+        }
+        echo $option;
+        exit;
 }
 
 

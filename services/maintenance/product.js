@@ -6,6 +6,18 @@ $(function(){
     $('[data-toggle="tooltip"]').tooltip();
     productModal();
    
+    $('input[type=text]').on('keyup keypress keydown', function(e) { 
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+            alert("Enter key is not valid");
+            return false;
+        }else if (keyCode === 222) {
+            e.preventDefault();
+            alert("Special character you've input is not valid");
+            return false;
+        }
+
+    });
 })
 
 function productModal(){

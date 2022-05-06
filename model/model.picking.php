@@ -219,10 +219,15 @@ class Picking extends DBHandler {
     public function Undo_pickedorder($id,$del_stock_id,$stock_lotno,$stock_expiration_date,$stock_quantity,$rak_return_id,$productid,$serial,$undo_qty)
     {
         
+        $rak_return_id = strtoupper($rak_return_id);
+        $exp_rak_return_id = explode("-", $rak_return_id);
+
+        $rak_return_name = $exp_rak_return_id[0]."-".$exp_rak_return_id[1]."-".$exp_rak_return_id[2];
+
         $megavariable = 0;
         $date_today = date('Y-m-d');
-        $query = "SELECT rak_id FROM rak WHERE rak_id = ?";
-        $stmt = $this->prepareQuery($this->conn, $query, "i", array($rak_return_id));
+        $query = "SELECT rak_id FROM rak WHERE rak_name = ?";
+        $stmt = $this->prepareQuery($this->conn, $query, "s", array($rak_return_name));
         $row_rak = $this->fetchRow($stmt);
         $fetchRak = $row_rak[0];
 
@@ -249,14 +254,14 @@ class Picking extends DBHandler {
             $this->execute($stmt);
 
             $query = "SELECT stock_id, product_id, location_id, location_type, stock_lotno, stock_serialno, stock_qty, stock_expiration_date FROM stock WHERE location_id = ? AND location_type = 'rak' AND product_id = ? LIMIT 1";
-            $stmt = $this->prepareQuery($this->conn, $query, "ii", array($rak_return_id,$productid));
+            $stmt = $this->prepareQuery($this->conn, $query, "ii", array($fetchRak,$productid));
             $row = $this->fetchRow($stmt);
             $stockid = $row[0];
             $new_stock_qty = $row[6] + $undo_qty;
 
             if($stockid=="" || $stockid==null){
                 $query = "INSERT INTO stock SET product_id = ?, location_id = ?, location_type = 'rak', stock_lotno = ?, stock_serialno = '$serial', stock_qty = ?, stock_expiration_date = ?, picking_order_id = '0', from_stock_id = '0'";
-                $stmt = $this->prepareQuery($this->conn, $query, "iisis", array($productid,$rak_return_id,$stock_lotno,$undo_qty,$stock_expiration_date));
+                $stmt = $this->prepareQuery($this->conn, $query, "iisis", array($productid,$fetchRak,$stock_lotno,$undo_qty,$stock_expiration_date));
                 $this->execute($stmt);
 
                 $stockid = $stmt->insert_id;

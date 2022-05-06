@@ -138,6 +138,18 @@ $shipping = new Shipping();
                     </div>
 
                 </div>
+
+                <div id="choices" style="display: none;">
+                    <input type="hidden" id="undo_pick" class="form-control">
+
+                    <div class="icon-lg-pop my-4 text-center">
+                        <i class="material-icons">beenhere</i>
+                    </div>
+                    <p class="mb-2 text-center"><b>You're been there</b><br>Please choose one to proceed</b></p><br>
+                    <button class="btn btn-primary mb-3 control-group-submit" onclick="scanTruck()">Scan Barcode</button>
+                    <button class="btn btn-success mb-3 control-group-submit" onclick="manualInputTruck()">Manual Input</button>
+                </div>
+
                 <div id="choose-cart" style="display: none;">
                     <div class="icon-lg-pop mb-4 text-center">
                         <i class="material-icons text-success">local_shipping</i>
@@ -221,6 +233,52 @@ $shipping = new Shipping();
                 <button type="button" class="btn btn-secondary" id="btn_deliver"><i class="material-icons myicon-lg mr-2">rotate_left</i> Submit</button>
             </div>
             
+        </div>
+    </div>
+</div>
+
+
+<div id="manual-modal" class="modal fade" data-keyboard="false" data-focus="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                
+                <div class="icon-lg-pop my-4 text-center">
+                    <i class="material-icons ">how_to_reg</i>
+                </div>
+                <p class="mb-5" id="toTable" data-target="0"><b>Continue this process?</b><br>Please input the box number to proceed.</p>
+                <div class="input-group mb-3">
+                    <input type="text" id="shipping_barcode" class="form-control" placeholder="Box Number..." name="" disabled>
+                    <div class="input-group-append">
+
+                        <span class="input-group-text p-0 total-paster">
+                            <button class="btn paster" onclick="copy_box_number()" type="button">
+                                <i class="material-icons myicon-lg">content_paste</i>
+                            </button>
+                        </span>
+
+                        <span class="input-group-text rounded-0" id="box_number_compare"></span>
+                    </div>
+                </div>
+                <button class="btn btn-success mt-2 btn submit_btn" onclick="submitManual()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="truck-manual-modal" class="modal fade" data-keyboard="false" data-focus="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                
+                <div class="icon-lg-pop my-4 text-center">
+                    <i class="material-icons ">how_to_reg</i>
+                </div>
+                <p class="mb-5" id="toTable" data-target="0"><b>You're Almost There</b><br>Please select the truck now.</p>
+                <select required id="truck_id" name="truck_id" class="form-control rounded-0 mb-3"></select>
+                <button class="btn btn-success mt-2 btn submit_btn" onclick="submitTruckManual()">Submit</button>
+            </div>
         </div>
     </div>
 </div>

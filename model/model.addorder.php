@@ -12,6 +12,14 @@ class AddOrder extends DBHandler {
     public function addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name)
     {   
 
+        $slipno = str_replace(array("'", "&quot;"), "", htmlspecialchars($slipno));
+        $billto = str_replace(array("'", "&quot;"), "", htmlspecialchars($billto));
+        $shipto = str_replace(array("'", "&quot;"), "", htmlspecialchars($shipto));
+        $reference = str_replace(array("'", "&quot;"), "", htmlspecialchars($reference));
+        $pono = str_replace(array("'", "&quot;"), "", htmlspecialchars($pono));
+        $customer_address = str_replace(array("'", "&quot;"), "", htmlspecialchars($customer_address));
+        $salesperson = str_replace(array("'", "&quot;"), "", htmlspecialchars($salesperson));
+        $shipvia = str_replace(array("'", "&quot;"), "", htmlspecialchars($shipvia));
 
         $usertype = "picker";
         $qry = "SELECT user_id FROM user_account WHERE user_usertype = ?";
@@ -71,6 +79,9 @@ class AddOrder extends DBHandler {
     public function addOrderDetails($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno)
     {   
 
+        $product_code = str_replace(array("'", "&quot;"), "", htmlspecialchars($product_code));
+        $location = str_replace(array("'", "&quot;"), "", htmlspecialchars($location));
+        $stock_lotno = str_replace(array("'", "&quot;"), "", htmlspecialchars($stock_lotno));
 
         $query = "SELECT product_id FROM product WHERE product_code = ? LIMIT 1";
         $stmt = $this->prepareQuery($this->conn, $query, "s", array($product_code));

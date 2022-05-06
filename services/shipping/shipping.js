@@ -18,7 +18,7 @@ $(document).scannerDetection({
 $(function(){
 
     /* delegated event */
-    $('body').on('click', '.card_box.jerico', function(){
+    $('body').on('click', '.card_box.aaa', function(){
         $('#undo-modal').attr("data-card", $(this).data('box_number'));
         $('#undo-modal').modal('show'); 
     });
@@ -161,7 +161,8 @@ function resetForm(){
     
     $('#pickingQuantity').val('');
     $('#choose-cart').fadeOut('500', function(){
-        $('#choose-qty').fadeIn('500')    
+        $('#choose-qty').fadeIn('500')
+        $('#choices').fadeOut('100')
     })
     return
 }
@@ -218,7 +219,7 @@ function pickOrder(id, name, no, c = '') {
 function undoSave(rak_return_id){
 
     var current = $('#undo-modal').attr('data-card');
-    var $el = $('.card_box.jerico[data-box_number="' + current +'"]');
+    var $el = $('.card_box.aaa[data-box_number="' + current +'"]');
     $.ajax({
         url:"controller/controller.shipping.php?mode=undo",
         method:"POST",
@@ -246,7 +247,8 @@ function chooseCart()
 
     $('#choose-qty').fadeOut('500', function(){
         $('#pickingCart').val('')
-        $('#choose-cart').fadeIn('500')
+        $('#choices').fadeIn('500')
+        $('#manual-modal').fadeOut('100')
         $('#pickingQuantity').val('1')    
     })
     
@@ -274,6 +276,69 @@ function chooseCart()
             }
         });
     })
+}
+
+function scanTruck(){
+    $('#choices').fadeOut(500);
+    $('#choose-cart').fadeIn(500);
+}
+
+function manualInputTruck(){
+    $('#truck-manual-modal').modal('show');
+    $('#truck_id').load('controller/controller.shipping.php?mode=dropdown_truck');
+}
+
+function submitTruckManual(){
+    var location = $('#truck_id').val();
+    $.ajax({
+        url:"controller/controller.shipping.php?mode=validateStorage&i="+location+'&type=Truck',
+        method:"GET",
+        success:function(data){
+            
+            let response = JSON.parse(data);
+            if(response.code == 0){
+                $('#truck_id').val('')
+                $.Toast(response.message, {
+                    'duration': 4000,
+                    'position': 'top',
+                    'align': 'left',
+                });
+                return
+            }
+            savePickManual();
+            return
+        }
+    });
+}
+
+function savePickManual() {
+    var pickingCart = $('#truck_id').val();
+    var box_number = $('#box_number').val();
+    // alert(pickingCart);
+    if($.trim(pickingCart) == null || $.trim(pickingCart) == "")
+    {
+        $.Toast("Cart Validation Failed", {
+            'duration': 4000,
+            'position': 'top',
+            'align': 'right',
+        });
+        return
+    }
+    
+    loader();
+
+    $.ajax({
+        url:"controller/controller.shipping.php?mode=add",
+        method:"POST",
+        data:{
+            box_number: box_number,
+            pickingCart: pickingCart
+        },
+        success:function(){
+            hardReload('&c=item picked');
+            return      
+        }
+    });
 }
 
 function toDeliver(slip_id){
@@ -331,7 +396,6 @@ function savePick(){
         url:"controller/controller.shipping.php?mode=add",
         method:"POST",
         data:{
-            // box_number: box_numbers,
             box_number: box_number,
             pickingCart: pickingCart
         },
@@ -367,4 +431,44 @@ function showLot(){
             $(this).toggleClass("active");
         });
     })
+}
+
+function manualInput(slip_id) {
+    var $el = $('.manual_btn:focus');
+
+    $('.submit_btn').attr("data-box_number",$el.data('box_number'));
+
+    $('#manual-modal').modal('show');
+
+    $('#shipping_barcode').val("");
+    $('#deliver_slip_id').val(slip_id);
+    $('#box_number_compare').html($el.data('box_number'));
+}
+
+function copy_box_number() {
+    var c = $('#box_number_compare').html();
+    $('#shipping_barcode').val(c);
+}
+
+function submitManual() {
+    var $el = $('.submit_btn:focus');
+    var box_number = $el.data("box_number");
+
+    var shipping_barcode = $('#shipping_barcode').val();
+
+    if(shipping_barcode===""){  audioTrigger('#audio_incorrect'); $.Toast("Invalid box number", errorToast); return; }
+
+    if(shipping_barcode === box_number) {
+        $('#box_number').val(shipping_barcode);
+        audioTrigger('#audio_correct');
+        $('#validity-modal').modal('show');
+        
+        $('#manual-modal').modal('hide');
+    } else {
+        audioTrigger('#audio_incorrect');
+        $('#validity-fail').modal('show');
+        resetForm();
+        $('#manual-modal').modal('hide');
+    }
+    
 }

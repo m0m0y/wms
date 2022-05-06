@@ -69,13 +69,11 @@ require_once "./component/sidebar.php";
                     <select required id="location_type" name="location_type" class="form-control rounded-0">
                         <option value="" selected disabled>-- Select Type --</option>
                         <option value="Cart"> Cart </option>
-                        <option value="Pallet"> Pallet </option>
-                        <option value="Table"> Table </option>
-                        <option value="Tout"> Tout </option>
-                        <option value="Cage"> Cage </option>
-                        <option value="Truck"> Delivery Truck </option>
                         <option value="Crate"> Crate </option>
-                        <option value="Crate Return"> Crate Return </option>
+                        <option value="Truck"> Delivery Truck </option>
+                        <option value="Table"> Table </option>
+                        <option value="Pallet"> Pallet </option>
+                        <option value="Quarantine Area"> Quarantine Area</option>
                     </select>
                 </div>
                 <div class="modal-footer">

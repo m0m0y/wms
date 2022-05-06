@@ -1,5 +1,5 @@
 <nav id="navbar-wms">
-    <img src="static/css/font/<?= (isset($_COOKIE['wms-dark'])) ? 'logo-light' : 'logo' ?>.png" alt="Progressive Medical Corporation" />
+    <img src="static/css/font/<?= (isset($_COOKIE['wms-dark'])) ? 'logo-light' : 'ppi-logo' ?>.png" alt="Progressive Medical Corporation" />
     <a href="#!" class="sidebar-trigger"><i class="material-icons" id="side-icon">menu</i></a>
     <a href="#!" class="navbar-search"><i class="material-icons">search</i></a>
 </nav>

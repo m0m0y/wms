@@ -211,6 +211,9 @@ class Inventory extends DBHandler {
     public function addStocks($product_code,$product_description,$product_type,$uom,$quantity_ordered,$stock_lotno,$stock_serialno,$stock_expiration_date)
     {
 
+        $product_code_replace = str_replace(array("'", "&quot;"), "", htmlspecialchars($product_code));
+        $product_desc_replace = str_replace(array("'", "&quot;"), "", htmlspecialchars($product_description));
+        $product_type_lowerCase = strtolower($product_type);
 
         if($stock_expiration_date!=null || $stock_expiration_date!=""){
             $var = preg_split("#/#", $stock_expiration_date);
@@ -243,14 +246,14 @@ class Inventory extends DBHandler {
         }
 
         $query = "SELECT product_id FROM product WHERE product_code = ?";
-        $stmt = $this->prepareQuery($this->conn, $query, "s", array($product_code));
+        $stmt = $this->prepareQuery($this->conn, $query, "s", array($product_code_replace));
         $row = $this->fetchRow($stmt);
         $product_id = $row[0];
 
         if($product_id =="" || $product_id ==null){
 
             $query = "INSERT INTO product SET unit_id = ?, product_type = ?, product_code = ?, product_description = ?, product_expiration = ?";
-            $stmt = $this->prepareQuery($this->conn, $query, "issss", array($unit_id,$product_type,$product_code,$product_description,$exp));
+            $stmt = $this->prepareQuery($this->conn, $query, "issss", array($unit_id,$product_type_lowerCase,$product_code_replace,$product_desc_replace,$exp));
             $this->execute($stmt);
             $product_id = $stmt->insert_id;
             

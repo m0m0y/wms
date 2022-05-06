@@ -27,7 +27,7 @@ body{
 .sidebar ul.dropdown { 
     height: 0;
     overflow: hidden;
-    background: #252f3c;
+    background: #21345366;
 }
 
 .sidebar li {
@@ -161,4 +161,8 @@ table {
     position: absolute;
     top: 0;
     left: 50px;
+}
+
+.dropdown-icon {
+    color: #efefef4a;
 }

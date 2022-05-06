@@ -74,7 +74,7 @@ foreach($box as $k=>$v) {
 	$pdf->SetAutoPageBreak($auto_page_break, $bMargin);
 	$pdf->setPageMark();
 
-	$pdf->Image('../../static/logo-bnw.png', 7, 10.5, 35, 0, 'PNG', '', '', true, 1000, '', false, false, 0, false, false, false);
+	$pdf->Image('../../static/panamed-bnw.png', 7, 10.5, 35, 0, 'PNG', '', '', true, 1000, '', false, false, 0, false, false, false);
 
 	$responsiveFont = 13;
 	$headText = 13;
@@ -158,9 +158,9 @@ foreach($box as $k=>$v) {
 
 	ob_start();
 	?>
-	<table style="padding-right: 8px;">
+	<table style="padding-right: 6px;">
 		<tr style="font-size: 10px; text-align: right;">
-			<td>Inmed Corporation<br>5 Calle Industria Bagumbayan<br>Quezon City 1110 Philippines</td>
+			<td>Panamed Philippines Inc.<br>488 G. Araneta, cor. Del Monte Avenue,<br>Quezon City 1114 Philippines</td>
 		</tr>
 	</table>
 	<?php
@@ -197,7 +197,7 @@ foreach($box as $k=>$v) {
 	?>
 	<table>
 		<tr style="font-size: 5px; text-align: center">
-			<td>inmed.com.ph</td>
+			<td>panamed.com.ph</td>
 		</tr>
 	</table>
 	<?php
@@ -364,7 +364,7 @@ foreach($box as $k=>$v) {
 	$pdf->SetXY(8, 84.5);
 	$pdf->writeHTML($pack_description);
 	
-	$pdf->write2DBarcode('https://inmed.com.ph', 'QRCODE,H', 78, 127, 15, 15, $style, 'N');
+	$pdf->write2DBarcode('https://panamed.com.ph', 'QRCODE,H', 78, 127, 15, 15, $style, 'N');
 
 	
 	$pdf->SetXY(76, 143);

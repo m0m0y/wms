@@ -1,8 +1,8 @@
 <?php
 
 
-$dateFrom = $_GET['dateFrom'];
-$dateTo = $_GET['dateTo'];
+// $dateFrom = $_GET['dateFrom'];
+// $dateTo = $_GET['dateTo'];
 $_GET['action'] = "qqq";
 require_once('tcpdf_include.php');
 require_once "../../controller/controller.db.php";
@@ -30,15 +30,15 @@ $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
 $pdf->SetFont('dejavusans', '', 9);
 
-$html = '
-	<br>
-	<table width="100%">
-		<tr>
-			<td align="left">Date Range:</td>
-			<td align="right">'.date('F d, Y',strtotime($dateFrom)).' to '.date('F d, Y',strtotime($dateTo)).'</td>
-		</tr>
-	</table>			
-	<br><br>';
+// $html = '
+// 	<br>
+// 	<table width="100%">
+// 		<tr>
+// 			<td align="left">Date Range:</td>
+// 			<td align="right">'.date('F d, Y',strtotime($dateFrom)).' to '.date('F d, Y',strtotime($dateTo)).'</td>
+// 		</tr>
+// 	</table>			
+// 	<br><br>';
 
 $html .= '
 	<br><br> 					  
@@ -52,19 +52,28 @@ $html .= '
 			<th width="10%" style="border: 1px solid #e2e2e2"><b>BALANCE</b></th>
 		</tr>';
 	
-$products = $stockcard->getQuarantinedItems($dateFrom,$dateTo);
-foreach($products as $k=>$v) {
+$products = $stockcard->getQuarantinedItems();
+
+if(empty($products)) {
 	$html .= '
-		<tr align="center" style="font-size:10px">
-			<td align="left" style="vertical-align: middle; border: 1px solid #e2e2e2">&nbsp;&nbsp;'.$v['product_code'] .'
-			<br>&nbsp;&nbsp;'.$v['product_description'].'</td>
-			<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['unit_name'].'</td>
-			<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['stock_lotno'].'</td>
-			<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['slip_order_date'].'</td>
-			<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['stock_expiration_date'].'</td>
-			<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['stock_qty'].'</td>																												
-		</tr>';																								
+		<tr align="center" style="font-size:10px;">
+			<td colspan="7" style="border: 1px solid #e2e2e2" color="#a9a9a9">No data available</td>																														
+		</tr>';
+}else{
+	foreach($products as $k=>$v) {
+		$html .= '
+			<tr align="center" style="font-size:10px">
+				<td align="left" style="vertical-align: middle; border: 1px solid #e2e2e2">&nbsp;&nbsp;'.$v['product_code'] .'
+				<br>&nbsp;&nbsp;'.$v['product_description'].'</td>
+				<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['unit_name'].'</td>
+				<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['stock_lotno'].'</td>
+				<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['slip_order_date'].'</td>
+				<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['stock_expiration_date'].'</td>
+				<td style="vertical-align: middle; border: 1px solid #e2e2e2">'.$v['stock_qty'].'</td>																												
+			</tr>';																								
+	}
 }
+
 
  $html .= '</table>';
 

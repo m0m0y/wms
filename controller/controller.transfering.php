@@ -176,7 +176,7 @@ switch($mode) {
                         if($v['rak_name']=="" || $v['rak_name']==null){
                             $moving_to = "Anywhere";
                         }else{
-                            $moving_to = $v['rak_name'].$v['rak_column'].$v['rak_level'];
+                            $moving_to = $v['rak_name']."-".$v['rak_column']."-".$v['rak_level'];
                         }
                         
                         ?>
@@ -223,7 +223,7 @@ switch($mode) {
                                 data-qty="<?= $lv['stock_qty'] ?>"
                                 data-product_code="<?= $v['product_code'] ?>"
                                 data-remaining="<?= $quantity_remaining ?>"
-                                data-rak_id="<?= $rak_id ?>"
+                                data-rak_id="<?= $moving_to ?>"
                                 data-stock_id="<?= $stock_id ?>"
                                 data-transfer_id="<?= $transfer_id ?>"
                                 data-expire="<?= $lv['stock_expiration_date'] ?>">

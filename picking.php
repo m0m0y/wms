@@ -202,6 +202,20 @@ $role = $auth->getSession("role");
                         </div>
                     </div> -->
                 </div>
+
+                <div class="mb-4 text-center" >
+                    <div id="selection" style="display: none;">
+                        <input type="hidden" id="undo_pick" class="form-control">
+
+                        <div class="icon-lg-pop my-4 text-center">
+                            <i class="material-icons ">beenhere</i>
+                        </div>
+                        <p class="mb-2 text-center"><b>You're been there</b><br>Please choose one to proceed</b></p><br>
+                        <button class="btn btn-primary mb-3 control-group-submit" onclick="scan_pick()">Scan Barcode</button>
+                        <button class="btn btn-success mb-3 control-group-submit" onclick="manual_pick()">Manual Input</button>
+                    </div>
+                </div>
+
                 <div id="choose-cart" class="text-left" style="display:none;">
                     <div class="icon-lg-pop my-4 text-center">
                         <i class="material-icons">qr_code</i>
@@ -237,11 +251,24 @@ $role = $auth->getSession("role");
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body text-center">
-                
-                <div class="icon-lg-pop my-4 text-center">
-                    <i class="material-icons ">qr_code</i>
+
+                <div class="mb-4" >
+                    <div id="choices">
+                        <div class="icon-lg-pop my-4 text-center">
+                            <i class="material-icons ">beenhere</i>
+                        </div>
+                        <p class="mb-2 text-center"><b>You're been there</b><br>Please choose one to proceed</b></p><br>
+                        <button class="btn btn-primary mb-3 control-group-submit" onclick="scanTable()">Scan Barcode</button>
+                        <button class="btn btn-success mb-3 control-group-submit" onclick="manualInputTable()">Manual Input</button>
+                    </div>
                 </div>
-                <p class="mb-5" id="toTable" data-target="0"><b>Finalize this order's picking?</b><br>Please scan the invoice table inorder to proceed.</p>
+                
+                <div id="scan-table" style="display: none;">
+                    <div class="icon-lg-pop my-4 text-center">
+                        <i class="material-icons ">qr_code</i>
+                    </div>
+                    <p class="mb-5" id="toTable" data-target="0"><b>Finalize this order's picking?</b><br>Please scan the invoice table inorder to proceed.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -273,6 +300,19 @@ $role = $auth->getSession("role");
                 </div>
 
                 <div class="mb-4 text-center" >
+                    <div id="undoC" style="display: none;">
+                        <input type="hidden" id="undo_pick" class="form-control">
+
+                        <div class="icon-lg-pop my-4 text-center">
+                            <i class="material-icons ">beenhere</i>
+                        </div>
+                        <p class="mb-2 text-center"><b>You're been there</b><br>Please choose one to proceed</b></p><br>
+                        <button class="btn btn-primary mb-3 control-group-submit" onclick="scan()">Scan Barcode</button>
+                        <button class="btn btn-success mb-3 control-group-submit" onclick="manual()">Manual Input</button>
+                    </div>
+                </div>
+
+                <div class="mb-4 text-center" >
                     <div id="undoB" style="display: none;">
                         <div class="icon-lg-pop my-4 text-center">
                             <i class="material-icons ">qr_code</i>
@@ -281,6 +321,53 @@ $role = $auth->getSession("role");
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="rak-manual-modal" class="modal fade" data-keyboard="false" data-focus="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <input type="hidden" id="undo_pickQuan" class="form-control">
+
+                <div class="icon-lg-pop my-4 text-center">
+                    <i class="material-icons ">how_to_reg</i>
+                </div>
+                <p class="mb-5" id="toTable" data-target="0"><b>One last thing</b><br>Please select rak to proceed.</p>
+                <select required id="rak_id" name="rak_id" class="form-control rounded-0 mb-3"></select>
+                <button class="btn btn-success mt-2 btn confirm-btn" onclick="undoSaveManual()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="cart-manual-modal" class="modal fade" data-keyboard="false" data-focus="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="icon-lg-pop my-4 text-center">
+                    <i class="material-icons ">how_to_reg</i>
+                </div>
+                <p class="mb-5" id="toTable" data-target="0"><b>Almost there!</b><br>Please select  your <b class="text-primary">cart</b> to proceed.</p>
+                <select required id="cart_id" name="cart_id" class="form-control rounded-0 mb-3"></select>
+                <button class="btn btn-success mt-2 btn confirm-btn" onclick="cartPick()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="table-manual-modal" class="modal fade" data-keyboard="false" data-focus="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="icon-lg-pop my-4 text-center">
+                    <i class="material-icons ">how_to_reg</i>
+                </div>
+                <p class="mb-5" id="toTable" data-target="0"><b>Finalize this order's picking?</b><br>Please select the invoice table inorder to proceed.</p>
+                <select required id="table_id" name="table_id" class="form-control rounded-0 mb-3"></select>
+                <button class="btn btn-success mt-2 btn confirm-btn" onclick="tablePick()">Submit</button>
             </div>
         </div>
     </div>

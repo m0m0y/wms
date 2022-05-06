@@ -30,7 +30,7 @@ require_once "./component/sidebar.php";
             </div>
         </div>
         <div class="col">
-            <input type="text" id="barcode" class="form-control" style="max-width: 600px;" placeholder="Enter value to convert to barcode">
+            <input type="text" id="barcode" class="form-control" style="max-width: 600px;" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" placeholder="Enter value to convert to barcode">
             <button type="button" onclick="generateBarcode()" class="btn py-2 px-4 mt-3 btn-primary">Generate Barcode</button>
         </div>
 

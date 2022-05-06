@@ -9,7 +9,8 @@
         <!-- admin -->
         <?php if(in_array($__role, array('admin', 'admin-default'))): ?>
         <li>
-            <a href="#!" id="maintenance-trigger" data-target="#maintenance-nav" class="sidebar-dropdown"><i class="material-icons mr-3">tune</i> <span class="s-text">Maintenance</span></a>
+            <a href="#!" id="maintenance-trigger" data-target="#maintenance-nav" class="sidebar-dropdown"><i class="material-icons mr-3">tune</i> <span class="s-text">Maintenance</span>
+            <i id="maintenance-dropdown-ico" class="material-icons mr-3 dropdown-icon">arrow_drop_down</i></a>
         </li>
         <li class="p-0">
             <ul class="dropdown" id="maintenance-nav">
@@ -54,7 +55,8 @@
         </li>
 
         <li>
-            <a href="#!" data-target="#inventory_report-nav" class="sidebar-dropdown"><i class="material-icons mr-3">bar_chart</i> <span class="s-text">Reports</span></a>
+            <a href="#!" id="report-trigger" data-target="#inventory_report-nav" class="sidebar-dropdown"><i class="material-icons mr-3">bar_chart</i> <span class="s-text">Reports</span>
+            <i id="report-dropdown-ico" class="material-icons mr-3 dropdown-icon">arrow_drop_down</i></a>
         </li>
 
 

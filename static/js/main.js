@@ -103,6 +103,24 @@ function sidebar() {
         }
     })
 
+    $( "#maintenance-trigger" ).on('click', function() {
+        var up =  $("#maintenance-dropdown-ico").html();
+        if(up == "arrow_drop_down") {
+            $("#maintenance-dropdown-ico").html("arrow_drop_up");
+        } else {
+            $("#maintenance-dropdown-ico").html("arrow_drop_down");
+        }
+    })
+
+    $("#report-trigger").on('click', function() {
+        var up = $("#report-dropdown-ico").html();
+        if(up == "arrow_drop_down") {
+            $("#report-dropdown-ico").html("arrow_drop_up");
+        } else {
+            $("#report-dropdown-ico").html("arrow_drop_down");
+        }
+    })
+
     $.ripple(".btn", {
         debug: false,
         on: 'mousedown',

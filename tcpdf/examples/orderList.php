@@ -44,14 +44,14 @@ $pdf->setJPEGQuality(100);
 
 
 
-$pdf->Image('../../static/logo-bnw.png', 8, 1, '', 10, 'PNG', '', '', true, 900, '', false, false, 1, false, false, false);
+$pdf->Image('../../static/panamed-bnw.png', 8, 2, '', 11, 'PNG', '', '', true, 900, '', false, false, 1, false, false, false);
 
 $pdf->setXY(3, 16);
 
 $address = '
 <table border="0" width="100%">
 	<tr>
-		<td style="font-size: 11px">200 C. Raymundo Avenue Caniogan,Pasig City 1606 Philippines.</td>
+		<td style="font-size: 11px">488 G. Araneta, cor. Del Monte Avenue, Brgy. Sienna, Quezon City 1114 Philippines</td>
 	</tr>
 </table>';
 

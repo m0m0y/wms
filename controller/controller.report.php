@@ -69,6 +69,19 @@ switch($mode) {
         $response = $reports;
         break;
         
+    case "tableDetail": 
+        $stockcard = $stockcard->getQuarantinedItems();
+        foreach($stockcard as $k=>$v) {
+            $stockcard[$k]["product_code"] = $v["product_code"];
+            $stockcard[$k]["product_description"] = $v["product_description"];
+            $stockcard[$k]["uom"] = $v["unit_name"];
+            $stockcard[$k]["stock_lotno"] = $v["stock_lotno"];
+            $stockcard[$k]["slip_order_date"] = $v["slip_order_date"];
+            $stockcard[$k]["stock_expiration_date"] = $v["stock_expiration_date"];
+            $stockcard[$k]["stock_qty"] = $v["stock_qty"];
+        }
+        $response = array("data" => $stockcard);
+        break;
 }
 
 

@@ -1,0 +1,21 @@
+[08-Mar-2022 13:35:30 Asia/Manila] PHP Parse error:  syntax error, unexpected ')' in C:\xampp\htdocs\wms\model\model.picking.php on line 147
+[08-Mar-2022 13:35:35 Asia/Manila] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in C:\xampp\htdocs\wms\model\model.picking.php on line 147
+[08-Mar-2022 13:35:40 Asia/Manila] PHP Parse error:  syntax error, unexpected ')' in C:\xampp\htdocs\wms\model\model.picking.php on line 147
+[08-Mar-2022 13:35:45 Asia/Manila] PHP Parse error:  syntax error, unexpected ')' in C:\xampp\htdocs\wms\model\model.picking.php on line 147
+[08-Mar-2022 13:43:24 Asia/Manila] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in C:\xampp\htdocs\wms\model\model.picking.php on line 150
+[08-Mar-2022 13:49:28 Asia/Manila] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\wms\model\model.picking.php on line 148
+[08-Mar-2022 13:59:43 Asia/Manila] PHP Parse error:  syntax error, unexpected ')' in C:\xampp\htdocs\wms\model\model.picking.php on line 152
+[08-Mar-2022 13:59:48 Asia/Manila] PHP Parse error:  syntax error, unexpected ')' in C:\xampp\htdocs\wms\model\model.picking.php on line 152
+[08-Mar-2022 14:11:40 Asia/Manila] PHP Parse error:  syntax error, unexpected '{', expecting '(' in C:\xampp\htdocs\wms\model\model.picking.php on line 148
+[08-Mar-2022 14:11:45 Asia/Manila] PHP Parse error:  syntax error, unexpected '{', expecting '(' in C:\xampp\htdocs\wms\model\model.picking.php on line 149
+[15-Mar-2022 16:50:18 Asia/Manila] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST) in C:\xampp\htdocs\wms\model\model.picking.php on line 358
+[15-Mar-2022 16:50:23 Asia/Manila] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST) in C:\xampp\htdocs\wms\model\model.picking.php on line 358
+[28-Mar-2022 12:37:03 Asia/Manila] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in C:\xampp\htdocs\wms\model\model.picking.php on line 347
+[28-Mar-2022 12:37:08 Asia/Manila] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in C:\xampp\htdocs\wms\model\model.picking.php on line 347
+[28-Mar-2022 12:37:13 Asia/Manila] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in C:\xampp\htdocs\wms\model\model.picking.php on line 347
+[19-Apr-2022 10:23:20 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48

@@ -278,6 +278,39 @@ switch($mode) {
        
         $response = array("code"=>1, "view"=>$view);            
         break;
+
+        case "dropdown_rak";
+            require_once "../model/model.rak.php";
+            $rak = new Rak();
+            $units = $rak->getAllRaks();
+            $option = "<option value='' disabled='' selected=''>--Select Rak--</option>";
+            foreach($units as $k=>$v) {
+                $option.="<option value='".$v['rak_name']."-".$v['rak_column']."-".$v['rak_level']."'>RAK-".$v['rak_name'].$v['rak_column'].$v['rak_level']."</option>";
+            }
+            echo $option;
+            exit;
+
+        case "dropdown_cart";
+            require_once "../model/model.cart.php";
+            $cart = new Cart();
+            $units = $cart->getCartOnly();
+            $option = "<option value='' disabled='' selected=''>--Select Cart--</option>";
+            foreach($units as $k=>$v) {
+                $option.="<option value='".$v['cart_id']."'>".$v['location_name']."</option>";
+            }
+            echo $option;
+            exit;
+
+        case "dropdown_table";
+            require_once "../model/model.cart.php";
+            $table = new Cart();
+            $units = $table->getTableOnly();
+            $option = "<option value='' disabled='' selected=''>--Select Table--</option>";
+            foreach($units as $k=>$v) {
+                $option.="<option value='".$v['cart_id']."'>".$v['location_name']."</option>";
+            }
+            echo $option;
+            exit;
 }
 
 

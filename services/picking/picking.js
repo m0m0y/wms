@@ -27,6 +27,7 @@ $(function(){
             //.val($(this).data('qty'))
             .attr("max", $(this).data('qty'))
             .attr("min", 1);
+        $('#stock_id').val($(this).data('stockid'));
         $('#undo-modal').modal('show');
         validateInput('#undo_pickingQuantity');
     });
@@ -193,7 +194,8 @@ function validateScanned(pasted){
 function resetForm(){
     $('#pickingCart, #pickingQuantity, #order_details_id, #stock_id, #product_id, #stock_lotno, #stock_serialno, #stock_qty, #stock_expiration_date').val('');
     $('#choose-cart').fadeOut('500', function(){
-        $('#choose-qty').fadeIn('500')    
+        $('#choose-qty').fadeIn('500') 
+        $('#selection').fadeOut('100') 
     })
     return
 }
@@ -315,22 +317,89 @@ function pickOrder(id, name, no, c = '') {
 }
 
 function undoB(){
-    $('#undoA').fadeOut(500);
+
+    if($('#undo_pickingQuantity').val() == "") {
+        $.Toast("Please Input Quantity", {
+            'duration': 4000,
+            'position': 'top',
+            'align': 'right', 
+            errorToast
+        });
+    } else {
+        $('#undoA').fadeOut(500);
+        $('#undoC').fadeIn(500);
+
+        var undo_pick_val = $('#undo_pickingQuantity').val();
+
+        $('#undo_pick').val(undo_pick_val);
+    }
+}
+
+function scan() {
+    $('#undoC').fadeOut(500);
     $('#undoB').fadeIn(500);
+}
+
+function manual() {
+    var moy = $('#undo_pick').val();
+    $('#rak-manual-modal').modal('show');
+
+    $('#undo_pickQuan').val(moy);
+    $('#rak_id').load('controller/controller.picking.php?mode=dropdown_rak');
+}
+
+function undoSaveManual(){
+    var current = $('#undo-modal').attr('data-card');
+    var $el = $('.card-with-lot.ispicked[data-id="' + current +'"]');
+    var stock_id = $('#stock_id').val();
+    var undo_pickingQuantity = $('#undo_pickQuan').val();
+    var rak_return_id = $('#rak_id').val();
+
+    if(rak_return_id === null) {
+        $.Toast("Invalid rak", errorToast);
+    } else {
+        $.ajax({
+            url:"controller/controller.picking.php?mode=undo",
+            method:"POST",
+            data:{
+                id: $el.data('id'),
+                stock_id: stock_id,
+                stock_lotno: $el.data('lot'),
+                stock_expiration_date: $el.data('expire'),
+                stock_qty: $el.data('qty'),
+                rak_return_id: rak_return_id,
+                productid: $el.data('productid'),
+                serial: $el.data('serial'),
+                undo_qty: undo_pickingQuantity
+            },
+            success:function(data){
+                var b = JSON.parse(data);
+                if(b.stat=="invalid"){
+                    $.Toast("Invalid rak", errorToast);
+                    return
+                }
+                hardReload('&c=undo success');
+                return
+                
+            }
+        });
+    }
 }
 
 function undoSave(rak_return_id){
 
     var current = $('#undo-modal').attr('data-card');
     var $el = $('.card-with-lot.ispicked[data-id="' + current +'"]');
+    var stock_id = $('#stock_id').val();
     var undo_pickingQuantity = $('#undo_pickingQuantity').val();
+
 
     $.ajax({
         url:"controller/controller.picking.php?mode=undo",
         method:"POST",
         data:{
             id: $el.data('id'),
-            stock_id: $el.data('stockid'),
+            stock_id: stock_id,
             stock_lotno: $el.data('lot'),
             stock_expiration_date: $el.data('expire'),
             stock_qty: $el.data('qty'),
@@ -377,8 +446,7 @@ function chooseCart()
             });
     }else{
             $('#choose-qty').fadeOut('500', function(){
-                $('#pickingCart').val('')
-                $('#choose-cart').fadeIn('500')    
+                $('#selection').fadeIn('500');
             })
             
             
@@ -410,6 +478,88 @@ function chooseCart()
     
 }
 
+function scan_pick() {
+    $('#selection').fadeOut(500);
+    $('#choose-cart').fadeIn('500');
+}
+
+function manual_pick(){
+    $('#cart-manual-modal').modal('show');
+    $('#cart_id').load('controller/controller.picking.php?mode=dropdown_cart');
+}
+
+function cartPick(){
+    var location = $('#cart_id').val();
+
+    $.ajax({
+        url:"controller/controller.picking.php?mode=validateStorage&i="+location+'&type=Cart',
+        method:"GET",
+        success:function(data){
+            
+            let response = JSON.parse(data);
+            if(response.code == 0){
+                $('#cart_id').val('');
+                $.Toast(response.message, {
+                    'duration': 4000,
+                    'position': 'top',
+                    'align': 'left',
+                });
+                return
+            }
+            savePickManual();
+            return      
+        }
+    });
+}
+
+function savePickManual() {
+    var order_details_id = $('#order_details_id').val();
+    var stock_id = $('#stock_id').val();
+    var product_id = $('#product_id').val();
+    var stock_lotno = $('#stock_lotno').val();
+    var stock_serialno = $('#stock_serialno').val();
+    var stock_qty = $('#stock_qty').val();
+    var stock_expiration_date = $('#stock_expiration_date').val();
+    var pickingQuantity = $('#pickingQuantity').val();
+    var pickingCart = $('#cart_id').val();
+    var slip_id = $('#viewcache_id').val();
+    var location_id = $('#location_id').val();
+    // alert(cart_id);
+    if($.trim(pickingCart) == null || $.trim(pickingCart) == "")
+    {
+        $.Toast("Cart Validation Failed", {
+            'duration': 4000,
+            'position': 'top',
+            'align': 'right',
+        });
+        return
+    }
+    
+    loader();
+
+    $.ajax({
+        url:"controller/controller.picking.php?mode=add",
+        method:"POST",
+        data:{
+            order_details_id: order_details_id,
+            stock_id: stock_id,
+            product_id: product_id,
+            stock_lotno: stock_lotno,
+            stock_serialno: stock_serialno,
+            stock_qty: stock_qty,
+            stock_expiration_date: stock_expiration_date,
+            pickingQuantity: pickingQuantity,
+            pickingCart: pickingCart,
+            slip_id: slip_id,
+            location_id: location_id
+        },
+        success:function(){
+            hardReload('&c=item picked');
+            return      
+        }
+    });
+}
+
 function validateTable(tableid){
     $.ajax({
         url:"controller/controller.picking.php?mode=validateStorage&i="+tableid+'&type=Table',
@@ -432,8 +582,42 @@ function validateTable(tableid){
 }
 
 function toTable(e){
+    $('#choices').fadeIn(500);
+    $('#scan-table').fadeOut(100);
     $('#toTable').attr('data-target', e);
     return
+}
+
+function scanTable(){
+    $('#scan-table').fadeIn(500);
+    $('#choices').fadeOut(500);
+}
+
+function manualInputTable(){
+    $('#table-manual-modal').modal('show');
+    $('#table_id').load('controller/controller.picking.php?mode=dropdown_table');
+}
+
+function tablePick(){
+    var table_id = $('#table_id').val();
+    $.ajax({
+        url:"controller/controller.picking.php?mode=validateStorage&i="+table_id+'&type=Table',
+        method:"GET",
+        success:function(data){
+            let response = JSON.parse(data);
+            if(response.code == 0){
+                $.Toast(response.message, {
+                    'duration': 4000,
+                    'position': 'top',
+                    'align': 'right',
+                });
+                return
+            }
+
+            toInvoice(table_id);
+            return      
+        }
+    });
 }
 
 function toInvoice(barcode){
@@ -464,7 +648,7 @@ function savePick(){
     var pickingCart = $('#pickingCart').val();
     var slip_id = $('#viewcache_id').val();
     var location_id = $('#location_id').val();
-    // alert(stock_lotno);
+    // alert("sdsd");
     if($.trim(pickingCart) == null || $.trim(pickingCart) == "")
     {
         $.Toast("Cart Validation Failed", {
@@ -529,7 +713,7 @@ function showLot(){
         $('#undo_pickingQuantity').val('');
         $('#undoA').fadeIn(500);
         $('#undoB').fadeOut(500);
-
+        $('#undoC').fadeOut(500);
     })
 }
 

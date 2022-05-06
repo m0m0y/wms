@@ -33,14 +33,13 @@ class Stockcard extends DBHandler {
         return $this->fetchAssoc($stmt);
     }
 
-    public function getQuarantinedItems($dateFrom,$dateTo){
-
+    public function getQuarantinedItems(){
         $query = "SELECT a.stock_id,a.product_id,a.stock_lotno,a.stock_serialno,a.stock_qty,a.stock_expiration_date,b.product_code,b.product_description,c.unit_name,d.slip_order_date FROM stock a
                   LEFT JOIN product b ON a.product_id = b.product_id
                   LEFT JOIN unit c ON b.unit_id = c.unit_id
                   LEFT JOIN picking_order d ON a.picking_order_id = d.slip_id
-                  WHERE a.box_number_Status ='return' AND d.slip_order_date BETWEEN ? AND ? ORDER BY b.product_code ASC";
-        $stmt = $this->prepareQuery($this->conn, $query, "ss", array($dateFrom,$dateTo));
+                  WHERE a.box_number_Status ='return' ORDER BY b.product_code ASC";
+        $stmt = $this->prepareQuery($this->conn, $query);
         return $this->fetchAssoc($stmt);
     }
 

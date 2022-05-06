@@ -74,9 +74,18 @@ class Transfering extends DBHandler {
         $location_type = "rak";
         
         $new_stock_qty = $stock_qty - $pickingQuantity;
+
+        $pickingRak = explode("-", $pickingRak);
+
+        $rak_name = $pickingRak[0]."-".$pickingRak[1]."-".$pickingRak[2];
+
+        $query = "SELECT rak_id FROM rak WHERE rak_name = ?";
+        $stmt = $this->prepareQuery($this->conn, $query, "s", array($rak_name));
+        $row_rak = $this->fetchRow($stmt);
+        $fetchRak = $row_rak[0];
         
         $query = "INSERT INTO stock(product_id, location_id, location_type, stock_lotno, stock_serialno, stock_qty, stock_expiration_date, picking_order_id, from_stock_id) VALUES (?,?,?,?,'$stock_serialno',?,?,'0','0')";
-        $stmt = $this->prepareQuery($this->conn, $query, "iissis", array($product_id,$pickingRak,$location_type,$stock_lotno ,$pickingQuantity,$stock_expiration_date));
+        $stmt = $this->prepareQuery($this->conn, $query, "iissis", array($product_id,$fetchRak,$location_type,$stock_lotno ,$pickingQuantity,$stock_expiration_date));
         $this->execute($stmt);
         $lastid = $stmt->insert_id;
 
