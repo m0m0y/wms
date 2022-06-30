@@ -19,3 +19,96 @@ Stack trace:
 #1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
 #2 {main}
   thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[28-Jun-2022 08:41:26 Asia/Manila] PHP Notice:  Undefined variable: competitiveDebateContentWhere in C:\xampp\htdocs\wms\inout.php on line 28
+[28-Jun-2022 12:37:58 Asia/Manila] PHP Recoverable fatal error:  Object of class Inout could not be converted to string in C:\xampp\htdocs\wms\inout.php on line 14
+[28-Jun-2022 12:39:30 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:39:56 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to undefined method Inout::fetch() in C:\xampp\htdocs\wms\model\model.inout.php:17
+Stack trace:
+#0 C:\xampp\htdocs\wms\inout.php(14): Inout->getAllProductCodes()
+#1 {main}
+  thrown in C:\xampp\htdocs\wms\model\model.inout.php on line 17
+[28-Jun-2022 12:40:02 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:40:10 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:40:15 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:40:15 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:40:15 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:41:17 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:41:22 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:41:22 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:41:24 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:41:24 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:44:32 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:44:43 Asia/Manila] PHP Notice:  Undefined index: product_code in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:44:54 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:45:50 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:46:51 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:46:52 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:46:52 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:46:53 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:46:53 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:48:16 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:48:16 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:48:17 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:48:17 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:48:17 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:48:43 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:48:43 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:48:43 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:48:44 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:49:17 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:49:56 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 37
+[28-Jun-2022 12:49:56 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 37
+[28-Jun-2022 12:50:51 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 37
+[28-Jun-2022 12:53:28 Asia/Manila] PHP Recoverable fatal error:  Object of class Inout could not be converted to string in C:\xampp\htdocs\wms\inout.php on line 16
+[28-Jun-2022 12:54:56 Asia/Manila] PHP Notice:  Undefined variable: echo in C:\xampp\htdocs\wms\model\model.inout.php on line 17
+[28-Jun-2022 12:58:11 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:58:18 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:58:18 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 40
+[28-Jun-2022 12:58:19 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:58:19 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 40
+[28-Jun-2022 12:58:19 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\inout.php on line 17
+[28-Jun-2022 12:58:19 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 40
+[28-Jun-2022 12:59:13 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 22
+[28-Jun-2022 12:59:13 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 22
+[28-Jun-2022 12:59:13 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 22
+[28-Jun-2022 12:59:14 Asia/Manila] PHP Warning:  Illegal string offset 'product_code' in C:\xampp\htdocs\wms\inout.php on line 22
+[28-Jun-2022 12:59:47 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\inout.php on line 22
+[30-Jun-2022 09:54:36 Asia/Manila] PHP Notice:  Undefined variable: inout in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 09:54:36 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function getAllProductCodes() on null in C:\xampp\htdocs\wms\addorder.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 09:54:36 Asia/Manila] PHP Notice:  Undefined variable: inout in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 09:54:36 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function getAllProductCodes() on null in C:\xampp\htdocs\wms\addorder.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 09:54:36 Asia/Manila] PHP Notice:  Undefined variable: inout in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 09:54:36 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function getAllProductCodes() on null in C:\xampp\htdocs\wms\addorder.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 10:04:15 Asia/Manila] PHP Fatal error:  Uncaught Error: Class 'AddOrder' not found in C:\xampp\htdocs\wms\addorder.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 10:04:15 Asia/Manila] PHP Fatal error:  Uncaught Error: Class 'AddOrder' not found in C:\xampp\htdocs\wms\addorder.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 10:04:34 Asia/Manila] PHP Fatal error:  Uncaught Error: Class 'AddOrder' not found in C:\xampp\htdocs\wms\addorder.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 10:04:35 Asia/Manila] PHP Fatal error:  Uncaught Error: Class 'AddOrder' not found in C:\xampp\htdocs\wms\addorder.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 10:04:36 Asia/Manila] PHP Fatal error:  Uncaught Error: Class 'AddOrder' not found in C:\xampp\htdocs\wms\addorder.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\wms\addorder.php on line 11
+[30-Jun-2022 10:04:36 Asia/Manila] PHP Fatal error:  Uncaught Error: Class 'AddOrder' not found in C:\xampp\htdocs\wms\addorder.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\wms\addorder.php on line 11

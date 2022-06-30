@@ -1,6 +1,19 @@
 $(function(){
 	customFileInput();
 	ajaxForm();
+
+	$('#product_codes').change(function() {
+        var product_id = $(this).val();
+
+		$('#lotno').load('controller/controller.addorder.php?mode=getLotnumber&product_id='+product_id);
+		
+    })
+
+	$('#lotno').change(function() {
+		var lotno_id = $(this).val();
+		$('#location').load('controller/controller.addorder.php?mode=getLocationPerLot&lotno_id='+lotno_id);
+	})
+	
 })
 
 
@@ -13,6 +26,10 @@ function customFileInput(){
 		})
 	})
 	return
+}
+
+function addOrdersManual() {
+	$('#addOrderForm').modal('show');
 }
 
 function ajaxForm(){

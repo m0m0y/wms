@@ -32,7 +32,7 @@ switch($mode) {
         // show all tables
         $tables = $backup->getAllTables();
         foreach($tables as $k=>$v) {
-            $table = $v['Tables_in_pmc_wms'];
+            $table = $v['Tables_in_ppi_wms'];
 
             // create tables
             $create_table = $backup->getCreatetable($table);
@@ -116,7 +116,7 @@ switch($mode) {
         if(!empty($sqlScript))
 		{
 		    // Save the SQL script to a backup file
-		    $backup_file_name = 'pmc_wms' . date('Ymdhis') . '.sql';
+		    $backup_file_name = 'ppi_wms' . date('Ymdhis') . '.sql';
 		    $fileHandler = fopen('../dbase/'.$backup_file_name, 'w+');
 		    $number_of_lines = fwrite($fileHandler, $sqlScript);
 		    fclose($fileHandler);

@@ -6,6 +6,10 @@ require_once "./component/header.php";
 require_once "./component/navbar.php";
 require_once "./component/sidebar.php";
 
+require_once "./model/model.addorder.php";
+
+$products = new AddOrder();
+$product_code = $products->getAllProductCodes();
 ?>
 
 <link rel="stylesheet" href="/wms/lib/datatable/datatables.min.css">
@@ -26,6 +30,10 @@ require_once "./component/sidebar.php";
                 </nav>
             </div>
         </div>
+        
+        <div class="container">
+            <button class="btn btn-md btn-primary" type="button" onclick="addOrdersManual()"><i class="material-icons myicon-lg">edit</i> Add Orders Manual</button>
+        </div>
 	</div>
 
     <div class="padded">
@@ -44,6 +52,86 @@ require_once "./component/sidebar.php";
 	<button type="submit">Upload</button>
 </form>
 
+
+<div class="modal fade ios" id="addOrderForm">
+    <form action="controller/controller.addorder.php?mode=addOrderManual" method="POST" class="ajax-form" enctype="multipart/form-data" id="orderForm">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid mb-5">
+                        <input type="text" id="slip_no" name="slip_no" class="form-control rounded-0 mb-3" placeholder="Type Slip Number here">
+
+                        <input type="date" id="slip_order_date" name="slip_order_date" class="form-control rounded-0 mb-3" placeholder="Type Order Date here">
+
+                        <input type="text" id="bill_to" name="bill_to" class="form-control rounded-0 mb-3" placeholder="Type Bill To here">
+
+                        <input type="text" id="ship_to" name="ship_to" class="form-control rounded-0 mb-3" placeholder="Type Ship To here">
+
+                        <input type="number" id="reference" name="reference" class="form-control rounded-0 mb-3" placeholder="Type Reference No. here">
+
+                        <input type="number" id="po_no" name="po_no" class="form-control rounded-0 mb-3" placeholder="Type PO No. here">
+
+                        <input type="text" id="address" name="address" class="form-control rounded-0 mb-3" placeholder="Type Address here">
+
+                        <input type="text" id="sales_person" name="sales_person" class="form-control rounded-0 mb-3" placeholder="Type Sales Person here">
+
+                        <input type="text" id="ship_via" name="ship_via" class="form-control rounded-0 mb-3" placeholder="Type Ship Via here">
+
+                        <input type="date" id="ship_date" name="ship_date" class="form-control rounded-0 mb-3" placeholder="Type Ship Date here">
+                    </div>
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Product Code:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="product_codes" id="product_codes">
+                                <option value="" selected disabled>--- SELECT PRODUCT CODE ---</option>
+                                <?php
+
+                                    foreach($product_code as $k=>$v) {
+                                        echo '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
+                                    }
+                                
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Order qty:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="order_qty" id="order_qty" placeholder="Type Order Quantity here">
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Lot No:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="lotno" id="lotno"></select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Location:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="location" id="location" placeholder="Type Location here">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="material-icons myicon-lg">close</i> Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="material-icons myicon-lg">save_alt</i> Save changes</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 
 <?php
 require_once "./component/footer.php";
