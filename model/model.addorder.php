@@ -118,13 +118,13 @@ class AddOrder extends DBHandler {
         return $this->fetchAssoc($stmt);
     }
 
-    public function getLocationLot($lotno_id) 
-    {
-        $query = "SELECT s.location_id, s.location_type, s.stock_qty, r.rak_id, r.rak_name, r.rak_column, r.rak_level FROM stock s LEFT JOIN rak r ON s.location_id = r.rak_id WHERE s.stock_id = ?";
+    // public function getLocationLot($lotno_id) 
+    // {
+    //     $query = "SELECT s.location_id, s.location_type, s.stock_qty, r.rak_id, r.rak_name, r.rak_column, r.rak_level FROM stock s LEFT JOIN rak r ON s.location_id = r.rak_id WHERE s.stock_id = ?";
 
-        $stmt = $this->prepareQuery($this->conn, $query, "i", [$lotno_id]);
-        return $this->fetchAssoc($stmt);
-    }
+    //     $stmt = $this->prepareQuery($this->conn, $query, "i", [$lotno_id]);
+    //     return $this->fetchAssoc($stmt);
+    // }
 
 
 }

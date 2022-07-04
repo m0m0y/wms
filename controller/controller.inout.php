@@ -35,12 +35,50 @@ switch($mode) {
         $stock_id = Sanitizer::filter('stock_id', 'post');
         $expiration_date = $inout->getTotlaQty($stock_id);
         foreach ($expiration_date as $k=>$v) {
-            $response = array("exp_date" => $v['stock_expiration_date'], "log_qty" => $v['log_qty']);
+            $response = array("exp_date" => $v['stock_expiration_date'], "log_qty" => $v['log_qty'], "transac_date" => $v['log_transaction_date']);
         }
         break;
 
-    // case "updateQuantity";
+    case "searchCode";
+        $product_code = Sanitizer::filter('product_code', 'get');
+        $search_code = $inout->getSearchProductCodes($product_code);
+        foreach ($search_code as $k=>$v) {
+            $response = array("product_code" => $v['product_code'], "product_description" => $v['product_description']);
+        }
+        break;
+
+    case "getProductCode";
+        $product_code = Sanitizer::filter('product_code', 'get');
+        $searchProducts = $inout->getProductCodeWhere($product_code);
+        foreach ($searchProducts as $k=>$v) {
+            $option = '<option id="test" value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
+        }
+        echo $option;
+        exit;
+
+    case "getAllProductCode";
+        $allProducts = $inout->getAllProductCodes();
+        $option = '<option selected disabled value=""> --- SELECT LOT NUMBER --- </option>';
+        foreach ($allProducts as $k=>$v) {
+            $option .= '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';          
+        }
+        echo $option;
+        exit;
+
+    case "searchProductUnit";
+        $product_code = Sanitizer::filter('product_code', 'post');   $product_code = Sanitizer::filter('product_code', 'post');
+        $unit_product = $inout->searchUnitProduct($product_code);
+        foreach ($unit_product as $k=>$v) {
+            $response = array("unit" => $v['unit_name'], "quantity" => $v['stock_quantity'], "id" => $v['product_id']);
+        }
+        break;
+
+    case "searchLotNum";
+        $product_code = Sanitizer::filter('product_code', 'post');
+        $lotno = $inout->searchLotNumbers($product_code);
         
+        $response = array($lotno);
+        break;
 }
 
 echo json_encode($response);

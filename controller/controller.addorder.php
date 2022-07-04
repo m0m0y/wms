@@ -114,14 +114,14 @@ switch($mode) {
         echo $option;
         exit;
 
-    case "getLocationPerLot";
-        $lotno_id = Sanitizer::filter('lotno_id', 'get');
-        $location = $addorder->getLocationLot($lotno_id);
-        foreach ($location as $k=>$v) {
-            $option .="<option value='".$v['rak_id']."'>RAK-".$v['rak_name'].$v['rak_column'].$v['rak_level']." <small>(".$v['stock_qty'].")</small></option>";
-        }
-        echo $option;
-        exit;
+    // case "getLocationPerLot";
+    //     $lotno_id = Sanitizer::filter('lotno_id', 'get');
+    //     $location = $addorder->getLocationLot($lotno_id);
+    //     foreach ($location as $k=>$v) {
+    //         $option .="<option value='".$v['rak_id']."'>RAK-".$v['rak_name'].$v['rak_column'].$v['rak_level']." <small>(".$v['stock_qty'].")</small></option>";
+    //     }
+    //     echo $option;
+    //     exit;
 
 
     case "addOrderManual";

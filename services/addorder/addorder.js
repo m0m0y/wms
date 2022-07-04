@@ -9,10 +9,10 @@ $(function(){
 		
     })
 
-	$('#lotno').change(function() {
-		var lotno_id = $(this).val();
-		$('#location').load('controller/controller.addorder.php?mode=getLocationPerLot&lotno_id='+lotno_id);
-	})
+	// $('#lotno').change(function() {
+	// 	var lotno_id = $(this).val();
+	// 	$('#location').load('controller/controller.addorder.php?mode=getLocationPerLot&lotno_id='+lotno_id);
+	// })
 	
 })
 

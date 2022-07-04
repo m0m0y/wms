@@ -22,25 +22,26 @@ $product_code = $inout->getAllProductCodes();
         <div class="card mt-5">
 
             <div class="card-header">
-                <legend><i class="material-icons mr-3"></i> Adjustments <span class="badge bg-primary text-white">in</span></legend>
+                <legend><i class="material-icons mr-3"></i> Adjustments <span class="badge bg-danger text-white">out</span></legend>
             </div>
             
             <div class="card-body">
 
              
                 <form method="post" action="controller/controller.inout.php?mode=updateQuantity">
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label text-right"><span class="required"></span> Search Code:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="search" placeholder="Search here.." onkeyup="searchValue(this.value)">
+                            <div id="textValue"></div>
+                        </div>
+                    </div>
+
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Product Code:</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="product_codes" id="product_codes">
-                                <option value="" selected disabled>--- SELECT PRODUCT CODE ---</option>
-                                <?php
-
-                                    foreach($product_code as $k=>$v) {
-                                        echo '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
-                                    }
-                                
-                                ?>
                             </select>
                         </div>
                     </div>
@@ -69,7 +70,7 @@ $product_code = $inout->getAllProductCodes();
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Total Items per Lot:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="qty_per_lot" id="qty_per_lot" placeholder="0">
+                            <input type="text" class="form-control" name="qty_per_lot" id="qty_per_lot" placeholder="0" readonly>
                         </div>
                     </div>
 
@@ -83,14 +84,14 @@ $product_code = $inout->getAllProductCodes();
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Quantity:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="title" id="title" placeholder="Type Here...">
+                            <input type="text" class="form-control" name="quantity" id="quantity" placeholder="Type Here...">
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Transaction Date:</label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" name="transac" id="title" placeholder="Type Here...">
+                            <input type="date" class="form-control" name="transac_date" id="transac_date">
                         </div>
                     </div>
                     
@@ -109,8 +110,60 @@ $product_code = $inout->getAllProductCodes();
 <script>
     
     $(function() {
-
+        $('#product_codes').load('controller/controller.inout.php?mode=getAllProductCode');
     });
+
+    function searchValue(str) {
+        if(str.length == 0) {
+            $('#product_codes').load('');
+            $('#unit').val("");
+            $('#stock_quantity').val("");
+            $('#qty_per_lot').val("");
+            $('#exp_date').val("");
+            $('#lotno').load('');
+            $('#transac_date').val('');
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var responseVal = this.responseText;
+
+                    var obj = $.parseJSON(responseVal);
+                    $('#product_codes').load('controller/controller.inout.php?mode=getProductCode&product_code='+obj.product_code);
+
+                    $.ajax({
+                        url: 'controller/controller.inout.php?mode=searchProductUnit',
+                        method: 'POST',
+                        data: {
+                            product_code:obj.product_code
+                        },
+                        success:function(data) {
+                            var obj = $.parseJSON(data);
+
+                            $('#unit').val(obj.unit);
+
+                            $('#lotno').load('controller/controller.inout.php?mode=getLotnumber&product_id='+obj.id);
+                            var lotno = $('#lotno option:selected').val();
+
+                            if(lotno != "") {
+                                $('#qty_per_lot').val("");
+                                $('#exp_date').val("");
+                            }
+
+                            if(obj.quantity == null){
+                                $('#stock_quantity').val(0);
+                            } else {
+                                $('#stock_quantity').val(obj.quantity);
+                            }
+                        }
+                    });
+                }
+            }
+            xmlhttp.open("GET", "controller/controller.inout.php?mode=searchCode&product_code="+str, true);
+            xmlhttp.send();
+        }
+    }
 
     $('#product_codes').change(function() {
         var product_id = $(this).val();
@@ -156,6 +209,7 @@ $product_code = $inout->getAllProductCodes();
                 var obj = $.parseJSON(data);
 
                 $('#qty_per_lot').val(obj.log_qty);
+                $('#transac_date').val(obj.transac_date);
 
                 if(obj.exp_date == "0000-00-00") {
                     $('#exp_date').val("N/A");
