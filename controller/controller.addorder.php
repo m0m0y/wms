@@ -141,13 +141,16 @@ switch($mode) {
         $location = Sanitizer::filter('location', 'post');
         $stock_lotno = Sanitizer::filter('lotno', 'post');
 
-        $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name);
+        if ($slipno!=null OR $sliporder_date!=null OR $billto!=null OR $shipto!=null OR $pono!=null OR $customer_address!=null OR $shipvia!=null OR $shipdate!=null) {
+            $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name);
+        }
+        echo json_encode(array('code'=>0,'message'=>'Please double check the input field'));
 
         if($product_code!=null AND $quantity_ordered!=null){
             $addorder->addOrderManualDetails($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno);
         }
        
-        $response = array('code'=>1,'message'=> $product_code);
+        $response = array('code'=>1,'message'=> "Picking slip was sent successfully");
 
         echo json_encode($response);
 

@@ -14,6 +14,10 @@
         </li>
         <li class="p-0">
             <ul class="dropdown" id="maintenance-nav">
+                <li id="li_barcode_generator">
+                    <a href="inout.php"><i class="material-icons mr-3">cached</i> <span class="s-text">Manual Out Process</span></a>
+                </li>
+
                 <li id="li_unit">
                     <a href="unit.php"><i class="material-icons mr-3">miscellaneous_services</i> <span class="s-text">Unit</span></a>
                 </li>
@@ -26,6 +30,7 @@
                         <a href="user.php"><i class="material-icons mr-3">person_outline</i> <span class="s-text">Users</span></a>
                     </li>
                 <?php endif ?>
+                
 
                 <li id="li_rak">
                     <a href="rak.php"><i class="material-icons mr-3">layers</i> <span class="s-text">Rak</span></a>

@@ -64,7 +64,7 @@ class Stockcard extends DBHandler {
                   LEFT JOIN category c ON a.category_id = c.category_id
                   LEFT JOIN stock d ON a.product_id = d.product_id
                   WHERE d.stock_qty > '0'
-                  GROUP BY d.stock_lotno
+                  GROUP BY d.stock_lotno, a.product_id
                   ORDER BY a.product_code ASC";
         $stmt = $this->prepareQuery($this->conn, $query);
         return $this->fetchAssoc($stmt);

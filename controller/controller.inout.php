@@ -73,11 +73,17 @@ switch($mode) {
         }
         break;
 
-    case "searchLotNum";
-        $product_code = Sanitizer::filter('product_code', 'post');
-        $lotno = $inout->searchLotNumbers($product_code);
-        
-        $response = array($lotno);
+    case "updateQuantity";
+        $pcode = Sanitizer::filter('pcode','post');
+        $unit = Sanitizer::filter('unit', 'post');
+        $stockQuantity = Sanitizer::filter('stockQuantity', 'post');
+        $lotno = Sanitizer::filter('lotno', 'post');
+        $expDate = Sanitizer::filter('expDate', 'post');
+        $totalQuantity = Sanitizer::filter('totalQuantity', 'post');
+        $transacDate = Sanitizer::filter('transacDate', 'post');
+        $out = $inout->outQuantity($pcode,$unit,$stockQuantity,$lotno,$expDate,$totalQuantity,$transacDate);
+
+        $response = array("message" => "Successfully");
         break;
 }
 

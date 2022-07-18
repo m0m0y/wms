@@ -64,4 +64,15 @@ class Inout extends DBHandler {
         $stmt = $this->prepareQuery($this->conn, $query);
         return $this->fetchAssoc($stmt);
     }
+
+    public function outQuantity($pcode,$unit,$stockQuantity,$lotno,$expDate,$totalQuantity,$transacDate)
+    {
+        $query = "UPDATE stock_logs SET log_qty = '$totalQuantity', log_transaction_date = '$transacDate' WHERE stock_id = ?";
+        $stmt = $this->prepareQuery($this->conn, $query, "i", [$lotno]);
+        $this->execute($stmt);
+
+        $query = "UPDATE stock SET stock_qty = '$totalQuantity' WHERE stock_id = ?";
+        $stmt = $this->prepareQuery($this->conn, $query, "i", [$lotno]);
+        $this->execute($stmt);
+    }
 }

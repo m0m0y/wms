@@ -126,7 +126,7 @@ $product_code = $products->getAllProductCodes();
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="material-icons myicon-lg">close</i> Close</button>
-                    <button type="submit" class="btn btn-primary"><i class="material-icons myicon-lg">save_alt</i> Save changes</button>
+                    <button type="submit" class="btn btn-primary"><i class="material-icons myicon-lg">save_alt</i> Add Order</button>
                 </div>
             </div>
         </div>
