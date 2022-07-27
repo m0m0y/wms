@@ -58,6 +58,24 @@ $page = 0;
 
 $box_page = $packing->getAllBoxes($slip_id);
 
+if($courier == "Lalamove") {
+    $letter = "PL";
+} else if ($courier == "Grab") {
+    $letter = "PG";
+} else if ($courier == "Pickup") {
+    $letter = "PC";
+} else if ($courier == "Lex PH") {
+    $letter = "PX";
+} else if ($courier == "Van") {
+    $letter = "PV";
+} else if ($courier == "Transportify") {
+    $letter = "PT";
+} else if ($courier == "Sea") {
+    $letter = "PS";
+} else if ($courier == "Air") {
+    $letter = "PA";
+}
+
 foreach($box_page as $k=>$vv) { $page++; }
 
 $box = $packing->getAllBoxes($slip_id);
@@ -69,98 +87,32 @@ foreach($box as $k=>$v) {
 	$bMargin = $pdf->getBreakMargin();
 	$auto_page_break = $pdf->getAutoPageBreak();
 	$pdf->SetAutoPageBreak(false, 0);
-	$img_file = '../../static/shipping-label/label_lg.png';
+	$img_file = '../../static/shipping-label/label_lg1.png';
 	$pdf->Image($img_file, 3, 3, 95.6, 146.4, '', '', '', false, 100, '', false, false, 0);
 	$pdf->SetAutoPageBreak($auto_page_break, $bMargin);
 	$pdf->setPageMark();
 
-	$pdf->Image('../../static/panamed-bnw.png', 7, 10.5, 35, 0, 'PNG', '', '', true, 1000, '', false, false, 0, false, false, false);
+	$pdf->Image('../../static/panamed-bnw.png', 15, 9, 42, 0, 'PNG', '', '', true, 1000, '', false, false, 0, false, false, false);
+    $pdf->Image('../../static/shipping-label/R2.png', 7, 126, 31, 0, 'PNG', '', '', true, 1000, '', false, false, 0, false, false, false);
 
 	$responsiveFont = 13;
 	$headText = 13;
 
 	ob_start();
 	?>
-	<table width="160">
+	<table width="100">
 		<tr style="font-size: <?= $responsiveFont ?>px; text-align: center;">
-			<td><b><span style="font-size: 30px;"> <?= $a . " <span style=\"font-size: 15px\">of</span> " . $page ?></b></span></td>
+		<td><b><span style="font-size: 60px;"><?= $letter ?></b></span></td>
 		</tr>
 	</table>
 	<?php
-	$box_total = ob_get_clean();
-	
-	ob_start();
-	?>
-	<table width="138">
-		<tr style="font-size: <?= $responsiveFont ?>px; text-align: center;">
-			<td><b><span style="font-size: 10px;">Of.</span><span style="font-size: 30px;"> <?= $page . "</span>" ?></b></td>
-		</tr>
-	</table>
-	<?php
-	$box_count = ob_get_clean();
+	$letters = ob_get_clean();
 
 	ob_start();
 	?>
-	<table width="85">
-		<tr style="font-size: 20px; text-align: center;">
-			<td><b><?= $weightPerbox[$b] ?></b></td>
-		</tr>
-	</table>
-	<?php
-	$weight = ob_get_clean();
-
-	
-	ob_start();
-	?>
-	<table width="60">
-		<tr style="text-align: center;">
-			<td><span style="font-size: 7px;">KILOGRAMS</span></td>
-		</tr>
-	</table>
-	<?php
-	$weight_description = ob_get_clean();
-
-		
-	ob_start();
-	?>
-	<table width="138">
-		<tr style="text-align: center;">
-			<td><span style="font-size: <?= $responsiveFont ?>px; color: #fff">Package<?php if((int)$page > 1) { echo 's'; } ?></span></td>
-		</tr>
-	</table>
-	<?php
-	$pack_description = ob_get_clean();
-	
-	ob_start();
-	?>
-	<table width="60">
-		<tr style="text-align: center">
-			<td><span style="font-size: 7px;">WEIGHT</span></td>
-		</tr>
-	</table>
-	<?php
-	$weight_label = ob_get_clean();
-
-
-	ob_start();
-	?>
-	<table>
-		<tr style="font-size: 7px">
-			<td>ORDER REFERENCE</td>
-		</tr>
-		<tr style="font-size: 18px">
-			<td><b><?= $po_no ?></b></td>
-		</tr>
-	</table>
-	<?php
-	$po = ob_get_clean();
-	
-
-	ob_start();
-	?>
-	<table style="padding-right: 6px;">
-		<tr style="font-size: 10px; text-align: right;">
-			<td>Panamed Philippines Inc.<br>488 G. Araneta, cor. Del Monte Avenue,<br>Quezon City 1114 Philippines</td>
+    <table>
+		<tr style="font-size: 9px; text-align: left;">
+		<td>488 G. Araneta Avenue corner Del Monte Avenue<br>Brgy. Sienna, Quezon City 1114 Philippines<br><small>Email: info@panamed.com.ph</small></td>
 		</tr>
 	</table>
 	<?php
@@ -168,11 +120,24 @@ foreach($box as $k=>$v) {
 
 	ob_start();
 	?>
-	<table style="padding-right: 8px;">
-		<tr style="font-size: 7px; text-align: right;">
-			<td>OUR REFERENCE</td>
+    <table>
+		<tr style="font-size: 7px">
+			<td>ORDER REFERENCE</td>
 		</tr>
-		<tr style="font-size: 18px; text-align: right;">
+		<tr style="font-size: 16px">
+			<td><b><?= $po_no ?></b></td>
+		</tr>
+	</table>
+	<?php
+	$po = ob_get_clean();
+	
+	ob_start();
+	?>
+		<table width="100">
+		<tr style="font-size: 7px;">
+			<td>INVOICE NUMBER</td>
+		</tr>
+		<tr style="font-size: 16px;">
 			<td><b><?= $slip_no ?></b></td>
 		</tr>
 	</table>
@@ -182,57 +147,8 @@ foreach($box as $k=>$v) {
 	ob_start();
 	?>
 	<table>
-		<tr style="font-size: <?= $responsiveFont ?>px;">
-			<td><b>Order Date</b></td>
-		</tr>
-		<tr style="font-size: <?= $responsiveFont ?>px;">
-			<td><?= date_format(date_create($order_date), 'F jS Y') ?></td>
-		</tr>
-	</table>
-	<?php
-	$date_order = ob_get_clean();
-
-	
-	ob_start();
-	?>
-	<table>
-		<tr style="font-size: 5px; text-align: center">
-			<td>panamed.com.ph</td>
-		</tr>
-	</table>
-	<?php
-	$website = ob_get_clean();
-
-	
-	ob_start();
-	?>
-	<table>
-		<tr style="font-size: <?= $responsiveFont ?>px;">
-			<td><b>Print Date</b></td>
-		</tr>
-		<tr style="font-size: <?= $responsiveFont ?>px;">
-			<td><?= date('F jS Y') ?></td>
-		</tr>
-	</table>
-	<?php
-	$print_date = ob_get_clean();
-
-	ob_start();
-	?>
-	<table>
-		<tr style="font-size: <?= $responsiveFont ?>px;">
-			<td><?= $courier ?></td>
-		</tr>
-	</table>
-	<?php
-	$ship_via = ob_get_clean();
-
-	
-	ob_start();
-	?>
-	<table>
-		<tr style="font-size: <?= $responsiveFont ?>px;">
-			<td><b>Ship via</b></td>
+        <tr style="font-size: 7px;">
+			<td>SHIP VIA</td>
 		</tr>
 	</table>
 	<?php
@@ -240,18 +156,101 @@ foreach($box as $k=>$v) {
 	
 	ob_start();
 	?>
+    <table>
+		<tr style="font-size: <?= $responsiveFont ?>px;">
+			<td><b><?= $courier ?></b></td>
+		</tr>
+	</table>
+	<?php
+	$ship_via = ob_get_clean();
+	
+	ob_start();
+	?>
 	<table>
-		<tr style="font-size: <?= $responsiveFont ?>px; text-align: left;">
-			<td><b>Buyer</b></td>
+		<tr style="font-size: 11px;">
+			<td>Order Date</td>
+		</tr>
+	</table>
+	<?php
+	$date_order_text = ob_get_clean();
+	
+	ob_start();
+	?>
+    <table>
+        <tr style="font-size: <?= $responsiveFont ?>px;">
+			<td style="text-align: center;"><?= date_format(date_create($order_date), 'F jS Y') ?></td>
+		</tr>
+    </table>
+    <?php
+	$date_order = ob_get_clean();
+	
+	ob_start();
+	?>
+	<table>
+		<tr style="font-size: 11px;">
+			<td>Print Date:</td>
+		</tr>
+	</table>
+    <?php
+        $print_date_text = ob_get_clean();
+
+        ob_start();
+    ?>
+    <table>
+		<tr style="font-size: <?= $responsiveFont ?>px;">
+			<td style="text-align: center;"><?= date('F jS Y') ?></td>
+		</tr>
+	</table>
+	<?php
+	$print_date = ob_get_clean();
+
+	ob_start();
+	?>
+    <table width="100">
+		<tr>
+			<td><span style="font-size: <?= $responsiveFont ?>px;">Package<?php if((int)$page > 1) { echo 's'; } ?>:</span></td>
+		</tr>
+	</table>
+	<?php
+	$pack_description = ob_get_clean();
+	
+	ob_start();
+	?>
+	<table>
+		<tr style="font-size: <?= $responsiveFont ?>px;">
+			<td><b><span style="font-size: 30px;"> <?= $a . " <span style=\"font-size: 15px\">of</span> " . $page ?></b></span></td>
+		</tr>
+	</table>
+	<?php
+	$box_total = ob_get_clean();
+	
+	ob_start();
+	?>
+    <table>
+		<tr style="font-size: 10px; text-align: left;">
+			<td style="color: white;">Ship To</td>
 		</tr>
 	</table>
 	<?php
 	$o_to = ob_get_clean();
 
-
 	ob_start();
 	?>
-	<table width="120">
+	<table>
+		<tr style="font-size: <?= $responsiveFont ?>px">
+			<td><b><?= ucwords(strtolower($ship_to)) ?></b></td>
+		</tr>
+		<tr style="font-size: <?= $responsiveFont ?>px">
+			<td><?= ucfirst(strtolower($customer_address)) ?></td>
+		</tr>
+	</table>
+	<?php 
+    $c_add = ob_get_clean();
+
+    ob_start();
+	?>
+	
+	<table width="170">
 		<tr style="font-size: <?= $responsiveFont ?>px;">
 			<td><?= ($remarks) ? : 'Please handle package with care.' ?></td>
 		</tr>
@@ -269,106 +268,80 @@ foreach($box as $k=>$v) {
 	<?php
 	$remarked_text = ob_get_clean();
 
-	ob_start();
-	?>
-	<table>
-		<tr style="font-size: <?= $responsiveFont ?>px">
-			<td><b><?= ucwords(strtolower($ship_to)) ?></b></td>
-		</tr>
-		<tr style="font-size: <?= $responsiveFont ?>px">
-			<td><?= ucfirst(strtolower($customer_address)) ?></td>
-		</tr>
-	</table>
-	<?php $c_add = ob_get_clean();
-	
-	/* $pdf->SetXY(7, 78);
-	$pdf->writeHTML($box); */
+	$pdf->SetXY(68, 8);
+	$pdf->writeHTML($letters);
 
-	$pdf->SetXY(16, 65);
-	$pdf->writeHTML($c_add);
-
-	$pdf->SetXY(10, 25.5);
-	$pdf->writeHTML($po);
-	
-	$pdf->SetXY(53, 25.5);
-	$pdf->writeHTML($slip);
-	
-	$pdf->StartTransform();
-	$pdf->Rotate(90, 12, 77);
-	$pdf->SetXY(11, 71);
-	$pdf->writeHTML($o_to);
-	$pdf->StopTransform();
-
-	/*  */
-
-	$pdf->SetXY(60, 85.5);
-	$pdf->writeHTML($date_order);
-
-	$pdf->SetXY(60, 96);
-	$pdf->writeHTML($print_date);
-
-	
-	$pdf->StartTransform();
-	$pdf->Rotate(90, 12.5, 116.5);
-	$pdf->writeHTML($ship_via_text);
-	$pdf->StopTransform();
-
-	
-	$pdf->SetXY(16, 113);
-	$pdf->writeHTML($ship_via);
-
-	
-	$pdf->SetXY(55, 128.5);
-	$pdf->writeHTML($weight_label);
-
-	$pdf->SetXY(51.5, 132.5);
-	$pdf->writeHTML($weight);
-
-	$pdf->SetXY(55, 141.5);
-	$pdf->writeHTML($weight_description);
-	
-	$pdf->SetXY(40, 10);
+	$pdf->SetXY(10, 21);
 	$pdf->writeHTML($from_address_top);
 
-	$pdf->StartTransform();
-	$pdf->Rotate(90, 19.5, 140.5);
-	$pdf->SetXY(16, 127);
-	$pdf->writeHTML($remarked_text);
-	$pdf->StopTransform();
+    $pdf->SetXY(7, 33.5);
+	$pdf->writeHTML($po);
 
-	$pdf->SetXY(16, 131);
-	$pdf->writeHTML($remarked);
+    $pdf->SetXY(35.5, 33.5);
+	$pdf->writeHTML($slip);
+
+	$pdf->SetXY(70, 33.5);
+	$pdf->writeHTML($ship_via_text);
 	
-	$style = array(
+	$pdf->SetXY(70, 36.5);
+	$pdf->writeHTML($ship_via);
+
+    $style = array(
 		'position' => 'C',
 		'border' => false,
 		'fgcolor' => array(0,0,0),
 		'text' => true,
 	);
 
-	$pdf->write1DBarcode($v['box_number'], 'C39E', 7, 40, '', 15, 0.34, $style, 'N');
+	$pdf->write1DBarcode($v['box_number'], 'C39E', 7, 51, '', 20, 0.35, $style, 'N');
 
-	$style = array(
-		'border' => false,
-		'vpadding' => '0',
-		'hpadding' => '0',
-		'fgcolor' => array(0,0,0),
-		'bgcolor' => false,
-		'module_width' => 1,
-		'module_height' => 1
-	);
-	
-	$pdf->SetXY(3.5, 93);
+	$pdf->SetXY(53, 100);
+	$pdf->writeHTML($date_order_text);
+
+    $pdf->SetXY(45, 104);
+	$pdf->writeHTML($date_order);
+
+	$pdf->SetXY(53, 110);
+	$pdf->writeHTML($print_date_text);
+
+	$pdf->SetXY(45, 114);
+	$pdf->writeHTML($print_date);
+
+	$pdf->SetXY(8, 102);
+	$pdf->writeHTML($pack_description);
+
+	$pdf->SetXY(13.5, 105.5);
 	$pdf->writeHTML($box_total);
 
-	$pdf->SetXY(8, 84.5);
-	$pdf->writeHTML($pack_description);
-	
-	$pdf->write2DBarcode('https://panamed.com.ph', 'QRCODE,H', 78, 127, 15, 15, $style, 'N');
+	$pdf->StartTransform();
+    $pdf->Rotate(90, 13.5, 80);
+	$pdf->SetXY(0, 73.5);
+	$pdf->writeHTML($o_to);
+	$pdf->StopTransform();
 
+	$pdf->SetXY(15, 80);
+	$pdf->writeHTML($c_add);
 	
-	$pdf->SetXY(76, 143);
-	$pdf->writeHTML($website);
+	$pdf->SetXY(42, 125);
+	$pdf->writeHTML($remarked_text);
+
+	$pdf->SetXY(42, 130);
+	$pdf->writeHTML($remarked);
+    
+	/*  */
+
+    /* $pdf->SetXY(7, 78);
+	$pdf->writeHTML($box); */
+	
+	// $pdf->SetXY(55, 128.5);
+	// $pdf->writeHTML($weight_label);
+
+	// $pdf->SetXY(51.5, 132.5);
+	// $pdf->writeHTML($weight);
+
+	// $pdf->SetXY(55, 141.5);
+	// $pdf->writeHTML($weight_description);
+	
 	
 	$pdf->Ln();
 	$a++;
@@ -376,5 +349,3 @@ foreach($box as $k=>$v) {
 }
 
 $pdf->Output('shipping_label.pdf', 'I');
-
-

@@ -10,7 +10,7 @@ class AddOrder extends DBHandler {
     }
 
     public function addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name)
-    {   
+    {
 
         $slipno = str_replace(array("'", "&quot;"), "", htmlspecialchars($slipno));
         $billto = str_replace(array("'", "&quot;"), "", htmlspecialchars($billto));
@@ -97,6 +97,10 @@ class AddOrder extends DBHandler {
 
     public function addOrderManualDetails($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno)
     {
+        $product_code = str_replace(array("'", "&quot;"), "", htmlspecialchars($product_code));
+        $location = str_replace(array("'", "&quot;"), "", htmlspecialchars($location));
+        $stock_lotno = str_replace(array("'", "&quot;"), "", htmlspecialchars($stock_lotno));
+        
         $query = "INSERT INTO picking_order_details SET slip_id = ?, product_id = ?, quantity_order = ?, quantity_shipped = '0', location = ?, stock_id = '0', order_status = 'pending', checking_status = '', stock_lotno = ?";
         $stmt = $this->prepareQuery($this->conn, $query, "iiiss", array($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno));
         return $this->execute($stmt);
@@ -117,14 +121,5 @@ class AddOrder extends DBHandler {
         $stmt = $this->prepareQuery($this->conn, $query, "i", [$product_id]);
         return $this->fetchAssoc($stmt);
     }
-
-    // public function getLocationLot($lotno_id) 
-    // {
-    //     $query = "SELECT s.location_id, s.location_type, s.stock_qty, r.rak_id, r.rak_name, r.rak_column, r.rak_level FROM stock s LEFT JOIN rak r ON s.location_id = r.rak_id WHERE s.stock_id = ?";
-
-    //     $stmt = $this->prepareQuery($this->conn, $query, "i", [$lotno_id]);
-    //     return $this->fetchAssoc($stmt);
-    // }
-
 
 }

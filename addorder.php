@@ -65,54 +65,53 @@ $product_code = $products->getAllProductCodes();
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid mb-5">
-                        <input type="text" id="slip_no" name="slip_no" class="form-control rounded-0 mb-3" placeholder="Type Slip Number here">
+                        <input type="text" id="slip_no" name="slip_no" class="form-control rounded-0 mb-3" placeholder="Type Slip Number here" required>
 
-                        <input type="date" id="slip_order_date" name="slip_order_date" class="form-control rounded-0 mb-3" placeholder="Type Order Date here">
+                        <input type="date" id="slip_order_date" name="slip_order_date" class="form-control rounded-0 mb-3" required>
 
-                        <input type="text" id="bill_to" name="bill_to" class="form-control rounded-0 mb-3" placeholder="Type Bill To here">
+                        <input type="text" id="bill_to" name="bill_to" class="form-control rounded-0 mb-3" placeholder="Type Bill To here" required>
 
-                        <input type="text" id="ship_to" name="ship_to" class="form-control rounded-0 mb-3" placeholder="Type Ship To here">
+                        <input type="text" id="ship_to" name="ship_to" class="form-control rounded-0 mb-3" placeholder="Type Ship To here" required>
 
-                        <input type="number" id="reference" name="reference" class="form-control rounded-0 mb-3" placeholder="Type Reference No. here">
+                        <input type="number" id="reference" name="reference" class="form-control rounded-0 mb-3" placeholder="Type Reference No. here" required>
 
-                        <input type="number" id="po_no" name="po_no" class="form-control rounded-0 mb-3" placeholder="Type PO No. here">
+                        <input type="number" id="po_no" name="po_no" class="form-control rounded-0 mb-3" placeholder="Type PO No. here" required>
 
-                        <input type="text" id="address" name="address" class="form-control rounded-0 mb-3" placeholder="Type Address here">
+                        <input type="text" id="address" name="address" class="form-control rounded-0 mb-3" placeholder="Type Address here" required>
 
-                        <input type="text" id="sales_person" name="sales_person" class="form-control rounded-0 mb-3" placeholder="Type Sales Person here">
+                        <input type="text" id="sales_person" name="sales_person" class="form-control rounded-0 mb-3" placeholder="Type Sales Person here" required>
 
-                        <input type="text" id="ship_via" name="ship_via" class="form-control rounded-0 mb-3" placeholder="Type Ship Via here">
+                        <input type="text" id="ship_via" name="ship_via" class="form-control rounded-0 mb-3" placeholder="Type Ship Via here" required>
 
-                        <input type="date" id="ship_date" name="ship_date" class="form-control rounded-0 mb-3" placeholder="Type Ship Date here">
+                        <input type="date" id="ship_date" name="ship_date" class="form-control rounded-0 mb-3" placeholder="Type Ship Date here" required>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Product Code:</label>
+                        <label class="col-sm-2 col-form-label text-right"><span class="required"></span> Search Product:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="product_codes" id="product_codes">
-                                <option value="" selected disabled>--- SELECT PRODUCT CODE ---</option>
-                                <?php
+                            <input type="text" class="form-control" id="search" placeholder="Type Product Code/Product Description" onkeyup="searchValue(this.value)">
+                        </div>
+                    </div>
 
-                                    foreach($product_code as $k=>$v) {
-                                        echo '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
-                                    }
-                                
-                                ?>
-                            </select>
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Products:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="product_codes" id="product_codes" required></select>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Order qty:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" name="order_qty" id="order_qty" placeholder="Type Order Quantity here">
+                            <input type="number" class="form-control" name="order_qty" id="order_qty" placeholder="Type Order Quantity here" required>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Lot No:</label>
+                        <label class="col-sm-2 col-form-label text-right">Lot No:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="lotno" id="lotno"></select>
+                            <!-- <select class="form-control" name="lotno" id="lotno"></select> -->
+                            <input type="text" class="form-control" name="lotno" id="lotno" placeholder="Type Lot Number here" required>
                         </div>
                     </div>
 

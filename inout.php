@@ -22,7 +22,7 @@ $product_code = $inout->getAllProductCodes();
         <div class="card mt-5">
 
             <div class="card-header">
-                <legend><i class="material-icons mr-3"></i> Adjustments <span class="badge bg-danger text-white">out</span></legend>
+                <legend>Adjustments <span class="badge bg-danger text-white">out</span></legend>
             </div>
             
             <div class="card-body">

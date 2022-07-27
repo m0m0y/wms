@@ -114,46 +114,32 @@ switch($mode) {
         echo $option;
         exit;
 
-    // case "getLocationPerLot";
-    //     $lotno_id = Sanitizer::filter('lotno_id', 'get');
-    //     $location = $addorder->getLocationLot($lotno_id);
-    //     foreach ($location as $k=>$v) {
-    //         $option .="<option value='".$v['rak_id']."'>RAK-".$v['rak_name'].$v['rak_column'].$v['rak_level']." <small>(".$v['stock_qty'].")</small></option>";
-    //     }
-    //     echo $option;
-    //     exit;
-
-
     case "addOrderManual";
-        $slipno = Sanitizer::filter('slip_no', 'post');
-        $sliporder_date = Sanitizer::filter('slip_order_date', 'post');
-        $billto = Sanitizer::filter('bill_to', 'post');
-        $shipto = Sanitizer::filter('ship_to', 'post');
-        $reference = Sanitizer::filter('reference', 'post');
-        $pono = Sanitizer::filter('po_no', 'post');
-        $customer_address = Sanitizer::filter('address', 'post');
-        $salesperson = Sanitizer::filter('sales_person', 'post');
-        $shipvia = Sanitizer::filter('ship_via', 'post');
-        $shipdate = Sanitizer::filter('ship_date', 'post');
+        $slipno = $_POST["slip_no"];
+        $sliporder_date = $_POST["slip_order_date"];
+        $billto = $_POST["bill_to"];
+        $shipto = $_POST["ship_to"];
+        $reference = $_POST["reference"];
+        $pono = $_POST["po_no"];
+        $customer_address = $_POST["address"];
+        $salesperson = $_POST["sales_person"];
+        $shipvia = $_POST["ship_via"];
+        $shipdate = $_POST["ship_date"];
 
-        $product_code = Sanitizer::filter('product_codes', 'post');
-        $quantity_ordered = Sanitizer::filter('order_qty', 'post');
-        $location = Sanitizer::filter('location', 'post');
-        $stock_lotno = Sanitizer::filter('lotno', 'post');
+        $product_code = $_POST["product_codes"];
+        $quantity_ordered = $_POST["order_qty"];
+        $stock_lotno = $_POST["lotno"];
+        $location = $_POST["location"];
 
-        if ($slipno!=null OR $sliporder_date!=null OR $billto!=null OR $shipto!=null OR $pono!=null OR $customer_address!=null OR $shipvia!=null OR $shipdate!=null) {
-            $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name);
-        }
-        echo json_encode(array('code'=>0,'message'=>'Please double check the input field'));
-
+        $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name);
+        
         if($product_code!=null AND $quantity_ordered!=null){
             $addorder->addOrderManualDetails($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno);
         }
-       
+
         $response = array('code'=>1,'message'=> "Picking slip was sent successfully");
 
         echo json_encode($response);
-
         break;
 
     default:

@@ -296,14 +296,21 @@ $slip_no = (isset($_GET["slip_no"]) && !empty($_GET["slip_no"])) ? $_GET["slip_n
           <option value="Grab">Grab</option>
           <option value="Lex PH">Lex PH</option>
           <option value="Pickup">Pickup</option>
+          <option value="Van">Van</option>
+          <option value="Transportify">Transportify</option>
+          <option value="Sea">Sea</option>
+          <option value="Air">Air</option>
         </select>
         <label style="display: none;">No. of Sticker: </label>
         <input style="display: none;" type="number" step="1" min="0" id="page" class="form-control mb-2" value="<?= count($total_boxes) ?>" />
                       
         <label>Remarks: </label>
         <textarea id="remarks" class="form-control mb-2"></textarea>
+
+        <div class="d-none">
         <label>Box weight: </label>
         <input type="number" step="0.1" name="box-weight[]" id="box-weight" class="form-control mb-2 bw" />
+        </div>
         
       </div>
 

@@ -43,7 +43,7 @@ switch($mode) {
         $product_code = Sanitizer::filter('product_code', 'get');
         $search_code = $inout->getSearchProductCodes($product_code);
         foreach ($search_code as $k=>$v) {
-            $response = array("product_code" => $v['product_code'], "product_description" => $v['product_description']);
+            $response = array("product_id" => $v['product_id'], "product_code" => $v['product_code'], "product_description" => $v['product_description']);
         }
         break;
 
@@ -51,7 +51,7 @@ switch($mode) {
         $product_code = Sanitizer::filter('product_code', 'get');
         $searchProducts = $inout->getProductCodeWhere($product_code);
         foreach ($searchProducts as $k=>$v) {
-            $option = '<option id="test" value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
+            $option = '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
         }
         echo $option;
         exit;
@@ -60,7 +60,7 @@ switch($mode) {
         $allProducts = $inout->getAllProductCodes();
         $option = '<option selected disabled value=""> --- SELECT LOT NUMBER --- </option>';
         foreach ($allProducts as $k=>$v) {
-            $option .= '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';          
+            $option .= '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
         }
         echo $option;
         exit;
