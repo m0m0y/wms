@@ -15,6 +15,8 @@ $product_code = $products->getAllProductCodes();
 <link rel="stylesheet" href="/wms/lib/datatable/datatables.min.css">
 <script src="/wms/lib/datatable/datatables.min.js"></script>
 <script src="/wms/services/addorder/addorder.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <div class="main-content full-page">
 
@@ -86,46 +88,55 @@ $product_code = $products->getAllProductCodes();
                         <input type="date" id="ship_date" name="ship_date" class="form-control rounded-0 mb-3" placeholder="Type Ship Date here" required>
                     </div>
 
-                    <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right"><span class="required"></span> Search Product:</label>
+                    <!-- <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label text-right"><span class="text-danger"></span> Search Product:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="search" placeholder="Type Product Code/Product Description" onkeyup="searchValue(this.value)">
                         </div>
-                    </div>
+                    </div> -->
+
+                    <hr>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Products:</label>
+                        <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Products:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="product_codes" id="product_codes" required></select>
+                            <select class="form-control pcode" style="width: 100%" name="" id="product_codes"></select>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Order qty:</label>
+                        <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Order qty:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" name="order_qty" id="order_qty" placeholder="Type Order Quantity here" required>
+                            <input type="number" class="form-control" name="" id="order_qty" placeholder="Type Order Quantity here">
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right">Lot No:</label>
+                        <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Lot No:</label>
                         <div class="col-sm-10">
-                            <!-- <select class="form-control" name="lotno" id="lotno"></select> -->
-                            <input type="text" class="form-control" name="lotno" id="lotno" placeholder="Type Lot Number here" required>
+                            <select class="form-control" name="" id="lotno"></select>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Location:</label>
+                        <label class="col-sm-2 col-form-label text-right">Location:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="location" id="location" placeholder="Type Location here">
+                            <input type="text" class="form-control" name="" id="location" placeholder="Type Location here">
                         </div>
+                    </div>
+
+                    <div class="order-container"></div>
+
+                    <div class="d-flex justify-content-end mb-3">
+                        <button type="button" class="btn btn-sm btn-success m-1" id="preview_btn"><i class="material-icons myicon-lg">add_box</i> Preview</button>
+
+                        <!-- <button type="button" class="btn btn-sm btn-danger m-1" id="new_field"><i class="material-icons myicon-lg">remove_circle_outline</i> Remove</button> -->
                     </div>
                     
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="material-icons myicon-lg">close</i> Close</button>
-                    <button type="submit" class="btn btn-primary"><i class="material-icons myicon-lg">save_alt</i> Add Order</button>
+                    <button type="submit" class="btn btn-primary">Add Order</button>
                 </div>
             </div>
         </div>

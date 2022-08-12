@@ -73,6 +73,7 @@ $shipping = $dashboard->getAllShipping();
     foreach($invoices as $k=>$v) {
         $slip_id = $v['slip_id'];
         $slip_no = $v['slip_no'];
+        $invoice = ($v['invoice_no']!="") ? '<small class="font-weight-normal px-2 mt-1 bg-muted text-black float-right d-inline">Inv No: '.$v['invoice_no'].'</small>' : '';
         $customer_name = ucfirst($v['ship_to']);
         $pick_percentage = ($v['total_picked']) ? number_format(($v['total_picked']/$v['total_qty']) * 100, "1", ".", ",") : 0;
         $repick = ($v['order_status']=="repick") ? 'border border-warning' : '';
@@ -80,7 +81,7 @@ $shipping = $dashboard->getAllShipping();
     <div class="col">
         <div class="card-panel p-4 <?= $repick ?>">
             <p class="m-0 text-muted"><small><?= date("jS \of M Y", strtotime($v['slip_order_date'])) ?></small></p>
-            <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-info text-white">invoicing</small><?= $slip_no ?></p>
+            <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-info text-white">invoicing</small><?= $slip_no ?> <?= $invoice ?></p>
             <div class="progress mb-3 rounded-0" style="height: 10px;">
                 <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
@@ -93,6 +94,7 @@ $shipping = $dashboard->getAllShipping();
         foreach($checked as $k=>$v) {
             $slip_id = $v['slip_id'];
             $slip_no = $v['slip_no'];
+            $invoice = ($v['invoice_no']!="") ? '<small class="font-weight-normal px-2 mt-1 bg-muted text-black float-right d-inline">Inv No: '.$v['invoice_no'].'</small>' : '';
             $customer_name = ucfirst($v['ship_to']);
             $pick_percentage = ($v['total_picked']) ? number_format(($v['total_picked']/$v['total_qty']) * 100, "1", ".", ",") : 0;
             $repick = ($v['order_status']=="repick") ? 'border border-warning' : '';
@@ -100,7 +102,7 @@ $shipping = $dashboard->getAllShipping();
         <div class="col">
             <div class="card-panel p-4 <?= $repick ?>">
                 <p class="m-0 text-muted"><small><?= date("jS \of M Y", strtotime($v['slip_order_date'])) ?></small></p>
-                <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-primary text-white">checking</small><?= $slip_no ?></p>
+                <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-primary text-white">checking</small><?= $slip_no ?> <?= $invoice ?></p>
                 <div class="progress mb-3 rounded-0" style="height: 10px;">
                     <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $pick_percentage ?>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -115,6 +117,7 @@ $shipping = $dashboard->getAllShipping();
         foreach($packed as $k=>$v) {
             $slip_id = $v['slip_id'];
             $slip_no = $v['slip_no'];
+            $invoice = ($v['invoice_no']!="") ? '<small class="font-weight-normal px-2 mt-1 bg-muted text-black float-right d-inline">Inv No: '.$v['invoice_no'].'</small>' : '';
             $customer_name = ucfirst($v['ship_to']);
             $pick_percentage = ($v['total_picked']) ? number_format(($v['total_picked']/$v['total_qty']) * 100, "1", ".", ",") : 0;
             
@@ -123,7 +126,7 @@ $shipping = $dashboard->getAllShipping();
         <div class="col">
             <div class="card-panel p-4 <?= $repick ?>">
                 <p class="m-0 text-muted"><small><?= date("jS \of M Y", strtotime($v['slip_order_date'])) ?></small></p>
-                <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-success text-white">packing</small><?= $slip_no ?></p>
+                <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-success text-white">packing</small><?= $slip_no ?> <?= $invoice ?></p>
                 <div class="progress mb-3 rounded-0" style="height: 10px;">
                     <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $pick_percentage ?>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -137,6 +140,7 @@ $shipping = $dashboard->getAllShipping();
         foreach($shipping as $k=>$v) {
             $slip_id = $v['slip_id'];
             $slip_no = $v['slip_no'];
+            $invoice = ($v['invoice_no']!="") ? '<small class="font-weight-normal px-2 mt-1 bg-muted text-black float-right d-inline">Inv No: '.$v['invoice_no'].'</small>' : '';
             $customer_name = ucfirst($v['ship_to']);
             $pick_percentage = ($v['total_picked']) ? number_format(($v['total_picked']/$v['total_qty']) * 100, "1", ".", ",") : 0;
             $repick = ($v['order_status']=="repick") ? 'border border-warning' : '';
@@ -144,7 +148,7 @@ $shipping = $dashboard->getAllShipping();
         <div class="col">
             <div class="card-panel p-4 <?= $repick ?>">
                 <p class="m-0 text-muted"><small><?= date("jS \of M Y", strtotime($v['slip_order_date'])) ?></small></p>
-                <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-info text-white">shipping</small><?= $slip_no ?></p>
+                <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-info text-white">shipping</small><?= $slip_no ?> <?= $invoice ?></p>
                 <div class="progress mb-3 rounded-0" style="height: 10px;">
                     <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>

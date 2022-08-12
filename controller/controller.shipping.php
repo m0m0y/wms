@@ -206,7 +206,7 @@ switch($mode) {
         require_once "../model/model.cart.php";
         $truck = new Cart();
         $units = $truck->getTruckOnly();
-        $option = "<option value='' disabled='' selected=''>--Select Table--</option>";
+        $option = "<option value='' disabled='' selected=''>--Select Truck--</option>";
         foreach($units as $k=>$v) {
             $option.="<option value='".$v['cart_id']."'>".$v['location_name']."</option>";
         }

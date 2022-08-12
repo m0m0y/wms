@@ -196,7 +196,8 @@ function printBoxLabel(){
         
         
 
-        $("#caddress").val($(this).data("customer_address"));
+        $("#billto").val($(this).data("bill_to"));
+        $('#invoiceno').val($(this).data("invoice_no"));
         $('#printModal').modal('show');
     })
 
@@ -205,23 +206,38 @@ function printBoxLabel(){
         var courier = $('#courier').val();
         var slip_no = $("#slipno").val();
         var ship_to = $("#shipto").val();
-        // var box_w = $("#box-weight").val();
         var box_w = $("input[name='box-weight[]']").map(function(){return $(this).val();}).get();
-        // var bbox = $("input[name='box-weight[]']").val();
-        var customer_address = $("#caddress").val();
+        var bill_to = $("#billto").val();
         var page = $('#page').val();
         var id_slip = $('#id_slip').val();
-        
-        const url = "tcpdf/examples/shipping_label.php?a="+slip_no+"&b="+ship_to+"&c="+customer_address+"&d="+remarks+"&e="+courier+"&f="+page+"&g="+id_slip+"&w="+box_w;
-        
+        var invoice_num = $('#invoiceno').val();
+
+        // var box_w = $("#box-weight").val();
+        // var bbox = $("input[name='box-weight[]']").val();
+
+        var url = "tcpdf/examples/shipping_label.php?a="+slip_no+"&b="+ship_to+"&c="+bill_to+"&d="+remarks+"&e="+courier+"&f="+page+"&g="+id_slip+"&w="+box_w+"&h="+invoice_num;
+
         if(isElectron()) {
             $('#printModal').modal('hide')
             embedpdf(url, '.main-content')
             return
-        }
-        
+        } 
         window.open(url);
         return
+
+        // $.ajax({
+        //     url: "controller/controller.packing.php?mode=invoice",
+        //     type: 'POST',
+        //     data:{ 
+        //         id_slip : id_slip,
+        //         invoice_num : invoice_num 
+        //     },
+        //     success: function() {
+        //         window.open(url);
+        //         return
+        //     }
+        // });
+
     })
 
     $(".print-box-label").on('click', function(){

@@ -48,8 +48,8 @@ switch($mode) {
         break;
 
     case "getProductCode";
-        $product_code = Sanitizer::filter('product_code', 'get');
-        $searchProducts = $inout->getProductCodeWhere($product_code);
+        $product_id = Sanitizer::filter('product_id', 'get');
+        $searchProducts = $inout->getProductCodeWhere($product_id);
         foreach ($searchProducts as $k=>$v) {
             $option = '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
         }
@@ -58,7 +58,7 @@ switch($mode) {
 
     case "getAllProductCode";
         $allProducts = $inout->getAllProductCodes();
-        $option = '<option selected disabled value=""> --- SELECT LOT NUMBER --- </option>';
+        $option = '<option selected disabled value=""> --- SELECT PRODUCT --- </option>';
         foreach ($allProducts as $k=>$v) {
             $option .= '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
         }
@@ -66,8 +66,8 @@ switch($mode) {
         exit;
 
     case "searchProductUnit";
-        $product_code = Sanitizer::filter('product_code', 'post');   $product_code = Sanitizer::filter('product_code', 'post');
-        $unit_product = $inout->searchUnitProduct($product_code);
+        $product_id = Sanitizer::filter('product_id', 'post'); 
+        $unit_product = $inout->searchUnitProduct($product_id);
         foreach ($unit_product as $k=>$v) {
             $response = array("unit" => $v['unit_name'], "quantity" => $v['stock_quantity'], "id" => $v['product_id']);
         }
@@ -80,8 +80,9 @@ switch($mode) {
         $lotno = Sanitizer::filter('lotno', 'post');
         $expDate = Sanitizer::filter('expDate', 'post');
         $totalQuantity = Sanitizer::filter('totalQuantity', 'post');
+        $quantity = Sanitizer::filter('quantity', 'post');
         $transacDate = Sanitizer::filter('transacDate', 'post');
-        $out = $inout->outQuantity($pcode,$unit,$stockQuantity,$lotno,$expDate,$totalQuantity,$transacDate);
+        $out = $inout->outQuantity($pcode,$unit,$stockQuantity,$lotno,$expDate,$quantity,$totalQuantity,$transacDate,$user_name);
 
         $response = array("message" => "Successfully");
         break;

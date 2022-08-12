@@ -1,3 +1,16 @@
+var errorToast = {'position':'top','align':'right', 'duration': 4000, 'class': "bg-danger"}
+
+$(function(){
+    var status_module = window.localStorage.getItem("stat");
+    if (status_module == "sucess") {
+        $.Toast("Save Invoice Number Sucessfully.", {
+            'duration': 4000,
+            'position': 'top',
+            'align': 'right',
+        });
+        localStorage.clear();
+    }
+});
 
 function check_order(slip_id){
     confirmed(check_order_callback, "Send this order to checker?", "Yes", "Cancel", slip_id);
@@ -35,7 +48,10 @@ function repick(){
     $.ajax({
         url:"controller/controller.invoicing.php?mode=repick",
         method:"POST",
-        data:{ slip_id: slip_id, comments: repick_comments },
+        data:{ 
+            slip_id: slip_id, 
+            comments: repick_comments 
+        },
         success:function(){
 
             $.Toast("Order sent back to picking.", {
@@ -109,4 +125,34 @@ function newInvoices(count, current) {
 
     return
 
+}
+
+function add_invoice(slip_id) {
+    $('#slipid').val(slip_id);
+    $('#addInvoice').modal('show');
+}
+
+function save_invoice() {
+    var slipid = $('#slipid').val();
+    var invoiceno = $('#invoiceno').val();
+
+    if (slipid == null || invoiceno == null || invoiceno == "") {
+        $.Toast("Please enter Invoice", errorToast);
+    } else {
+        $.ajax({
+            url:"controller/controller.invoicing.php?mode=invoice",
+            method:"POST",
+            data:{ 
+                slipid: slipid, 
+                invoiceno: invoiceno 
+            },
+            success:function(){
+                window.localStorage.setItem("stat", "sucess");
+                window.location.href="invoicing.php";
+                $('.modal').modal('hide');
+                // $("#main").load(" #main > *");
+                return
+            }
+        });
+    }
 }

@@ -109,7 +109,7 @@ switch($mode) {
         $lotno = $addorder->getLotnumbers($product_id);
         $option = '<option selected disabled value=""> --- SELECT LOT NUMBER --- </option>';
         foreach ($lotno as $k=>$v) {
-            $option .= '<option value="'.$v['stock_id'].'"> '.$v['stock_lotno'].' ('.$v['stock_expiration_date'].')</option>';
+            $option .= '<option value="'.$v['stock_id'].'"> '.$v['stock_lotno'].' ('.($v['stock_expiration_date'] == "0000-00-00" ? 'N/A' : ''.$v['stock_expiration_date'].'').')</option>';
         }
         echo $option;
         exit;
@@ -130,21 +130,36 @@ switch($mode) {
         $quantity_ordered = $_POST["order_qty"];
         $stock_lotno = $_POST["lotno"];
         $location = $_POST["location"];
+        $result = [];
 
-        $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name);
-        
-        if($product_code!=null AND $quantity_ordered!=null){
-            $addorder->addOrderManualDetails($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno);
+        if($product_code!=null AND $quantity_ordered!=null AND $stock_lotno!=null){
+
+            $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name);
+
+            foreach ($product_code as $key => $value) {
+                $result[$key] = array(
+                    'pcode'  => $product_code[$key],
+                    'qty' => $quantity_ordered[$key],
+                    'lotno'    => $stock_lotno[$key],
+                    'loc'    => $location[$key],
+                );
+            }
+
+            foreach($result as $k => $v) {
+                $pcode = $v["pcode"];
+                $qty = $v["qty"];
+                $lotno = $v["lotno"];
+                $loc = $v["loc"];
+                $addorder->addOrderManualDetails($slip_id,$pcode,$qty,$loc,$lotno);
+            }
+
+            $response = array('code'=>1,'message'=> "Picking slip was sent successfully");
+            echo json_encode($response);
+   
         }
-
-        $response = array('code'=>1,'message'=> "Picking slip was sent successfully");
-
-        echo json_encode($response);
         break;
 
     default:
         echo json_encode(array('code'=>0, 'message'=>'mode not found'));
         break;
 }
-
-

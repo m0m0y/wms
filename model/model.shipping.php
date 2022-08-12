@@ -117,7 +117,7 @@ class Shipping extends DBHandler {
     public function repack_order($slip_id){
 
         $order_status = "pack";
-        $query = "UPDATE picking_order SET order_status = ? WHERE slip_id = ?";
+        $query = "UPDATE picking_order SET order_status = ?, tracking_status = '', invoice_no = '', do_no = '' WHERE slip_id = ?";
         $stmt = $this->prepareQuery($this->conn, $query, "si", array($order_status,$slip_id));
         return $this->execute($stmt);
 

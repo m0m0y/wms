@@ -174,7 +174,8 @@ $slip_no = (isset($_GET["slip_no"]) && !empty($_GET["slip_no"])) ? $_GET["slip_n
                       <div class="row m-0 mt-5">
                         <div class="col col-6 px-0">
                           <button type="button" class="mb-2 btn btn-sm btn-outline-primary box-item" data-max="<?= max($total_raw_boxes) ?>" data-slip="<?= $v["slip_no"] ?>" data-target="<?= "check-box-".$slip_id ?>">Pack Selected Item(s)</button>
-                          <button type="button" class="mb-2 btn btn-sm btn-outline-success print-label" data-total="<?= count($total_boxes) ?>" data-target="<?= "check-box-".$slip_id ?>" data-slip_no="<?= $v['slip_no'] ?>" data-ship_to="<?= $v['ship_to'] ?>" data-customer_address="<?= $v['customer_address'] ?>" >Print Label</button>
+                          <button type="button" class="mb-2 btn btn-sm btn-outline-success print-label" data-total="<?= count($total_boxes) ?>" data-target="<?= "check-box-".$slip_id ?>" data-slip_no="<?= $v['slip_no'] ?>" data-ship_to="<?= $v['ship_to'] ?>" data-bill_to="<?= $v['bill_to'] ?>" data-invoice_no="<?= $v['invoice_no'] ?>">Print Label</button>
+
                           <button type="button" class="mb-2 btn btn-sm btn-outline-success print-box-label" data-target="<?= "check-box-".$slip_id ?>" data-slip_id="<?= $slip_id ?>">Print Box Labels</button>
                           <button type="button" class="mb-2 btn btn-sm btn-outline-danger undo-all" data-target="<?= "check-box-".$slip_id ?>" onclick="undoallBox(<?= $slip_id ?>)">Undo All</button>
                         </div>
@@ -287,20 +288,23 @@ $slip_no = (isset($_GET["slip_no"]) && !empty($_GET["slip_no"])) ? $_GET["slip_n
       <div class="modal-body" id="shipping_content">
         
         <input type="hidden" id="slipno" class="form-control mb-2" />
+        <input type="hidden" id="billto" class="form-control mb-2" />
         <input type="hidden" id="shipto" class="form-control mb-2" />
-        <input type="hidden" id="caddress" class="form-control mb-2" />
+        <input type="hidden" id="invoiceno" class="form-control mb-2" />
 
         <label>Courier: </label>
         <select id="courier" class="form-control custom-selct  mb-2">
           <option value="Lalamove">Lalamove</option>
           <option value="Grab">Grab</option>
           <option value="Lex PH">Lex PH</option>
+          <option value="LBC">LBC</option>
           <option value="Pickup">Pickup</option>
           <option value="Van">Van</option>
           <option value="Transportify">Transportify</option>
           <option value="Sea">Sea</option>
           <option value="Air">Air</option>
         </select>
+
         <label style="display: none;">No. of Sticker: </label>
         <input style="display: none;" type="number" step="1" min="0" id="page" class="form-control mb-2" value="<?= count($total_boxes) ?>" />
                       

@@ -62,8 +62,9 @@ class Invoicing extends DBHandler {
     {
         
         $order_status = "repick";
-        $query = "UPDATE picking_order SET comments = ?,order_status = ? WHERE slip_id = ?";
-        $stmt = $this->prepareQuery($this->conn, $query, "ssi", array($comments,$order_status,$slip_id));
+        $invoice_no = "";
+        $query = "UPDATE picking_order SET comments = ?,invoice_no = ?,order_status = ? WHERE slip_id = ?";
+        $stmt = $this->prepareQuery($this->conn, $query, "sssi", array($comments,$invoice_no,$order_status,$slip_id));
         $this->execute($stmt);
 
         $query = "SELECT slip_no FROM picking_order WHERE slip_id = ?";
@@ -107,5 +108,10 @@ class Invoicing extends DBHandler {
         return $this->numRows($this->conn, $query);
     }
 
+    public function updateInvoiceNum($slip_id, $invoice_num) {
+        $query = "UPDATE picking_order SET invoice_no = ? WHERE slip_id = ?";
+        $stmt = $this->prepareQuery($this->conn, $query, "si", array($invoice_num, $slip_id));
+        return $this->execute($stmt);
+    }
 
 }

@@ -89,20 +89,28 @@ class AddOrder extends DBHandler {
         $row = $this->fetchRow($stmt);
         $product_id = $row[0];
 
+        // $query1 = "SELECT stock_lotno FROM stock WHERE product_id = ?";
+        // $stmt = $this->prepareQuery($this->conn, $query, "i", array($product_id));
+        // $row = $this->fetchRow($stmt);
+        // $lotno = $row[0];
+
+        // if ($lotno == $stock_lotno) {
         $query = "INSERT INTO picking_order_details SET slip_id = ?, product_id = ?, quantity_order = ?, quantity_shipped = '0', location = ?, stock_id = '0', order_status = 'pending', checking_status = '', stock_lotno = ?";
         $stmt = $this->prepareQuery($this->conn, $query, "iiiss", array($slip_id,$product_id,$quantity_ordered,$location,$stock_lotno));
         return $this->execute($stmt);
+        //     echo $lotno ."=". $stock_lotno;
+        // } else {
+        //      echo "Mali";
+
+        //     echo $product_id ."=". $stock_lotno;
+        // }
 
     }
 
-    public function addOrderManualDetails($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno)
+    public function addOrderManualDetails($slip_id,$pcode,$qty,$location,$lotno)
     {
-        $product_code = str_replace(array("'", "&quot;"), "", htmlspecialchars($product_code));
-        $location = str_replace(array("'", "&quot;"), "", htmlspecialchars($location));
-        $stock_lotno = str_replace(array("'", "&quot;"), "", htmlspecialchars($stock_lotno));
-        
         $query = "INSERT INTO picking_order_details SET slip_id = ?, product_id = ?, quantity_order = ?, quantity_shipped = '0', location = ?, stock_id = '0', order_status = 'pending', checking_status = '', stock_lotno = ?";
-        $stmt = $this->prepareQuery($this->conn, $query, "iiiss", array($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno));
+        $stmt = $this->prepareQuery($this->conn, $query, "iiiss", array($slip_id,$pcode,$qty,$location,$lotno));
         return $this->execute($stmt);
     }
 
@@ -116,7 +124,7 @@ class AddOrder extends DBHandler {
 
     public function getLotnumbers($product_id) 
     {
-        $query = "SELECT s.stock_id, s.stock_lotno, s.stock_qty, s.stock_expiration_date FROM stock s LEFT JOIN product p ON p.product_id = s.product_id WHERE p.product_id = ?";
+        $query = "SELECT s.stock_id, s.stock_expiration_date, s.stock_lotno FROM stock s LEFT JOIN product p ON p.product_id = s.product_id WHERE p.product_id = ? AND s.location_type = 'rak' AND stock_qty!=0";
 
         $stmt = $this->prepareQuery($this->conn, $query, "i", [$product_id]);
         return $this->fetchAssoc($stmt);

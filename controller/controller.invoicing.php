@@ -32,6 +32,13 @@ switch($mode) {
         $response = array("count"=>$invoicing->countInvoices());
         break;
     
+    case "invoice";
+        $slipid = Sanitizer::filter('slipid', 'post');
+        $invoiceno = Sanitizer::filter('invoiceno', 'post');
+        $invoicing = $invoicing->updateInvoiceNum($slipid, $invoiceno);
+        
+        $response = array("code"=>1,"message"=>"Successfully");
+        break;    
 }
 
 

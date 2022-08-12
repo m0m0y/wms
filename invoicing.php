@@ -56,12 +56,13 @@ $order = $invoicing->getAllOrders();
                 foreach($order as $k=>$v) {
                     $slip_id = $v['slip_id'];
                     $slip_no = $v['slip_no']; 
+                    $invoice = ($v['invoice_no']!="") ? '<small class="font-weight-normal px-2 mt-1 bg-muted text-black float-right d-inline">Inv No: '.$v['invoice_no'].'</small>' : '';
                     $order_details = $invoicing->getAllOrdersdetails($v['slip_id']);
                     ?>
                     <div class="col view-invoice" data-target="<?= $slip_no ?>">
                         <div class="card-panel p-4">
                             <p class="m-0 text-muted"><small>PO#: <?= $v['po_no'] ?></small></p>
-                            <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-info text-white">invoicing</small><?= $slip_no ?></p>
+                            <p class="m-0 mb-2 font-weight-bold"><small class="font-weight-normal px-2 mr-2 bg-info text-white">invoicing</small><?= $slip_no ?> <?= $invoice ?></p>
                             <div class="progress mb-3 rounded-0" style="height: 10px;">
                                 <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
@@ -73,9 +74,10 @@ $order = $invoicing->getAllOrders();
                                 <table class="table table-bordered un-dt">
                                     <thead>
                                         <tr>
-                                            <th scope="col" class="py-4 align-middle text-center">PO#: <?= $v['po_no'] ?></th>
                                             <th class="py-4 align-middle text-center">SLIP #: <?= $v['slip_no'] ?></th>
-                                            <th  class="py-4 align-middle text-center" scope="col" colspan="2">REFERENCE #: <?= $v['reference'] ?></th>
+                                            <th  class="py-4 align-middle text-center">INVOICE NO #: <?= $v['invoice_no'] ?></th>
+                                            <th class="py-4 align-middle text-center">PO#: <?= $v['po_no'] ?></th>
+                                            <th  class="py-4 align-middle text-center">REFERENCE #: <?= $v['reference'] ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -98,19 +100,19 @@ $order = $invoicing->getAllOrders();
                                                 $product_lots = $invoicing->getAllLots($slip_id,$product_id,"cart");
                                                 foreach ($product_lots as $k => $y) { ?>
                                                     <tr class="bg-white">
-                                                        <td>
+                                                        <td colspan="1">
                                                             <span><?= $x['product_code'] ?></span>
                                                             <p class="m-0 mt-0 text-muted text-truncate" data-toggle="tooltip" data-placement="top" title="<?= $x['product_description'] ?>"><span><b><?= $x['product_description'] ?></b></span></p>
                                                         </td>
-                                                        <td>
+                                                        <td colspan="1">
                                                             <span>Expiration</span>
                                                             <p class="m-0 mt-0 text-muted" data-toggle="tooltip" data-placement="top" title="<?= $y['stock_expiration_date'] ?>"><span><b><?= $y['stock_expiration_date'] ?></b></span></p>
                                                         </td>
-                                                        <td>
+                                                        <td colspan="1">
                                                             <span>Ln/Sn</span>
                                                             <p class="m-0 mt-0 text-muted text-truncate" data-toggle="tooltip" data-placement="top" title="<?= $y['stock_lotno'] ?>"><span><b><?= $y['stock_lotno'].' '.$y['stock_serialno'] ?></b></span></p>
                                                         </td>
-                                                        <td>
+                                                        <td colspan="1">
                                                             <span>Pk/Or</span>
                                                             <p class="m-0 mt-0 text-muted"><span><b><?= $y['stock_qty'] ?> out of <?= $x['quantity_order'] ?></b> <?= $x['unit_name'] ?></span></p>
                                                         </td>
@@ -119,15 +121,22 @@ $order = $invoicing->getAllOrders();
                                                 }
                                             }
                                             ?>
-                                        <tr><th colspan="4" class="bg-white"></th></tr>
                                         <tr class="bg-white">
                                             <th colspan="2" class="pt-4">
                                                 <button type="button" onclick="repick_order(<?php echo $slip_id; ?>)" class="btn btn-sm py-2 px-3 btn-danger mb-2 mr-2">Repick Order</button>
                                                 <button type="button" onclick="print_barcode(<?php echo $slip_id ?>,<?php echo '\''.$slip_no.'\'' ?>)" class="py-2 px-3 btn btn-sm btn-success mb-2 mr-2">Print Barcode</button>
-                                                <button onclick="resetInvoice()" class="btn btn-sm py-2 px-3 btn-secondary mb-2 mr-2"">Go Back</button>
+                                                <button onclick="add_invoice(<?php echo $slip_id ?>)" class="btn btn-sm py-2 px-3 btn-info mb-2 mr-2">Add Invoice</button>
                                             </th>
-                                            <th colspan="2" class="pt-4">
-                                                <button class="py-2 px-3 btn btn-sm btn-primary" onclick="check_order(<?php echo $slip_id; ?>)" >Send to Checker</button>
+                                            <th colspan="4" class="pt-4">
+
+                                                <?php if (empty($v['invoice_no'])) { ?>
+                                                <button class="py-2 px-3 btn btn-sm btn-primary mr-2" disabled>Send to Checker</button>
+                                                <?php } else { ?>
+                                                <button class="py-2 px-3 btn btn-sm btn-primary mr-2" onclick="check_order(<?php echo $slip_id; ?>)">Send to Checker</button>
+                                                <?php } ?>
+
+                                                <button onclick="resetInvoice()" class="btn btn-sm py-2 px-3 btn-secondary mr-2">Go Back</button>
+                                                </div>
                                             </th>
                                         </tr>
                                     </tbody>
@@ -172,8 +181,29 @@ $order = $invoicing->getAllOrders();
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="repick()" class="btn btn-success">Submit</button>
                 <button data-dismiss="modal"  class="btn btn-secondary">Cancel</button>
+                <button type="button" onclick="repick()" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade ios" id="addInvoice">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><label id="operation">Invoice Number</label></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="slipid" name>
+                <input type="text" id="invoiceno" class="form-control mb-2" placeholder="Input invoice here"/>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal"  class="btn btn-secondary">Cancel</button>
+                <button type="button" onclick="save_invoice()" class="btn btn-success">Submit</button>
             </div>
         </div>
     </div>

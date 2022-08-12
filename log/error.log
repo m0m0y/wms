@@ -112,3 +112,68 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\wms\addorder.php on line 11
+[02-Aug-2022 09:04:38 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\checking.php on line 143
+[02-Aug-2022 09:05:05 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\checking.php on line 143
+[02-Aug-2022 09:05:07 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\checking.php on line 143
+[02-Aug-2022 13:23:54 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.shipping.php(17): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\shipping.php(53): Shipping->getAllOrders()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[02-Aug-2022 13:23:54 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[02-Aug-2022 13:23:59 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.shipping.php(17): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\shipping.php(53): Shipping->getAllOrders()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[02-Aug-2022 13:23:59 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[02-Aug-2022 13:24:04 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.shipping.php(17): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\shipping.php(53): Shipping->getAllOrders()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[02-Aug-2022 13:24:04 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[08-Aug-2022 10:58:54 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[08-Aug-2022 10:58:58 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[08-Aug-2022 10:59:03 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[11-Aug-2022 08:36:51 Asia/Manila] PHP Notice:  Undefined variable: slip_no in C:\xampp\htdocs\wms\inout.php on line 20
+[11-Aug-2022 16:11:43 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 149
+[11-Aug-2022 16:11:48 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 149
+[11-Aug-2022 16:11:53 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 149
+[11-Aug-2022 16:11:59 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 149
+[11-Aug-2022 16:12:03 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 149
+[11-Aug-2022 16:12:08 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 149
+[11-Aug-2022 16:22:41 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 84

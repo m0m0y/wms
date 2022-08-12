@@ -32,7 +32,7 @@ class Packing extends DBHandler {
                 LEFT JOIN product b ON a.product_id = b.product_id
                 LEFT JOIN unit c ON b.unit_id = c.unit_id
                 LEFT JOIN stock d ON a.slip_id = d.picking_order_id AND a.product_id = d.product_id
-                WHERE a.slip_id = ? ORDER BY b.product_code ASC";
+                WHERE a.slip_id = ? GROUP BY d.stock_id ORDER BY b.product_code ASC";
 
 // SELECT a.id,a.slip_id,a.product_id,b.product_code,b.product_description,c.unit_name,a.quantity_order,a.quantity_shipped,a.location,a.order_status,a.box_number,d.stock_lotno
 //                 FROM picking_order_details a
@@ -172,9 +172,6 @@ class Packing extends DBHandler {
         $query = "SELECT box_number FROM stock WHERE picking_order_id = ? AND box_number =''";
         $stmt = $this->prepareQuery($this->conn, $query, "i", array($slip_id));
         return $this->fetchCount($stmt);
-
-
     }
-
 
 }

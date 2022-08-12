@@ -2,13 +2,14 @@
 
 $slip_no = (isset($_GET['a'])) ?$_GET['a'] : 'x';
 $ship_to = (isset($_GET['b'])) ? $_GET['b'] : 'x';
-$customer_address = (isset($_GET['c'])) ? $_GET['c'] : 'x';
+$billto = (isset($_GET['c'])) ? $_GET['c'] : 'x';
 $remarks = (isset($_GET['d'])) ? $_GET['d'] : '';
 $courier = (isset($_GET['e'])) ? $_GET['e'] : 'x';
 $slip_id = (isset($_GET['g'])) ? $_GET['g'] : 'x';
 
 $weight_kg = (isset($_GET['w'])) ? $_GET['w'] : 'x';
 $weightPerbox = explode(",",$weight_kg);
+$invoice_num = (isset($_GET['h'])) ? $_GET['h'] : 'x';
 
 require_once "tcpdf_include.php";
 require_once "../../controller/controller.db.php";
@@ -74,6 +75,8 @@ if($courier == "Lalamove") {
     $letter = "PS";
 } else if ($courier == "Air") {
     $letter = "PA";
+} else if ($courier == "LBC") {
+    $letter = "PL";
 }
 
 foreach($box_page as $k=>$vv) { $page++; }
@@ -138,11 +141,11 @@ foreach($box as $k=>$v) {
 			<td>INVOICE NUMBER</td>
 		</tr>
 		<tr style="font-size: 16px;">
-			<td><b><?= $slip_no ?></b></td>
+			<td><b><?= $invoice_num ?></b></td>
 		</tr>
 	</table>
 	<?php
-	$slip = ob_get_clean();
+	$invoice = ob_get_clean();
 
 	ob_start();
 	?>
@@ -238,10 +241,10 @@ foreach($box as $k=>$v) {
 	?>
 	<table>
 		<tr style="font-size: <?= $responsiveFont ?>px">
-			<td><b><?= ucwords(strtolower($ship_to)) ?></b></td>
+			<td><?= $billto ?></td>
 		</tr>
 		<tr style="font-size: <?= $responsiveFont ?>px">
-			<td><?= ucfirst(strtolower($customer_address)) ?></td>
+			<td><b><?= $ship_to ?></b></td>
 		</tr>
 	</table>
 	<?php 
@@ -278,7 +281,7 @@ foreach($box as $k=>$v) {
 	$pdf->writeHTML($po);
 
     $pdf->SetXY(35.5, 33.5);
-	$pdf->writeHTML($slip);
+	$pdf->writeHTML($invoice);
 
 	$pdf->SetXY(70, 33.5);
 	$pdf->writeHTML($ship_via_text);
@@ -319,7 +322,7 @@ foreach($box as $k=>$v) {
 	$pdf->writeHTML($o_to);
 	$pdf->StopTransform();
 
-	$pdf->SetXY(15, 80);
+	$pdf->SetXY(15, 82);
 	$pdf->writeHTML($c_add);
 	
 	$pdf->SetXY(42, 125);

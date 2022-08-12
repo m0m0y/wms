@@ -48,7 +48,7 @@ $str='<table cellspacing="1" cellpadding="5" border="0">
 $pdf->writeHTML($str, true, 0, true, 0);
 
 $pdf->setXY(6,16);
-$pdf->writeHTML('Slip No : ' .$stock_lotno, true, 0, true, 0);
+$pdf->writeHTML('Order Number : ' .$stock_lotno, true, 0, true, 0);
 
 $pdf->Ln();
 
