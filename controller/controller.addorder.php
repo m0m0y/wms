@@ -67,6 +67,7 @@ switch($mode) {
             $salesperson = $order[] = str_replace("_x000D_", " ",$spreadsheet->getActiveSheet()->getCellByColumnAndRow(8, 2)->getFormattedValue());
             $shipvia = $order[] = str_replace("_x000D_", " ",$spreadsheet->getActiveSheet()->getCellByColumnAndRow(10, 1)->getFormattedValue());
             $shipdate = $order[] = str_replace("_x000D_", " ",$spreadsheet->getActiveSheet()->getCellByColumnAndRow(10, 2)->getFormattedValue());
+            $remarks = $order[] = str_replace("_x000D_", " ",$spreadsheet->getActiveSheet()->getCellByColumnAndRow(8, 7)->getFormattedValue());
 
             foreach($order as $v) {
                 if(!$v) {
@@ -76,7 +77,7 @@ switch($mode) {
                 }
             }
 
-            $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name);
+            $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$remarks,$user_name);
 
             for($a==8;$a<=$highestRow;$a++){
                 $product_code = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(1, $a)->getFormattedValue();
@@ -125,6 +126,7 @@ switch($mode) {
         $salesperson = $_POST["sales_person"];
         $shipvia = $_POST["ship_via"];
         $shipdate = $_POST["ship_date"];
+        $remarks = $_POST["remarks"];
 
         $product_code = $_POST["product_codes"];
         $quantity_ordered = $_POST["order_qty"];
@@ -132,9 +134,9 @@ switch($mode) {
         $location = $_POST["location"];
         $result = [];
 
-        if($product_code!=null AND $quantity_ordered!=null AND $stock_lotno!=null){
+        // if($product_code!=null AND $quantity_ordered!=null AND $stock_lotno!=null){
 
-            $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name);
+            $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$remarks,$user_name);
 
             foreach ($product_code as $key => $value) {
                 $result[$key] = array(
@@ -155,8 +157,7 @@ switch($mode) {
 
             $response = array('code'=>1,'message'=> "Picking slip was sent successfully");
             echo json_encode($response);
-   
-        }
+        // }
         break;
 
     default:

@@ -58,7 +58,7 @@ switch($mode) {
 
     case "getAllProductCode";
         $allProducts = $inout->getAllProductCodes();
-        $option = '<option selected disabled value=""> --- SELECT PRODUCT --- </option>';
+        $option = '<option selected value=""> --- SELECT PRODUCT --- </option>';
         foreach ($allProducts as $k=>$v) {
             $option .= '<option value="'.$v['product_id'].'">'.$v['product_code'].' ('.$v['product_description'].')</option>';
         }

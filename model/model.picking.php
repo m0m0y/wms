@@ -359,5 +359,58 @@ class Picking extends DBHandler {
         return ($result) ? true : false;
     }
 
+    public function finishedOrders() 
+    {
+        
+        $order_status = "finished";
+        $query = "SELECT slip_id, slip_no, slip_order_date, bill_to, ship_to, po_no, ship_date, invoice_no, order_status FROM picking_order WHERE order_status = ?";
+        $stmt = $this->prepareQuery($this->conn, $query, "s", array($order_status));
+
+        return $this->fetchAssoc($stmt);
+
+    }
+
+    
+    public function orderAnalytics() 
+    {
+
+        $fp = $fi = $p = $fd = 0;
+        $query = "SELECT COUNT(slip_id) FROM picking_order WHERE order_status = 'prepare'";
+        $stmt = $this->prepareQuery($this->conn, $query);
+        $prepare = $this->fetchRow($stmt);
+
+        $query = "SELECT COUNT(slip_id) FROM picking_order WHERE order_status = 'invoice'";
+        $stmt = $this->prepareQuery($this->conn, $query);
+        $invoice = $this->fetchRow($stmt);
+
+        $query = "SELECT COUNT(slip_id) FROM picking_order WHERE order_status = 'pack'";
+        $stmt = $this->prepareQuery($this->conn, $query);
+        $pack = $this->fetchRow($stmt);
+
+        $query = "SELECT COUNT(slip_id) FROM picking_order WHERE order_status = 'deliver'";
+        $stmt = $this->prepareQuery($this->conn, $query);
+        $deliver = $this->fetchRow($stmt);
+
+        if(!empty($prepare)) { $fp = (int)($prepare[0]) ?: 0; }
+        if(!empty($prepare)) { $fi = (int)($invoice[0]) ?: 0; }
+        if(!empty($pack)) { $p = (int)($pack[0]) ?: 0; }
+        if(!empty($invoice)) { $fd = (int)($deliver[0]) ?: 0; }
+
+        return array(array($fp),array($fi),array($p),array($fd));
+
+    }
+
+    public function allFinishedOrdersdetails($slip_id)
+    {
+
+        $query = "SELECT a.quantity_order, a.quantity_shipped, a.location, a.stock_lotno, b.category_id, b.unit_id, b.product_code, b.product_description, b.product_image 
+            FROM picking_order_details a 
+            LEFT JOIN product b ON a.product_id = b.product_id
+            WHERE a.slip_id = ?";
+        $stmt = $this->prepareQuery($this->conn, $query, "i", array($slip_id));
+        
+        return $this->fetchAssoc($stmt);
+
+    }
 
 }

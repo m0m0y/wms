@@ -75,7 +75,7 @@ $order = $invoicing->getAllOrders();
                                     <thead>
                                         <tr>
                                             <th class="py-4 align-middle text-center">SLIP #: <?= $v['slip_no'] ?></th>
-                                            <th  class="py-4 align-middle text-center">INVOICE NO #: <?= $v['invoice_no'] ?></th>
+                                            <th  class="py-4 align-middle text-center">INVOICE #: <?= ($v['invoice_no']=="") ? 'N/A' : ''.$v['invoice_no'].''; ?></th>
                                             <th class="py-4 align-middle text-center">PO#: <?= $v['po_no'] ?></th>
                                             <th  class="py-4 align-middle text-center">REFERENCE #: <?= $v['reference'] ?></th>
                                         </tr>
@@ -83,11 +83,11 @@ $order = $invoicing->getAllOrders();
                                     <tbody>
                                         <tr class="bg-white">
                                             <td colspan="2" class="py-3">
-                                                Customer Name:<br>
+                                                Order Ship to:<br>
                                                 <?= $v['ship_to'] ?>
                                             </td>
                                             <td colspan="2" class="py-3">
-                                                Order Bill to:<br>
+                                                Customer Name:<br>
                                                 <?= $v['bill_to'] ?>
                                             </td>
                                         </tr>

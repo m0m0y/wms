@@ -23,11 +23,13 @@ class Product extends DBHandler {
         return $this->fetchAssoc($stmt);
     }
  
-    public function getProduct($id)
+    public function getProduct($id,$lot_id)
     {
-        $query = "SELECT product_id, category_id, unit_id, product_type, product_code, product_description, product_expiration FROM product WHERE product_id = ?";
-        // $query = "SELECT p.product_id, p.category_id, p.unit_id, p.product_type, p.product_code, p.product_description, p.product_expiration, s.stock_id, s.stock_lotno, s.stock_qty FROM product p LEFT JOIN stock s ON s.product_id = p.product_id WHERE p.product_id = ?";
-        $stmt = $this->prepareQuery($this->conn, $query, "i", array($id));
+        $query = "SELECT p.product_id, p.category_id, p.unit_id, p.product_type, p.product_code, p.product_description, p.product_expiration, s.stock_qty
+            FROM product p
+            LEFT JOIN stock s ON p.product_id = s.product_id WHERE p.product_id=? AND s.stock_id=?";
+
+        $stmt = $this->prepareQuery($this->conn, $query, "ii", array($id,$lot_id));
         return $this->fetchRow($stmt);
     }
 

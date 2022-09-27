@@ -279,38 +279,80 @@ switch($mode) {
         $response = array("code"=>1, "view"=>$view);            
         break;
 
-        case "dropdown_rak";
-            require_once "../model/model.rak.php";
-            $rak = new Rak();
-            $units = $rak->getAllRaks();
-            $option = "<option value='' disabled='' selected=''>--Select Rak--</option>";
-            foreach($units as $k=>$v) {
-                $option.="<option value='".$v['rak_name']."-".$v['rak_column']."-".$v['rak_level']."'>RAK-".$v['rak_name'].$v['rak_column'].$v['rak_level']."</option>";
-            }
-            echo $option;
-            exit;
+    case "dropdown_rak";
+        require_once "../model/model.rak.php";
+        $rak = new Rak();
+        $units = $rak->getAllRaks();
+        $option = "<option value='' disabled='' selected=''>--Select Rak--</option>";
+        foreach($units as $k=>$v) {
+            $option.="<option value='".$v['rak_name']."-".$v['rak_column']."-".$v['rak_level']."'>RAK-".$v['rak_name'].$v['rak_column'].$v['rak_level']."</option>";
+        }
+        echo $option;
+        exit;
 
-        case "dropdown_cart";
-            require_once "../model/model.cart.php";
-            $cart = new Cart();
-            $units = $cart->getCartOnly();
-            $option = "<option value='' disabled='' selected=''>--Select Cart--</option>";
-            foreach($units as $k=>$v) {
-                $option.="<option value='".$v['cart_id']."'>".$v['location_name']."</option>";
-            }
-            echo $option;
-            exit;
+    case "dropdown_cart";
+        require_once "../model/model.cart.php";
+        $cart = new Cart();
+        $units = $cart->getCartOnly();
+        $option = "<option value='' disabled='' selected=''>--Select Cart--</option>";
+        foreach($units as $k=>$v) {
+            $option.="<option value='".$v['cart_id']."'>".$v['location_name']."</option>";
+        }
+        echo $option;
+        exit;
 
-        case "dropdown_table";
-            require_once "../model/model.cart.php";
-            $table = new Cart();
-            $units = $table->getTableOnly();
-            $option = "<option value='' disabled='' selected=''>--Select Table--</option>";
-            foreach($units as $k=>$v) {
-                $option.="<option value='".$v['cart_id']."'>".$v['location_name']."</option>";
-            }
-            echo $option;
-            exit;
+    case "dropdown_table";
+        require_once "../model/model.cart.php";
+        $table = new Cart();
+        $units = $table->getTableOnly();
+        $option = "<option value='' disabled='' selected=''>--Select Table--</option>";
+        foreach($units as $k=>$v) {
+            $option.="<option value='".$v['cart_id']."'>".$v['location_name']."</option>";
+        }
+        echo $option;
+        exit;
+
+    case "finished";
+        $picking = $picking->finishedOrders();
+        foreach($picking as $k=>$v) {    
+        
+            $picking[$k]['slip_no'] = $v['slip_no'];
+            $picking[$k]['bill_to'] = $v['bill_to'];
+            $picking[$k]['ship_to'] = $v['ship_to'];
+            $picking[$k]['po_no'] = $v['po_no'];
+            $picking[$k]['ship_date'] = $v['ship_date'];
+            $picking[$k]['invoice_no'] = $v['invoice_no'];
+            $picking[$k]['order_status'] = $v['order_status'];
+            $picking[$k]['action'] = '
+            <center>
+                <button class="btn btn-sm btn-primary" type="button" onclick="orderSummary('.$v['slip_id'].',\''.$v['slip_no'].'\',\''.$v['slip_order_date'].'\',\''.$v['bill_to'].'\',\''.$v['ship_to'].'\',\''.$v['po_no'].'\',\''.$v['ship_date'].'\',\''.$v['invoice_no'].'\',\''.$v['order_status'].'\')">
+                    <i class="material-icons myicon-lg">remove_red_eye</i> View Orders
+                </button>
+            </center>';
+        }
+    
+        $response = array("data" => $picking);
+        break;
+
+    case "orderAnalytics";
+        $analytics = $picking->orderAnalytics();
+        $prepare = $analytics[0][0];
+        $invoice = $analytics[1][0];
+        $pack = $analytics[2][0];
+        $deliver = $analytics[3][0];
+
+        $response = array(
+            "pick" => $prepare,
+            "invoice" => $invoice,
+            "pack" => $pack,
+            "deliver" => $deliver
+        );
+        break;
+
+    case "completeOrderDetails";
+        $slip_id = Sanitizer::filter('si', 'get');
+        $response = $picking->allFinishedOrdersdetails($slip_id);
+        break;
 }
 
 

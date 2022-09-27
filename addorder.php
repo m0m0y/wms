@@ -5,11 +5,6 @@ $meta_title = 'Add Orders - Warehouse Management System';
 require_once "./component/header.php";
 require_once "./component/navbar.php";
 require_once "./component/sidebar.php";
-
-require_once "./model/model.addorder.php";
-
-$products = new AddOrder();
-$product_code = $products->getAllProductCodes();
 ?>
 
 <link rel="stylesheet" href="/wms/lib/datatable/datatables.min.css">
@@ -67,76 +62,75 @@ $product_code = $products->getAllProductCodes();
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid mb-5">
-                        <input type="text" id="slip_no" name="slip_no" class="form-control rounded-0 mb-3" placeholder="Type Slip Number here" required>
+                        <input type="text" id="slip_no" name="slip_no" class="form-control rounded-0 mb-3" placeholder="Slip Number" data-toggle="tooltip" data-placement="bottom" title="Slip Number" required>
 
-                        <input type="date" id="slip_order_date" name="slip_order_date" class="form-control rounded-0 mb-3" required>
+                        <input type="date" id="slip_order_date" name="slip_order_date" class="form-control rounded-0 mb-3" data-toggle="tooltip" data-placement="bottom" title="Order Date" required>
 
-                        <input type="text" id="bill_to" name="bill_to" class="form-control rounded-0 mb-3" placeholder="Type Bill To here" required>
+                        <input type="text" id="bill_to" name="bill_to" class="form-control rounded-0 mb-3" placeholder="Customer Name" data-toggle="tooltip" data-placement="bottom" title="Customer Name" required>
 
-                        <input type="text" id="ship_to" name="ship_to" class="form-control rounded-0 mb-3" placeholder="Type Ship To here" required>
+                        <input type="text" id="ship_to" name="ship_to" class="form-control rounded-0 mb-3" placeholder="Shipping Address" data-toggle="tooltip" data-placement="bottom" title="Shipping Address" required>
 
-                        <input type="number" id="reference" name="reference" class="form-control rounded-0 mb-3" placeholder="Type Reference No. here" required>
+                        <input type="number" id="reference" name="reference" class="form-control rounded-0 mb-3" placeholder="Reference No." data-toggle="tooltip" data-placement="bottom" title="Reference No." required>
 
-                        <input type="number" id="po_no" name="po_no" class="form-control rounded-0 mb-3" placeholder="Type PO No. here" required>
+                        <input type="number" id="po_no" name="po_no" class="form-control rounded-0 mb-3" placeholder="PO No." data-toggle="tooltip" data-placement="bottom" title="PO No." required>
 
-                        <input type="text" id="address" name="address" class="form-control rounded-0 mb-3" placeholder="Type Address here" required>
+                        <input type="text" id="address" name="address" class="form-control rounded-0 mb-3" placeholder="Customer Address" data-toggle="tooltip" data-placement="bottom" title="Customer Address" required>
 
-                        <input type="text" id="sales_person" name="sales_person" class="form-control rounded-0 mb-3" placeholder="Type Sales Person here" required>
+                        <input type="text" id="sales_person" name="sales_person" class="form-control rounded-0 mb-3" placeholder="Sales Person" data-toggle="tooltip" data-placement="bottom" title="Sales Person" required>
 
-                        <input type="text" id="ship_via" name="ship_via" class="form-control rounded-0 mb-3" placeholder="Type Ship Via here" required>
+                        <input type="text" id="ship_via" name="ship_via" class="form-control rounded-0 mb-3" placeholder="Ship Via" data-toggle="tooltip" data-placement="bottom" title="Ship Via" required>
 
-                        <input type="date" id="ship_date" name="ship_date" class="form-control rounded-0 mb-3" placeholder="Type Ship Date here" required>
+                        <input type="date" id="ship_date" name="ship_date" class="form-control rounded-0 mb-3" placeholder="Ship Date" data-toggle="tooltip" data-placement="bottom" title="Ship Date" required>
+
+                        <textarea  id="remarks" name="remarks" class="form-control" cols="20" rows="5" placeholder="Type your remarks here..." data-toggle="tooltip" data-placement="bottom" title="Remarks"></textarea>
                     </div>
-
-                    <!-- <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right"><span class="text-danger"></span> Search Product:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="search" placeholder="Type Product Code/Product Description" onkeyup="searchValue(this.value)">
-                        </div>
-                    </div> -->
 
                     <hr>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Products:</label>
                         <div class="col-sm-10">
-                            <select class="form-control pcode" style="width: 100%" name="" id="product_codes"></select>
+                            <select class="form-control pcode" style="width: 100%" name="product_codes" id="product_codes"></select>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Order qty:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" name="" id="order_qty" placeholder="Type Order Quantity here">
+                            <input type="number" class="form-control" name="order_qty" id="order_qty" placeholder="Quantity" data-toggle="tooltip" data-placement="bottom" title="Order Quantity">
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Lot No:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="" id="lotno"></select>
+                            <select class="form-control" name="lotno" id="lotno"></select>
                         </div>
                     </div>
 
-                    <div class="row mb-4">
+                    <div class="row mb-3">
                         <label class="col-sm-2 col-form-label text-right">Location:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="" id="location" placeholder="Type Location here">
+                            <input type="text" class="form-control" name="location" id="location" placeholder="Location" data-toggle="tooltip" data-placement="bottom" title="Location">
                         </div>
                     </div>
 
-                    <div class="order-container"></div>
+                    <div class="row mb-2">
+                        <label class="col-sm-2 col-form-label text-right"></label>
+                        <div class="col-sm-10">
+                            <div class="order-container"></div>
+                        </div>
+                    </div>
 
                     <div class="d-flex justify-content-end mb-3">
-                        <button type="button" class="btn btn-sm btn-success m-1" id="preview_btn"><i class="material-icons myicon-lg">add_box</i> Preview</button>
-
-                        <!-- <button type="button" class="btn btn-sm btn-danger m-1" id="new_field"><i class="material-icons myicon-lg">remove_circle_outline</i> Remove</button> -->
+                        <button type="button" class="btn btn-sm btn-success m-1" id="preview_btn"><i class="material-icons myicon-lg">remove_red_eye</i> Preview</button>
+                        <button type="button" class="btn btn-sm btn-danger m-1" onclick="clr_btn()"><i class="material-icons myicon-lg">remove_circle_outline</i> Clear</button>
                     </div>
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="material-icons myicon-lg">close</i> Close</button>
-                    <button type="submit" class="btn btn-primary">Add Order</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="addorder_btn">Add Order</button>
                 </div>
             </div>
         </div>

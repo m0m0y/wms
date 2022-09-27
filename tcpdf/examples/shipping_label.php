@@ -96,7 +96,7 @@ foreach($box as $k=>$v) {
 	$pdf->setPageMark();
 
 	$pdf->Image('../../static/panamed-bnw.png', 15, 9, 42, 0, 'PNG', '', '', true, 1000, '', false, false, 0, false, false, false);
-    $pdf->Image('../../static/shipping-label/R2.png', 7, 126, 31, 0, 'PNG', '', '', true, 1000, '', false, false, 0, false, false, false);
+    $pdf->Image('../../static/shipping-label/R2.png', 7, 129, 31, 0, 'PNG', '', '', true, 1000, '', false, false, 0, false, false, false);
 
 	$responsiveFont = 13;
 	$headText = 13;
@@ -171,7 +171,7 @@ foreach($box as $k=>$v) {
 	?>
 	<table>
 		<tr style="font-size: 11px;">
-			<td>Order Date</td>
+			<td>Order Date:</td>
 		</tr>
 	</table>
 	<?php
@@ -240,10 +240,10 @@ foreach($box as $k=>$v) {
 	ob_start();
 	?>
 	<table>
-		<tr style="font-size: <?= $responsiveFont ?>px">
+		<tr style="font-size: <?= $responsiveFont ?>px;">
 			<td><?= $billto ?></td>
 		</tr>
-		<tr style="font-size: <?= $responsiveFont ?>px">
+		<tr style="font-size: <?= $responsiveFont ?>px;">
 			<td><b><?= $ship_to ?></b></td>
 		</tr>
 	</table>
@@ -283,7 +283,7 @@ foreach($box as $k=>$v) {
     $pdf->SetXY(35.5, 33.5);
 	$pdf->writeHTML($invoice);
 
-	$pdf->SetXY(70, 33.5);
+	$pdf->SetXY(70, 34.5);
 	$pdf->writeHTML($ship_via_text);
 	
 	$pdf->SetXY(70, 36.5);
@@ -298,22 +298,22 @@ foreach($box as $k=>$v) {
 
 	$pdf->write1DBarcode($v['box_number'], 'C39E', 7, 51, '', 20, 0.35, $style, 'N');
 
-	$pdf->SetXY(53, 100);
+	$pdf->SetXY(53, 105);
 	$pdf->writeHTML($date_order_text);
 
-    $pdf->SetXY(45, 104);
+    $pdf->SetXY(45, 109);
 	$pdf->writeHTML($date_order);
 
-	$pdf->SetXY(53, 110);
+	$pdf->SetXY(53, 114);
 	$pdf->writeHTML($print_date_text);
 
-	$pdf->SetXY(45, 114);
+	$pdf->SetXY(45, 117);
 	$pdf->writeHTML($print_date);
 
-	$pdf->SetXY(8, 102);
+	$pdf->SetXY(8, 105);
 	$pdf->writeHTML($pack_description);
 
-	$pdf->SetXY(13.5, 105.5);
+	$pdf->SetXY(13.5, 109);
 	$pdf->writeHTML($box_total);
 
 	$pdf->StartTransform();
@@ -322,13 +322,13 @@ foreach($box as $k=>$v) {
 	$pdf->writeHTML($o_to);
 	$pdf->StopTransform();
 
-	$pdf->SetXY(15, 82);
+	$pdf->SetXY(15, 83.5);
 	$pdf->writeHTML($c_add);
 	
-	$pdf->SetXY(42, 125);
+	$pdf->SetXY(42, 128);
 	$pdf->writeHTML($remarked_text);
 
-	$pdf->SetXY(42, 130);
+	$pdf->SetXY(42, 133);
 	$pdf->writeHTML($remarked);
     
 	/*  */

@@ -215,7 +215,9 @@ function printBoxLabel(){
         // var box_w = $("#box-weight").val();
         // var bbox = $("input[name='box-weight[]']").val();
 
-        var url = "tcpdf/examples/shipping_label.php?a="+slip_no+"&b="+ship_to+"&c="+bill_to+"&d="+remarks+"&e="+courier+"&f="+page+"&g="+id_slip+"&w="+box_w+"&h="+invoice_num;
+        var newVal = ship_to.replace('#', '');
+
+        const url = "tcpdf/examples/shipping_label.php?a="+slip_no+"&b="+newVal+"&c="+bill_to+"&d="+remarks+"&e="+courier+"&f="+page+"&g="+id_slip+"&h="+invoice_num;
 
         if(isElectron()) {
             $('#printModal').modal('hide')

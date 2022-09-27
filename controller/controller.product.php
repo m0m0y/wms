@@ -32,7 +32,8 @@ switch($mode) {
     case "get";
     
         $id = Sanitizer::filter('id', 'get', 'int');
-        $response = $product->getProduct($id);
+        $lot_id = Sanitizer::filter('lot_id', 'get', 'int');
+        $response = $product->getProduct($id,$lot_id);
         break;
 
     case "add";

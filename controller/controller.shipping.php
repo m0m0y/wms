@@ -37,7 +37,7 @@ switch($mode) {
     case "option";
         $shipping = $shipping->getAllDispatcher();
         $html = "";
-        
+        $html .= "<option value='0'>NONE</option>";
         foreach($shipping as $k=>$v){
             $id = $shipping[$k]["user_id"];
             $name = $shipping[$k]["user_fullname"];

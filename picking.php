@@ -32,7 +32,7 @@ $role = $auth->getSession("role");
 </div>
 
 
-<div class="main-content" id="live">
+<div class="main-content" id="">
     <div class="row row-cols-1" id="product-set">
         <div class="col">
             <div class="padded mb-5">
@@ -61,35 +61,51 @@ $role = $auth->getSession("role");
             $slip_id = $v['slip_id'];
             $slip_no = $v['slip_no'];
             $idforUser = "user_id".$slip_id;
-            $customer_name = ucfirst($v['ship_to']);
+            $customer_name = ucfirst($v['bill_to']);
+            $ship_address = ucfirst($v['ship_to']);
             $pick_percentage = ($v['total_picked']) ? number_format(($v['total_picked']/$v['total_qty']) * 100, "1", ".", ",") : 0;
             $repick = ($v['order_status']=="repick") ? 'border-dashed border border-warning' : '';
             $admin = ($role == "admin") ? "display:block" : "display:none";
         ?>
         <div class="col">
-            <div class="card-panel p-4 <?= $repick ?>" onclick="pickOrder('<?= $slip_id ?>', '<?= $customer_name ?>', '<?= $slip_no ?>')">
+            <div class="card-panel p-4 <?= $repick ?>" onclick="pickOrder('<?= $slip_id ?>', '<?= $ship_address ?>', '<?= $slip_no ?>')">
                 <p class="m-0 text-muted"><small><?= date("jS \of M Y", strtotime($v['slip_order_date'])) ?></small></p>
                 <p class="m-0 font-weight-bold"><?= $slip_no ?></p>
-                <p class="m-0 mb-3"><?= $customer_name ?></p>
+                
+                <div class="m-0 mb-3 d-flex justify-content-center row">
+                    <div class="col-md-6 col-sm-12 p-0">
+                        <p class="m-0"><?= $customer_name ?></p>
+                        <p class="m-0"><small><?= $ship_address ?></small></p>
+                    </div>
+            
+                    <div class="col-md-6 col-sm-12 p-0">
+                        <?php if($role == "admin" || $role == "admin-default"): ?>
+                            <div class="controls">
+                                <input type="hidden" id="<?php echo $idforUser ?>" value="<?=$v['user_id']?>">
+                                <a href="#!" onclick="event.stopPropagation();updateUser('<?= $slip_id ?>')" tabindex="-1">
+                                    <i class="material-icons">person_search</i>
+                                </a>
+                                <?php if ($v['total_picked']==0): ?>
+                                <a href="#!" onclick="event.stopPropagation();deleteOrder('<?= $slip_id ?>')" tabindex="-1">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                                <?php endif ?>
+                            </div>
+                        <?php endif ?>
+                    </div>
+                </div>
 
                 <?php if ($v['order_status']=="repick" && !empty($v['comments'])): ?>
+                   
                     <p class="px-3 py-2 comment rounded-0">
-                        <small><?php echo $v['comments']; ?></small>
+                        <small><b>Return Comments:</b> <?php echo $v['comments']; ?></small>
                     </p>
                 <?php endif ?>
 
-                <?php if($role == "admin" || $role == "admin-default"): ?>
-                <div class="controls">
-                    <input type="hidden" id="<?php echo $idforUser ?>" value="<?=$v['user_id']?>">
-                    <a href="#!" onclick="event.stopPropagation();updateUser('<?= $slip_id ?>')" tabindex="-1">
-                        <i class="material-icons">person_search</i>
-                    </a>
-                    <?php if ($v['total_picked']==0): ?>
-                    <a href="#!" onclick="event.stopPropagation();deleteOrder('<?= $slip_id ?>')" tabindex="-1">
-                        <i class="material-icons">delete</i>
-                    </a>
-                    <?php endif ?>
-                </div>
+                <?php if ($v['order_status']=="prepare" && !empty($v['remarks'])): ?>
+                    <p class="px-3 py-2 comment rounded-0">
+                        <small><b>Remarks:</b> <?php echo $v['remarks']; ?></small>
+                    </p>
                 <?php endif ?>
 
                 <!-- <p class="right-align mb-1"><small><b><?= $v['total_picked'] ?> / <?= $v['total_qty'] ?></b></small></p> -->

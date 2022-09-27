@@ -285,19 +285,27 @@ function weightBranch(){
 function checkfield(){
     $('.paster').on('click', function(){ 
         var $target = $($(this).data('to'));
-        navigator.clipboard.readText().then(text => {
+        var weight = $('#weight-to-compare').html();
 
-            text = parseFloat(text);
-            if(isNaN(text)) { text = 0.0; }
-            $target.val(text);
+        var res = weight.split(" ");
+        var text = res[0];
 
-            if($(this).data('to') == '#weight_picked') {
-                totalPick(text, $target);
-                return
-            }
-            pickedPerUnit(text, $target);
-            return
-        });
+        $('#weight_picked').val(text);
+        
+        totalPick(text, $target);
+
+        // navigator.clipboard.readText().then(res => {
+
+        //     text = parseFloat(res);
+        //     if(isNaN(text)) { text = 0.0; }
+        //     $target.val(text);
+
+        //     if($(this).data('to') == '#weight_picked') {
+        //         return
+        //     }
+        // pickedPerUnit(text, $target);
+        //     return
+        // });
         return
     })
     $('.clearer').on('click', function(){

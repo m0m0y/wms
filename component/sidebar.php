@@ -56,6 +56,10 @@
         </li>
 
         <li>
+            <a href="complete_orders.php"><i class="material-icons mr-3">done_all</i> <span class="s-text">Complete Orders</span></a>
+        </li>
+
+        <li>
             <a href="inventory.php"><i class="material-icons mr-3">maps_home_work</i> <span class="s-text">Inventory</span></a>
         </li>
 

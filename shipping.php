@@ -58,7 +58,8 @@ $shipping = new Shipping();
         foreach($order as $k=>$v) {
             $slip_id = $v['slip_id'];
             $slip_no = $v['slip_no'];
-            $customer_name = ucfirst($v['ship_to']);
+            $customer_name = ucfirst($v['bill_to']);
+            $ship_address = ucfirst($v['ship_to']);
             
             $repick = ($v['order_status']=="repick") ? 'border border-warning' : '';
             $count_box = $shipping->countBoxPerOrder($slip_id);
@@ -68,10 +69,14 @@ $shipping = new Shipping();
 
         <div class="col">
             <div class="padded">
-                <div class="card-panel p-4 <?= $repick ?>" onclick="pickOrder('<?= $slip_id ?>', '<?= $customer_name ?>', '<?= $slip_no ?>')">
+                <div class="card-panel p-4 <?= $repick ?>" onclick="pickOrder('<?= $slip_id ?>', '<?= $ship_address ?>', '<?= $slip_no ?>')">
                     <p class="m-0 text-muted"><small><?= date("jS \of M Y", strtotime($v['slip_order_date'])) ?></small></p>
                     <p class="m-0 font-weight-bold">Slip No: <?= $slip_no ?></p>
-                    <p class="m-0 mb-3"><?= $customer_name ?></p>
+                    <div class="m-0 mb-3">
+                        <p class="mb-0"><?= $customer_name ?></p>
+                        <p class="m-0"><?= $ship_address ?></p>
+                    </div>
+                    
 
                     <?php if ($v['order_status']=="repick"): ?>
                         <p class="comment"><?php echo $v['comments']; ?></p>

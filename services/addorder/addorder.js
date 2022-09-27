@@ -3,6 +3,8 @@ $(function(){
 	customFileInput();
 	ajaxForm();
 
+	$('#addorder_btn').attr('disabled', 'disabled');
+
 	$('#product_codes').load('controller/controller.inout.php?mode=getAllProductCode');
 
 	$('#product_codes').change(function() {
@@ -23,18 +25,33 @@ $(function(){
 		var lotname = $('#lotno option:selected').text();
 		var lotno_res = lotname.split(" ");
 
-		if(lot_no == null || lot_no == "" || order_qty == null) {
+		if(lot_no == null || lot_no == "" || order_qty == "") {
+
 			$.Toast('Please check required field', errorToast);
+
+		} else if(order_qty <= 0) {
+
+			$.Toast('Invalid Quantity', {
+				'width': 0,
+				'duration': 4000,
+				'position': 'top',
+				'align': 'right',
+				'zindex': 99999
+			});
+
 		} else {
 
+			$('#addorder_btn').removeAttr('disabled');
+
 			$.ajax({
-				url: 'controller/controller.product.php?mode=get&id='+id,
+				url: 'controller/controller.product.php?mode=get&id='+id+'&lot_id='+lot_no,
 				method: 'POST',
 				data: { id:id },
 				success: function(data) {
 					var data = JSON.parse(data);
-					$('.order-container').append('<div id="ss'+data[0]+lot_no+order_qty+'"><div class="d-none"><input type="text" name="product_codes[]" value="'+data[0]+'"><input type="text" name="order_qty[]" value="'+order_qty+'"><input type="text" name="lotno[]" value="'+lotno_res[1]+'"><input type="text" name="location[]" value="'+location+'"></div> <span class="bg-primary text-white px-2"><a type="button" id="remove_btn"><i class="material-icons">close</i></a> '+order_qty+' '+data[5]+' <small>('+lotno_res[1]+')</small></span></div> ');
+					$('.order-container').append('<div id="ss'+data[0]+lot_no+order_qty+'" style="margin-bottom: 3px;"><div class="d-none"><input type="text" name="product_codes[]" value="'+data[0]+'"><input type="text" name="order_qty[]" value="'+order_qty+'"><input type="text" name="lotno[]" value="'+lotno_res[1]+'"><input type="text" name="location[]" value="'+location+'"></div> <span class="bg-primary item-details text-white px-2"><a type="button" id="remove_btn"><i class="material-icons">close</i></a> '+order_qty+' '+data[5]+' <small>('+lotno_res[1]+')</small></span></div> ');
 				}
+
 			});
 
 		}
@@ -44,6 +61,8 @@ $(function(){
 		e.preventDefault();
 		var id = $(this).parent().parent().attr('id');
 		$('div #'+id).remove();
+
+		$('#addorder_btn').attr('disabled', 'disabled');
 	})
 
 })
@@ -119,19 +138,18 @@ function ajaxForm(){
 		var order_qty = $('#order_qty').val();
 		var lot_no = $('#lotno').val();
 
-		if(id == null || order_qty == null || lot_no == null) {
-			$.Toast('Please check required field', errorToast);
-		}
-		else if(order_qty < 0) {
-			$.Toast('Invalid Quantity', {
-				'width': 0,
-				'duration': 4000,
-				'position': 'top',
-				'align': 'right',
-				'zindex': 99999
-			});
-		} 
-		else {
+		// if(id == null || order_qty == null || lot_no == null) {
+		// 	$.Toast('Please check required field', errorToast);
+		// }
+		// if(order_qty <= 0) {
+		// 	$.Toast('Invalid Quantity', {
+		// 		'width': 0,
+		// 		'duration': 4000,
+		// 		'position': 'top',
+		// 		'align': 'right',
+		// 		'zindex': 99999
+		// 	});
+		// } else {
 			loader();
 			$.ajax({
 				url: action,
@@ -161,36 +179,13 @@ function ajaxForm(){
 				}
 			})
 
-		}
+		// }
 
 	})
 
 }
 
-// function searchValue(str) {
-	// if(str.length == 0) {
-	// 	$('#product_codes').load('controller/controller.inout.php?mode=getAllProductCode');
-	// 	$('#lotno').load('');
-	// 	return;
-	// }
-	// else {
-	// 	var xmlhttp = new XMLHttpRequest();
-	// 	xmlhttp.onreadystatechange = function() {
-	// 		if (this.readyState == 4 && this.status == 200) {
-	// 			var responseVal = this.responseText;
-	// 			var obj = $.parseJSON(responseVal);
-
-				// $('#product_codes').load('controller/controller.inout.php?mode=getProductCode&product_code='+obj.product_code);
-
-				// $('#product_codes').filter(function() {
-				// 	load('controller/controller.inout.php?mode=getProductCode&product_code='+obj.product_code);
-				// });
-
-				// $('#lotno').load('controller/controller.addorder.php?mode=getLotnumber&product_id='+obj.product_id);
-
-		// 	}
-		// }
-		// xmlhttp.open("GET", "controller/controller.inout.php?mode=searchCode&product_code="+str, true);
-		// xmlhttp.send();
-	// }
-// }
+function clr_btn() {
+	$('.pcode').val(null).trigger('change');
+	$('#location, #order_qty').val("");
+}

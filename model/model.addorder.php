@@ -9,7 +9,7 @@ class AddOrder extends DBHandler {
         $this->conn = $this->connectDB();
     }
 
-    public function addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$user_name)
+    public function addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$remarks,$user_name)
     {
 
         $slipno = str_replace(array("'", "&quot;"), "", htmlspecialchars($slipno));
@@ -20,6 +20,7 @@ class AddOrder extends DBHandler {
         $customer_address = str_replace(array("'", "&quot;"), "", htmlspecialchars($customer_address));
         $salesperson = str_replace(array("'", "&quot;"), "", htmlspecialchars($salesperson));
         $shipvia = str_replace(array("'", "&quot;"), "", htmlspecialchars($shipvia));
+        $remarks = str_replace(array("'", "&quot;"), "", htmlspecialchars($remarks));
 
         $usertype = "picker";
         $qry = "SELECT user_id FROM user_account WHERE user_usertype = ?";
@@ -60,8 +61,8 @@ class AddOrder extends DBHandler {
         $sliporder_date = date_format(date_create($sliporder_date), "Y-m-d");
 
         $shipvia = 1;
-        $query = "INSERT INTO picking_order SET slip_no = ?, slip_order_date = ?, bill_to = ?, ship_to = ?, reference = ?, po_no = ?, customer_address = ?, sales_person = ?, truck_id = ?, ship_date = ?, comments = '', approved_by = '', invoice_billed_by = '', invoice_no = '', order_status = 'prepare', user_id = ?";
-        $stmt = $this->prepareQuery($this->conn, $query, "ssssssssisi", array($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$final_Userid));
+        $query = "INSERT INTO picking_order SET slip_no = ?, slip_order_date = ?, bill_to = ?, ship_to = ?, reference = ?, po_no = ?, customer_address = ?, sales_person = ?, truck_id = ?, ship_date = ?, comments = '', remarks = ?, approved_by = '', invoice_billed_by = '', invoice_no = '', order_status = 'prepare', user_id = ?";
+        $stmt = $this->prepareQuery($this->conn, $query, "ssssssssissi", array($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$remarks,$final_Userid));
         $this->execute($stmt);
 
         $lastid = $stmt->insert_id;
@@ -109,25 +110,42 @@ class AddOrder extends DBHandler {
 
     public function addOrderManualDetails($slip_id,$pcode,$qty,$location,$lotno)
     {
+
         $query = "INSERT INTO picking_order_details SET slip_id = ?, product_id = ?, quantity_order = ?, quantity_shipped = '0', location = ?, stock_id = '0', order_status = 'pending', checking_status = '', stock_lotno = ?";
         $stmt = $this->prepareQuery($this->conn, $query, "iiiss", array($slip_id,$pcode,$qty,$location,$lotno));
+
         return $this->execute($stmt);
+
     }
 
     public function getAllProductCodes()
     {
-        $query = "SELECT product_id, product_code, product_description FROM product";
 
+        $query = "SELECT product_id, product_code, product_description FROM product";
         $stmt = $this->prepareQuery($this->conn, $query);
+
         return $this->fetchAssoc($stmt);
+
     }
 
     public function getLotnumbers($product_id) 
     {
-        $query = "SELECT s.stock_id, s.stock_expiration_date, s.stock_lotno FROM stock s LEFT JOIN product p ON p.product_id = s.product_id WHERE p.product_id = ? AND s.location_type = 'rak' AND stock_qty!=0";
 
+        $query = "SELECT s.stock_id, s.stock_expiration_date, s.stock_lotno FROM stock s LEFT JOIN product p ON p.product_id = s.product_id WHERE p.product_id = ? AND s.location_type = 'rak' AND stock_qty!=0";
         $stmt = $this->prepareQuery($this->conn, $query, "i", [$product_id]);
+
         return $this->fetchAssoc($stmt);
+
+    }
+
+    public function uploadValidate($pcode)
+    {
+
+        $query = "SELECT product_id FROM product WHERE product_code LIKE '%$pcode%'";
+        $stmt = $this->prepareQuery($this->conn, $query);
+
+        return $this->fetchAssoc($stmt);
+
     }
 
 }

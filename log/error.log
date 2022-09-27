@@ -177,3 +177,160 @@ Stack trace:
 [11-Aug-2022 16:12:03 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 149
 [11-Aug-2022 16:12:08 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 149
 [11-Aug-2022 16:22:41 Asia/Manila] PHP Notice:  Undefined variable: aaa in C:\xampp\htdocs\wms\index.php on line 84
+[18-Aug-2022 08:33:25 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:33:30 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:33:35 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:33:40 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:33:45 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:33:50 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:35:29 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:35:33 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:35:38 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:35:43 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:35:48 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 08:35:53 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[18-Aug-2022 13:22:59 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[19-Aug-2022 13:29:55 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[19-Aug-2022 13:30:00 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[19-Aug-2022 13:30:05 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[19-Aug-2022 15:36:44 Asia/Manila] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in C:\xampp\htdocs\wms\model\model.picking.php on line 345
+[19-Aug-2022 16:17:32 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[19-Aug-2022 16:17:34 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[19-Aug-2022 16:17:39 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[19-Aug-2022 16:17:44 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Sep-2022 09:11:27 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Sep-2022 09:11:30 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Sep-2022 09:11:35 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Sep-2022 09:11:40 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Sep-2022 09:11:45 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Sep-2022 09:11:50 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48

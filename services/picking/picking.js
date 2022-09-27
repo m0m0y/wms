@@ -139,6 +139,7 @@ function submitManual(){
         $('#pickingQuantity').attr('placeholder', $el.data('remaining')).val($el.data('remaining')).attr("max", $el.data('remaining')).attr("min", 1);
         $('#manual-modal').modal('hide');
 
+        validateInput('#pickingQuantity');
     }
     else
     {
@@ -154,7 +155,7 @@ function submitManual(){
 function validateScanned(pasted){
         
         var $el = $('.card-with-lot:focus');
-        var lot = $el.data('product_code')+$el.data('lot');
+        var lotnumber = $el.data('product_code')+$el.data('lot');
         var lot = $el.data('lot');
         var reallot = $el.data('lot');
         if($('#pickingQuantity').val().trim() != ""){
@@ -166,7 +167,7 @@ function validateScanned(pasted){
         if(typeof lot === "undefined") { audioTrigger('#audio_incorrect'); $.Toast("Select lot number first", errorToast); return; }
         if(pasted === "") { audioTrigger('#audio_incorrect'); $.Toast("Invalid lot number", errorToast); return; }
         
-        if(lot.toString().toLowerCase() === pasted.toString().toLowerCase()){
+        if(lotnumber.toString().toLowerCase() === pasted.toString().toLowerCase()){
             audioTrigger('#audio_correct');
             $('#validity-modal').modal('show');
             $('#order_details_id').val( $el.data('id'));
@@ -179,6 +180,7 @@ function validateScanned(pasted){
             $('#location_id').val($el.data('location_id'));
             $('#pickingQuantity')
                 .attr('placeholder', $el.data('remaining'))
+                .val($el.data('remaining'))
                 .attr("max", $el.data('remaining'))
                 .attr("min", 1);
             
