@@ -72,7 +72,7 @@ require_once "./component/sidebar.php";
 
                         <input type="number" id="reference" name="reference" class="form-control rounded-0 mb-3" placeholder="Reference No." data-toggle="tooltip" data-placement="bottom" title="Reference No." required>
 
-                        <input type="number" id="po_no" name="po_no" class="form-control rounded-0 mb-3" placeholder="PO No." data-toggle="tooltip" data-placement="bottom" title="PO No." required>
+                        <input type="text" id="po_no" name="po_no" class="form-control rounded-0 mb-3" placeholder="PO No." data-toggle="tooltip" data-placement="bottom" title="PO No." required>
 
                         <input type="text" id="address" name="address" class="form-control rounded-0 mb-3" placeholder="Customer Address" data-toggle="tooltip" data-placement="bottom" title="Customer Address" required>
 

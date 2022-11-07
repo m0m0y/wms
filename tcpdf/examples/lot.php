@@ -52,4 +52,5 @@ $barcodeTitle = '<table cellspacing="1" cellpadding="5"  style="text-align: cent
 $pdf->writeHTML($barcodeTitle, true, 0, true, 0);
 $pdf->Ln();
 
+ob_end_clean();
 $pdf->Output('example_027.pdf', 'I');

@@ -351,4 +351,5 @@ foreach($box as $k=>$v) {
 	$b++;
 }
 
+ob_end_clean();
 $pdf->Output('shipping_label.pdf', 'I');

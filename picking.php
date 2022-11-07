@@ -32,7 +32,7 @@ $role = $auth->getSession("role");
 </div>
 
 
-<div class="main-content" id="">
+<div class="main-content" id="live">
     <div class="row row-cols-1" id="product-set">
         <div class="col">
             <div class="padded mb-5">

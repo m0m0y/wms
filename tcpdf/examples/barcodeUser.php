@@ -58,4 +58,5 @@ $str.='<table cellspacing="1" cellpadding="5" border="0">
 
 $pdf->writeHTML($str, true, 0, true, 0);
 
+ob_end_clean();
 $pdf->Output('example_027.pdf', 'I');

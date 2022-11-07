@@ -334,3 +334,218 @@ Stack trace:
 #1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
 #2 {main}
   thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 08:16:57 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 08:47:31 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 09:00:39 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 09:05:00 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 09:21:24 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 10:42:40 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 10:42:40 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 10:43:35 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 10:43:35 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 10:43:35 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[03-Nov-2022 11:22:35 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 11:22:40 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 11:22:45 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 11:50:45 Asia/Manila] PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\wms\checking.php on line 143
+[03-Nov-2022 11:57:13 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 11:57:18 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 11:57:23 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[03-Nov-2022 12:48:04 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 10:23:35 Asia/Manila] PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\wms\checking.php on line 143
+[07-Nov-2022 10:24:05 Asia/Manila] PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\wms\checking.php on line 143
+[07-Nov-2022 10:24:55 Asia/Manila] PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\wms\checking.php on line 143
+[07-Nov-2022 10:24:57 Asia/Manila] PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\wms\checking.php on line 143
+[07-Nov-2022 10:49:32 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 10:49:37 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 10:49:42 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 11:18:35 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 11:21:13 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 11:23:55 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 11:30:15 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 11:30:49 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 11:30:54 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 11:54:53 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[07-Nov-2022 11:54:53 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[07-Nov-2022 11:54:53 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[07-Nov-2022 11:54:53 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[07-Nov-2022 11:54:53 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[07-Nov-2022 11:54:53 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in D:\xampp\htdocs\wms\controller\controller.auth.php on line 14
+[07-Nov-2022 11:55:47 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 11:55:52 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 11:55:57 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 12:08:16 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 12:08:21 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 12:12:38 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 12:17:53 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 12:17:58 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 12:18:03 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 12:21:51 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[07-Nov-2022 12:21:56 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in D:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 D:\xampp\htdocs\wms\model\model.picking.php(58): DBHandler->fetchAssoc(false)
+#1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
+#2 {main}
+  thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48

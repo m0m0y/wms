@@ -93,7 +93,8 @@ class Picking extends DBHandler {
         // $stmt = $this->prepareQuery($this->conn, $query, "i", array($product_id));
         // $row = $this->fetchRow($stmt);
         // $stock_lotno = $row[0];
-         if($order_status == "picked"){
+
+        if($order_status == "picked"){
 
             $query = "SELECT a.stock_id, a.product_id, a.stock_lotno, a.stock_serialno, a.stock_qty, a.stock_expiration_date,a.location_type AS loc,a.picking_order_id,a.from_stock_id,b.rak_name,b.rak_column,b.rak_level,c.location_name,c.location_type,a.location_id
                 FROM stock a
@@ -104,7 +105,7 @@ class Picking extends DBHandler {
             $stmt = $this->prepareQuery($this->conn, $query, "ii", array($product_id,$slip_id));
             return $this->fetchAssoc($stmt);
 
-         }else{
+        }else{
 
             $query = "SELECT a.stock_id, a.product_id, a.stock_lotno, a.stock_serialno, a.stock_qty, a.stock_expiration_date,a.location_type AS loc,a.picking_order_id,a.from_stock_id,b.rak_name,b.rak_column,b.rak_level,c.location_name,c.location_type,a.location_id
                 FROM stock a
@@ -115,7 +116,7 @@ class Picking extends DBHandler {
             $stmt = $this->prepareQuery($this->conn, $query, "isii", array($product_id,$stock_lotno,$product_id,$slip_id));
             return $this->fetchAssoc($stmt);
 
-         } 
+        }
         
     }
 

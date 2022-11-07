@@ -61,7 +61,7 @@ class AddOrder extends DBHandler {
         $sliporder_date = date_format(date_create($sliporder_date), "Y-m-d");
 
         $shipvia = 1;
-        $query = "INSERT INTO picking_order SET slip_no = ?, slip_order_date = ?, bill_to = ?, ship_to = ?, reference = ?, po_no = ?, customer_address = ?, sales_person = ?, truck_id = ?, ship_date = ?, comments = '', remarks = ?, approved_by = '', invoice_billed_by = '', invoice_no = '', order_status = 'prepare', user_id = ?";
+        $query = "INSERT INTO picking_order SET slip_no = ?, slip_order_date = ?, bill_to = ?, ship_to = ?, reference = ?, po_no = ?, customer_address = ?, sales_person = ?, truck_id = ?, ship_date = ?, comments = '', remarks = ?, approved_by = '0', invoice_billed_by = '0', invoice_no = '', order_status = 'prepare', user_id = ?";
         $stmt = $this->prepareQuery($this->conn, $query, "ssssssssissi", array($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$remarks,$final_Userid));
         $this->execute($stmt);
 
@@ -90,21 +90,9 @@ class AddOrder extends DBHandler {
         $row = $this->fetchRow($stmt);
         $product_id = $row[0];
 
-        // $query1 = "SELECT stock_lotno FROM stock WHERE product_id = ?";
-        // $stmt = $this->prepareQuery($this->conn, $query, "i", array($product_id));
-        // $row = $this->fetchRow($stmt);
-        // $lotno = $row[0];
-
-        // if ($lotno == $stock_lotno) {
         $query = "INSERT INTO picking_order_details SET slip_id = ?, product_id = ?, quantity_order = ?, quantity_shipped = '0', location = ?, stock_id = '0', order_status = 'pending', checking_status = '', stock_lotno = ?";
         $stmt = $this->prepareQuery($this->conn, $query, "iiiss", array($slip_id,$product_id,$quantity_ordered,$location,$stock_lotno));
         return $this->execute($stmt);
-        //     echo $lotno ."=". $stock_lotno;
-        // } else {
-        //      echo "Mali";
-
-        //     echo $product_id ."=". $stock_lotno;
-        // }
 
     }
 
@@ -138,13 +126,12 @@ class AddOrder extends DBHandler {
 
     }
 
-    public function uploadValidate($pcode)
+    public function uploadValidate($pcode, $lotno)
     {
 
-        $query = "SELECT product_id FROM product WHERE product_code LIKE '%$pcode%'";
+        $query = "SELECT p.product_code, s.stock_lotno FROM product p LEFT JOIN stock s ON s.product_id = p.product_id WHERE product_code LIKE '%$pcode%' AND s.stock_lotno = '$lotno' AND s.location_type = 'rak'";
         $stmt = $this->prepareQuery($this->conn, $query);
-
-        return $this->fetchAssoc($stmt);
+        return $this->fetchRow($stmt);
 
     }
 

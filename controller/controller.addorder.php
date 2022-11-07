@@ -77,23 +77,54 @@ switch($mode) {
                 }
             }
 
-            $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$remarks,$user_name);
-
+            $ctr_check = 0;
             for($a==8;$a<=$highestRow;$a++){
                 $product_code = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(1, $a)->getFormattedValue();
                 $quantity_ordered = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(2,$a)->getFormattedValue();
                 $location = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(3,$a)->getFormattedValue();
                 $stock_lotno = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(4,$a)->getFormattedValue();
-                if($product_code!=null AND $quantity_ordered!=null){
-                    $addorder->addOrderDetails($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno);
+                if($product_code!=null AND $quantity_ordered!=null) {
+                    $checkLotnumbers = $addorder->uploadValidate($product_code, $stock_lotno);
+                    
+                    $pcode = array($checkLotnumbers[0]);
+                    $lotno = array($checkLotnumbers[1]);
+
+                    if(in_array($product_code, $pcode) OR in_array($stock_lotno, $lotno)) {
+                        $ctr_check++;
+                    } else {
+                        $ctr_check=0;
+                        echo json_encode(array('code'=>0,'message'=>'Error Upload: There is a invalid product code or lot number'));
+                        exit;
+                    }
                 }
-                
+            }
+
+            if($ctr_check>0) {
+
+                $slip_id = $addorder->addOrder($slipno,$sliporder_date,$billto,$shipto,$reference,$pono,$customer_address,$salesperson,$shipvia,$shipdate,$remarks,$user_name);
+
+                for($b=8;$b<=$highestRow;$b++){
+                    $product_code = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(1, $b)->getFormattedValue();
+                    $quantity_ordered = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(2,$b)->getFormattedValue();
+                    $location = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(3,$b)->getFormattedValue();
+                    $stock_lotno = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(4,$b)->getFormattedValue();
+                    if($product_code!=null AND $quantity_ordered!=null)
+                    {
+                        $checkLotnumbers = $addorder->uploadValidate($product_code, $stock_lotno);
+                        $pcode = array($checkLotnumbers[0]);
+                        $lotno = array($checkLotnumbers[1]);
+
+                        if(in_array($product_code, $pcode) OR in_array($stock_lotno, $lotno)){
+                            $addorder->addOrderDetails($slip_id,$product_code,$quantity_ordered,$location,$stock_lotno);
+                        }
+                    }
+                }   
+                // $response = array('code'=>1,'message'=>'Picking slip was sent successfully');
+                $response 
             }
             
             unlink($path_filename_ext);
         }
-
-        $response = array('code'=>1,'message'=>'Picking slip was sent successfully');
     
     } else {
 
