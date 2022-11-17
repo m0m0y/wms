@@ -187,6 +187,8 @@ class Inventory extends DBHandler {
 
     public function updateStock($stock_id,$product_id,$stock_qty,$rak_id,$stock_lotno,$stock_serialno,$reference,$notes,$stock_expiration_date,$transaction_date,$user_name)
     {
+        $notes = str_replace("&#39;", "", $notes);
+
         $query = "UPDATE stock SET product_id = ?,stock_qty = ?, location_id = ?, stock_lotno = ?, stock_serialno = '$stock_serialno', stock_expiration_date = '$stock_expiration_date' WHERE stock_id = ?";
         $stmt = $this->prepareQuery($this->conn, $query, "isisi", array($product_id,$stock_qty,$rak_id,$stock_lotno,$stock_id));
         $this->execute($stmt);

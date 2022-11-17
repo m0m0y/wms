@@ -549,3 +549,7 @@ Stack trace:
 #1 D:\xampp\htdocs\wms\picking.php(55): Picking->getAllOrders(8, 'admin')
 #2 {main}
   thrown in D:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[14-Nov-2022 11:04:00 Asia/Manila] PHP Warning:  str_replace() expects at least 3 parameters, 1 given in D:\xampp\htdocs\wms\inventory.php on line 13
+[14-Nov-2022 11:04:01 Asia/Manila] PHP Warning:  str_replace() expects at least 3 parameters, 1 given in D:\xampp\htdocs\wms\inventory.php on line 13
+[14-Nov-2022 11:04:01 Asia/Manila] PHP Warning:  str_replace() expects at least 3 parameters, 1 given in D:\xampp\htdocs\wms\inventory.php on line 13
+[14-Nov-2022 11:04:01 Asia/Manila] PHP Warning:  str_replace() expects at least 3 parameters, 1 given in D:\xampp\htdocs\wms\inventory.php on line 13

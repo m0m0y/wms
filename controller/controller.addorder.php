@@ -119,8 +119,7 @@ switch($mode) {
                         }
                     }
                 }   
-                // $response = array('code'=>1,'message'=>'Picking slip was sent successfully');
-                $response 
+                $response = array('code'=>1,'message'=>'Picking slip was sent successfully');
             }
             
             unlink($path_filename_ext);

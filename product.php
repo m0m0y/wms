@@ -59,7 +59,7 @@ require_once "./component/sidebar.php";
 </div>
 
 <div class="modal fade ios" id="productModal">
-    <form action="" method="POST" class="ajax-form" enctype="multipart/form-data" id="productForm">
+    <form action="controller/controller.product.php?mode=add" method="POST" class="ajax-form" enctype="multipart/form-data" id="productForm">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

@@ -24,19 +24,19 @@ function productModal(){
 
 
     $('#productModal').on('hide.bs.modal', function(){
-        $('#productForm').attr('action', 'controller/controller.product.php?mode=add');
+        // $('#productForm').attr('action', 'controller/controller.product.php?mode=add');
 
         $('#product_id_update').val('');
         $('#product_code').val('');
         $('#product_description').val('');
-        $('#unit_id').val('');
-        $('#product_type').val('');
-        $('#category_id').val('');
-        $('#product_expiration').val('');
-        $('#product_weight').val('');
-        $('#product_length').val('');
-        $('#product_width').val('');
-        $('#product_height').val('');
+        $('#unit_id').val(1);
+        $('#product_type').val('track');
+        $('#category_id').val(1);
+        $('#product_expiration').val('yes');
+        $('#product_weight').val('0.0000');
+        $('#product_length').val('0.0000');
+        $('#product_width').val('0.0000');
+        $('#product_height').val('0.0000');
         $('#frame').attr("src","static/default-placeholder.png");
 
     })

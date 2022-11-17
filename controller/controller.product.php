@@ -88,7 +88,7 @@ switch($mode) {
             
             } else {
 
-                $response = array('code'=>0,'message'=>'file upload failed');
+                $response = array("code"=>1, "message"=>"Product Added");
             }
 
         break;
