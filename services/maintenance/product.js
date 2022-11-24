@@ -43,6 +43,10 @@ function productModal(){
 
 }
 
+function addProduct() {
+    $('#productForm').attr('action', 'controller/controller.product.php?mode=add');
+}
+
 function editproduct(product_id, category_id, unit_id, product_type, product_code, product_description, w, l, ww, h, product_expiration){
     var d = new Date();
     $('#product_id_update').val(product_id);

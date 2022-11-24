@@ -33,7 +33,7 @@ require_once "./component/sidebar.php";
         <div class="col">
             <div class="input-group mb-4 padded">
                 <div class="input-group-prepend">
-                    <button class="btn btn-primary rounded-0 add-field" type="button" data-toggle="modal" data-target="#productModal"><i class="material-icons myicon-lg">add</i> Add New Product</button>
+                    <button class="btn btn-primary rounded-0 add-field" type="button" data-toggle="modal" data-target="#productModal" onclick="addProduct()"><i class="material-icons myicon-lg">add</i> Add New Product</button>
                 </div>
                 <input id="dataTableSearch" type="search" class="form-control rounded-0 search-field" placeholder="Search here">
             </div>
@@ -59,12 +59,12 @@ require_once "./component/sidebar.php";
 </div>
 
 <div class="modal fade ios" id="productModal">
-    <form action="controller/controller.product.php?mode=add" method="POST" class="ajax-form" enctype="multipart/form-data" id="productForm">
+    <form action="" method="POST" class="ajax-form" enctype="multipart/form-data" id="productForm">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Product Management</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -107,9 +107,9 @@ require_once "./component/sidebar.php";
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="material-icons myicon-lg">close</i> Close</button>
+                    <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal"><i class="material-icons myicon-lg">close</i> Close</button>
                     <button type="reset" class="btn btn-danger"><i class="material-icons myicon-lg">clear_all</i> Clear Form</button>
-                    <button type="submit" class="btn btn-primary"><i class="material-icons myicon-lg">save</i> Save changes</button>
+                    <button type="submit" class="btn btn-primary submit-btn"><i class="material-icons myicon-lg">save</i> Save changes</button>
                 </div>
             </div>
         </div>
