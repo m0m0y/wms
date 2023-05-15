@@ -140,9 +140,14 @@ switch($mode) {
         $lotno = $addorder->getLotnumbers($product_id);
         $option = '<option selected disabled value=""> --- SELECT LOT NUMBER --- </option>';
         foreach ($lotno as $k=>$v) {
-            $option .= '<option value="'.$v['stock_id'].'"> '.$v['stock_lotno'].' ('.($v['stock_expiration_date'] == "0000-00-00" ? 'N/A' : ''.$v['stock_expiration_date'].'').')</option>';
+            $option .= '<option value="'.$v['stock_id'].'"> '.$v['stock_lotno'].' ('.($v['stock_expiration_date'] == "0000-00-00" ? 'N/A' : ''.$v['stock_expiration_date'].'').') <small>'. $v['stock_serialno'] .'</small></option>';
         }
         echo $option;
+        exit;
+
+    case "getLotQty";
+        $stock_id = Sanitizer::filter('stock_id', 'get');
+        $stock_qty = $addorder->getLotQuantity($stock_id);
         exit;
 
     case "addOrderManual";

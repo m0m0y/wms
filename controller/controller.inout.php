@@ -16,7 +16,7 @@ switch($mode) {
         $product_id = Sanitizer::filter('product_id', 'post');
         $unit_product = $inout->getUnitProduct($product_id);
         foreach ($unit_product as $k=>$v) {
-            $response = array("unit" => $v['unit_name'], "quantity" => $v['stock_quantity']);
+            $response = array("unit" => $v['unit_name'], "quantity" => $v['total_stock_qty']);
         }
 
         break;
@@ -26,7 +26,7 @@ switch($mode) {
         $lotno = $inout->getLotnumbers($product_id);
         $option = '<option selected disabled value=""> --- SELECT LOT NUMBER --- </option>';
         foreach ($lotno as $k=>$v) {
-            $option .= '<option value="'.$v['stock_id'].'"> '.$v['stock_lotno'].' ('.($v['stock_expiration_date'] == "0000-00-00" ? 'N/A' : ''.$v['stock_expiration_date'].'').')</option>';
+            $option .= '<option value="'.$v['stock_id'].'"> '.$v['stock_lotno'].' ('.($v['stock_expiration_date'] == "0000-00-00" ? 'N/A' : ''.$v['stock_expiration_date'].'').') '.$v['stock_serialno'].'</option>';
         }
         echo $option;
         exit;
@@ -74,15 +74,15 @@ switch($mode) {
         break;
 
     case "updateQuantity";
-        $pcode = Sanitizer::filter('pcode','post');
+        $pcode = Sanitizer::filter('product_codes','post');
         $unit = Sanitizer::filter('unit', 'post');
-        $stockQuantity = Sanitizer::filter('stockQuantity', 'post');
+        $stockQuantity = Sanitizer::filter('stock_quantity', 'post');
         $lotno = Sanitizer::filter('lotno', 'post');
-        $expDate = Sanitizer::filter('expDate', 'post');
-        $totalQuantity = Sanitizer::filter('totalQuantity', 'post');
+        $expDate = Sanitizer::filter('exp_date', 'post');
+        $qty_per_lot = Sanitizer::filter('qty_per_lot', 'post');
         $quantity = Sanitizer::filter('quantity', 'post');
-        $transacDate = Sanitizer::filter('transacDate', 'post');
-        $out = $inout->outQuantity($pcode,$unit,$stockQuantity,$lotno,$expDate,$quantity,$totalQuantity,$transacDate,$user_name);
+        $transacDate = Sanitizer::filter('transac_date', 'post');
+        $out = $inout->outQuantity($pcode,$unit,$stockQuantity,$lotno,$expDate,$qty_per_lot,$quantity,$transacDate,$user_name);
 
         $response = array("message" => "Successfully");
         break;

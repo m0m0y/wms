@@ -34,9 +34,11 @@ $(function() {
                 } else {
                     $('#stock_quantity').val(obj.quantity);
                 }
+
+                quantityVal(obj.quantity);
             }
         });
-		$('#lotno').load('controller/controller.addorder.php?mode=getLotnumber&product_id='+product_id);
+		
     })
 
     $('#lotno').change(function() {
@@ -49,7 +51,7 @@ $(function() {
                 stock_id:stock_id
             },
             success:function(data) {
-                var obj = $.parseJSON(data);
+                var obj = JSON.parse(data);
     
                 $('#qty_per_lot').val(obj.log_qty);
                 $('#transac_date').val(obj.transac_date);
@@ -64,28 +66,24 @@ $(function() {
         });
     })
 
-    $('#submitBtn').on('click', function() {
-        var pcode = $('#product_codes').val();
-        var unit = $('#unit').val();
-        var stockQuantity = $('#stock_quantity').val();
-        var lotno = $('#lotno').val();
-        var quantityPerLot = $('#qty_per_lot').val();
-        var expDate = $('#exp_date').val();
-        var quantity = $('#quantity').val();
-        var transacDate = $('#transac_date').val();
+    $('#outForm').on('submit', function(e) {
 
-        var totalQuantity = quantityPerLot - quantity;
+        e.preventDefault();
+        var action = $(this).attr("action");
+		var type = $(this).attr("method");
+        var formData = new FormData(this);
 
-        if (totalQuantity >= 0) {
-            if (quantity == "") {
-                $.Toast("Please double check required field", errorToast);
-            } else {
-                submit(pcode, unit, stockQuantity, lotno, expDate, totalQuantity, quantity, transacDate,)
+        $.ajax({
+            url: action,
+            method: type,
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function() {
+                window.localStorage.setItem("stat", "sucess");
+                window.location.href="inout.php";
             }
-        } else if (totalQuantity <= 0) {
-            $.Toast("Invalid Quantity", errorToast);
-        }
-
+        });
     });
 
     var status_module = window.localStorage.getItem("stat");
@@ -95,25 +93,10 @@ $(function() {
     }
 });
 
-function submit(pcode, unit, stockQuantity, lotno, expDate, totalQuantity, quantity, transacDate) {
-    $.ajax({
-        url: 'controller/controller.inout.php?mode=updateQuantity',
-        method: 'POST',
-        data: {
-            pcode:pcode,
-            unit:unit,
-            stockQuantity:stockQuantity,
-            lotno:lotno,
-            expDate:expDate,
-            totalQuantity:totalQuantity,
-            quantity:quantity,
-            transacDate:transacDate
-        },
-        success:function() {
-            window.localStorage.setItem("stat", "sucess");
-            window.location.href="inout.php";
-        }
-    });
+function quantityVal(quantity) {
+    if(quantity <= 0) {
+        $('#quantity').val('');
+    }
 }
 
 // function searchValue(str) {
@@ -198,10 +181,3 @@ function submit(pcode, unit, stockQuantity, lotno, expDate, totalQuantity, quant
 //         }
 //     });
 // })
-
-
-function quantityVal(quantity) {
-    if(quantity <= 0) {
-        $('#quantity').val('');
-    }
-}

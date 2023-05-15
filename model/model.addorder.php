@@ -119,10 +119,22 @@ class AddOrder extends DBHandler {
     public function getLotnumbers($product_id) 
     {
 
-        $query = "SELECT s.stock_id, s.stock_expiration_date, s.stock_lotno FROM stock s LEFT JOIN product p ON p.product_id = s.product_id WHERE p.product_id = ? AND s.location_type = 'rak' AND stock_qty!=0";
+        $query = "SELECT s.stock_id, s.stock_expiration_date, s.stock_lotno, s.stock_serialno, s.stock_qty FROM stock s LEFT JOIN product p ON p.product_id = s.product_id WHERE p.product_id = ? AND s.location_type = 'rak' AND stock_qty!=0";
         $stmt = $this->prepareQuery($this->conn, $query, "i", [$product_id]);
 
         return $this->fetchAssoc($stmt);
+
+    }
+
+    public function getLotQuantity($stock_id) 
+    {
+
+        $query = "SELECT stock_qty FROM stock WHERE stock_id = ? AND location_type = 'rak' AND stock_qty!=0";
+        $stmt = $this->prepareQuery($this->conn, $query, "i", [$stock_id]);
+        $row = $this->fetchRow($stmt);
+
+        $stock_qty = $row[0];
+        echo $stock_qty;
 
     }
 

@@ -621,9 +621,9 @@ button.pick-button:focus, button.pick-button.focus {
     overflow-y: auto;
     width: 100%;
 }
-.pack {
+/* .pack {
     padding-left: 120px !important;
-}
+} */
 
 .pack-action {
     position: absolute;

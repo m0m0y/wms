@@ -61,37 +61,48 @@ function boxItems() {
         var $gallery = $('#selected-to-box-gallery');
         var $targets = $(this).data('target');
         var slip = $(this).data('slip');
-        var picking_order_ids = [];
+        var picking_order_ids = $(this).data('stockid');
+        // var picking_order_ids = [];
         var picking_order_names = [];
         var maxBox = parseFloat($(this).data('max')) + 1;
 
         $gallery.html("");
 
-        if(!$('input.'+$targets+':checked').length){
-            toast("Please select item(s) to pack.", errorToast);
-            return
-        }
-
-        $.each($('input.'+$targets+':checked'), function(){      
-            picking_order_ids.push($(this).val());
-            picking_order_names.push($(this).data('name'));
-            var $galleryImage = "<div class='col col-12 col-md-3 gal-box'><img onerror='dummyImage(this)' src='product_image/"+ $(this).data('name') +".jpg?v=1' alt='gallery-image' class='d-block w-100 border' style='margin-bottom: 15px' /></div>";
-            $galleryImage += "<div class='col col-12 col-md-9'><div style='margin-bottom: 15px' ><small>LN: "+$(this).data('lot')+"</small><br>"+$(this).data('detail')+"<br><small>"+$(this).data('uom')+"</small></div></div>";
-            $gallery.append($galleryImage);
-            console.log('checked');
-        });
-
-        $('.gal-box').css({
-
-        })
+        picking_order_names.push($(this).data('name'));
+        var $galleryImage = "<div class='col col-12 col-md-3 gal-box'><img onerror='dummyImage(this)' src='product_image/"+ $(this).data('name') +".jpg?v=1' alt='gallery-image' class='d-block w-100 border' style='margin-bottom: 15px' /></div>";
+        $galleryImage += "<div class='col col-12 col-md-9'><div style='margin-bottom: 15px' ><small>LN: "+$(this).data('lot')+"</small><br>"+$(this).data('detail')+"<br><small>"+$(this).data('uom')+"</small></div></div>";
+        $gallery.append($galleryImage);
         
-        picking_order_ids = picking_order_ids.join(",");
-        picking_order_names = picking_order_names.join(", ");
-
         $("#toBox").val(picking_order_ids);
         $("#toName").val(picking_order_names);
-        $('#noBox').val(slip + '-' + maxBox);
+        $('#noBox').val(slip);
         $('#boxModal').modal('show');
+
+        // if(!$('input.'+$targets+':checked').length){
+        //     toast("Please select item(s) to pack.", errorToast);
+        //     return
+        // }
+
+        // $.each($('input.'+$targets+':checked'), function(){
+            // picking_order_ids.push($(this).val());
+            // picking_order_names.push($(this).data('name'));
+            // var $galleryImage = "<div class='col col-12 col-md-3 gal-box'><img onerror='dummyImage(this)' src='product_image/"+ $(this).data('name') +".jpg?v=1' alt='gallery-image' class='d-block w-100 border' style='margin-bottom: 15px' /></div>";
+            // $galleryImage += "<div class='col col-12 col-md-9'><div style='margin-bottom: 15px' ><small>LN: "+$(this).data('lot')+"</small><br>"+$(this).data('detail')+"<br><small>"+$(this).data('uom')+"</small></div></div>";
+            // $gallery.append($galleryImage);
+            // console.log('checked');
+        // });
+
+        // $('.gal-box').css({
+
+        // })
+        
+        // picking_order_ids = picking_order_ids.join(",");
+        // picking_order_names = picking_order_names.join(", ");
+
+        // $("#toBox").val(picking_order_ids);
+        // $("#toName").val(picking_order_names);
+        // $('#noBox').val(slip + '-' + maxBox);
+        // $('#boxModal').modal('show');
 
     })
 
@@ -101,13 +112,19 @@ function boxItems() {
 
     $('#boxItem').on('click',function(){
 
-        var box_number = $('#noBox').val();
+        var box_number = $('#noBox').val()+"-"+$('#numberOfBox').val();
         var picking_order_ids = $('#toBox').val();
+        var number_of_boxes = $('#numberOfBox').val();
 
-        if($.trim(box_number) == "" || $.trim(picking_order_ids) == "") {
-            toast("Please select item(s) to pack, and fill up all required field(s).", errorToast);
+        if(number_of_boxes == "") {
+            toast("Fill up all required field(s).", errorToast);
             return
-        }
+       }
+
+        // if($.trim(box_number) == "" || $.trim(picking_order_ids) == "") {
+        //     toast("Please select item(s) to pack, and fill up all required field(s).", errorToast);
+        //     return
+        // }
     
         $.ajax({
             url:"controller/controller.packing.php?mode=boxing",
@@ -163,12 +180,12 @@ function printBoxLabel(){
         if(has){ it.addClass("unable"); }
     })
 
-    $(".box-item").each(function(){
-        var has = false;
-        it = $(this);
-        $pending = $("."+it.data("target"));
-        if($pending.length==0){ it.fadeOut(500); }
-    })
+    // $(".box-item").each(function(){
+    //     var has = false;
+    //     it = $(this);
+    //     $pending = $("."+it.data("target"));
+    //     if($pending.length==0){ it.fadeOut(500); }
+    // })
 
     $(".print-label").on('click', function(){
         $("#slipno").val($(this).data("slip_no"));
@@ -206,7 +223,7 @@ function printBoxLabel(){
         var courier = $('#courier').val();
         var slip_no = $("#slipno").val();
         var ship_to = $("#shipto").val();
-        var box_w = $("input[name='box-weight[]']").map(function(){return $(this).val();}).get();
+        // var box_w = $("input[name='box-weight[]']").map(function(){return $(this).val();}).get();
         var bill_to = $("#billto").val();
         var page = $('#page').val();
         var id_slip = $('#id_slip').val();
@@ -215,9 +232,9 @@ function printBoxLabel(){
         // var box_w = $("#box-weight").val();
         // var bbox = $("input[name='box-weight[]']").val();
 
-        var newVal = ship_to.replace('#', '');
+        var shipto = ship_to.replace('#', '');
 
-        const url = "tcpdf/examples/shipping_label.php?a="+slip_no+"&b="+newVal+"&c="+bill_to+"&d="+remarks+"&e="+courier+"&f="+page+"&g="+id_slip+"&h="+invoice_num;
+        const url = "tcpdf/examples/shipping_label.php?a="+slip_no+"&b="+shipto+"&c="+bill_to+"&d="+remarks+"&e="+courier+"&f="+page+"&g="+id_slip+"&h="+invoice_num;
 
         if(isElectron()) {
             $('#printModal').modal('hide')

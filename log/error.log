@@ -553,3 +553,660 @@ Stack trace:
 [14-Nov-2022 11:04:01 Asia/Manila] PHP Warning:  str_replace() expects at least 3 parameters, 1 given in D:\xampp\htdocs\wms\inventory.php on line 13
 [14-Nov-2022 11:04:01 Asia/Manila] PHP Warning:  str_replace() expects at least 3 parameters, 1 given in D:\xampp\htdocs\wms\inventory.php on line 13
 [14-Nov-2022 11:04:01 Asia/Manila] PHP Warning:  str_replace() expects at least 3 parameters, 1 given in D:\xampp\htdocs\wms\inventory.php on line 13
+[22-Mar-2023 13:19:30 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\checking.php on line 143
+[22-Mar-2023 13:19:50 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\checking.php on line 143
+[22-Mar-2023 13:30:11 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\checking.php on line 143
+[22-Mar-2023 13:30:17 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\checking.php on line 143
+[22-Mar-2023 13:31:02 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\checking.php on line 143
+[22-Mar-2023 13:31:04 Asia/Manila] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\wms\checking.php on line 143
+[23-Mar-2023 11:51:47 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:52:47 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:53:46 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:54:46 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:05 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:06 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:11 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:11 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:11 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:12 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:12 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:12 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:13 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[23-Mar-2023 11:55:14 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\wms\controller\controller.db.php:48
+Stack trace:
+#0 C:\xampp\htdocs\wms\model\model.dashboard.php(20): DBHandler->fetchAssoc(false)
+#1 C:\xampp\htdocs\wms\index.php(15): Dashboard->getAllPicking()
+#2 {main}
+  thrown in C:\xampp\htdocs\wms\controller\controller.db.php on line 48
+[31-Mar-2023 14:08:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:14 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:14 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:14 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:15 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:15 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:15 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:08:15 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:54 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:30:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:31:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:31:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:31:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:35:29 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:35:29 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:35:29 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:35:29 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:35:29 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:35:30 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:35:30 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 14:35:30 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:03:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:03:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:04:38 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:04:38 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:04:38 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:04:38 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:04:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:05:22 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:05:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:05:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:05:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:09:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:14:04 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:04 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:05 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:05 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:05 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:05 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:05 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:15 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:15 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:15 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:15 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:16 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:16 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:16 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:14:16 Asia/Manila] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\wms\packing.php on line 211
+[31-Mar-2023 15:47:51 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:47:51 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 374
+[31-Mar-2023 15:48:18 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:48:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 303
+[31-Mar-2023 15:48:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:48:18 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:48:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 303
+[31-Mar-2023 15:48:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:48:19 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:48:19 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 303
+[31-Mar-2023 15:48:19 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:48:19 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:48:19 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 303
+[31-Mar-2023 15:48:19 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:48:30 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:48:30 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 303
+[31-Mar-2023 15:48:30 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:48:30 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:48:30 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 303
+[31-Mar-2023 15:48:30 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:48:30 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:48:30 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 303
+[31-Mar-2023 15:48:30 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:48:59 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:48:59 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 303
+[31-Mar-2023 15:48:59 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:49:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:13 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:49:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:13 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:49:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:13 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:49:41 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:41 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:49:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:49:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 376
+[31-Mar-2023 15:49:57 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:57 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:49:57 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:57 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:49:57 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:57 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:49:57 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:49:57 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:05 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:05 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:05 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:05 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:06 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:06 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:06 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:06 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:12 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:12 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:38 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:38 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:50:49 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:50:49 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[31-Mar-2023 15:52:51 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[31-Mar-2023 15:52:51 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:21:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:21:45 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:21:52 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:21:52 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:22:26 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:22:26 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:22:41 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:22:41 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:25:37 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:25:37 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:25:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:25:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:25:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:25:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:25:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:28:35 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:28:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:28:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:28:44 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:28:47 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:28:47 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 08:29:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 08:29:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:20:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:20:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:20:21 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:20:21 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:20:22 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:20:22 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:20:22 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:20:22 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:32:10 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:32:10 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:32:10 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:32:10 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:32:10 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:32:10 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:32:10 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:32:10 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:32:11 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:32:11 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:32:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:32:13 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:32:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:32:13 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:32:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:32:13 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:32:46 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 202
+[03-Apr-2023 10:32:46 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 341
+[03-Apr-2023 10:33:14 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:33:14 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:15 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:33:15 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:17 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:17 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:25 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:33:25 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:31 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:33:31 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:46 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:33:46 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:33:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:33:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:33:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:33:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 226
+[03-Apr-2023 10:33:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 375
+[03-Apr-2023 10:34:03 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:34:03 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:34:03 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:34:03 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:34:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 339
+[03-Apr-2023 10:38:47 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:38:47 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 341
+[03-Apr-2023 10:38:49 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:38:49 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 341
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 341
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 341
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 341
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 341
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 10:38:50 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 341
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:46 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:47 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:47 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:47 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:47 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:47 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:47 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:47 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:47 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:47 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:44:58 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:44:58 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 352
+[03-Apr-2023 10:45:10 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:45:10 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:45:11 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:45:11 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:45:12 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:45:12 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:45:12 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:45:12 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:45:20 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:45:20 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:46:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:46:56 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:46:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:46:56 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:46:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:46:56 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:46:57 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:46:57 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:46:57 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:46:57 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:46:57 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:46:57 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:46:58 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:46:58 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:47:36 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:47:36 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:47:54 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:47:54 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:47:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:47:55 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:47:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:47:55 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:47:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:47:56 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:48:25 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\packing.php on line 175
+[03-Apr-2023 10:48:25 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:25 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:38 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:38 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:38 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:38 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:47 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:47 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 205
+[03-Apr-2023 10:48:49 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 351
+[03-Apr-2023 10:49:06 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:06 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:06 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:06 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:49:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:49:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:50:41 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\packing.php on line 176
+[03-Apr-2023 10:50:41 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 206
+[03-Apr-2023 10:50:41 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 352
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\packing.php on line 176
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 206
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 352
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\packing.php on line 176
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 206
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 352
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\packing.php on line 176
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 206
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 352
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\packing.php on line 176
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 206
+[03-Apr-2023 10:50:42 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 352
+[03-Apr-2023 10:50:43 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\packing.php on line 176
+[03-Apr-2023 10:50:43 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 206
+[03-Apr-2023 10:50:43 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 352
+[03-Apr-2023 10:50:43 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\packing.php on line 176
+[03-Apr-2023 10:50:43 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 206
+[03-Apr-2023 10:50:43 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 352
+[03-Apr-2023 10:50:43 Asia/Manila] PHP Notice:  Array to string conversion in C:\xampp\htdocs\wms\packing.php on line 176
+[03-Apr-2023 10:50:43 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 206
+[03-Apr-2023 10:50:43 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 352
+[03-Apr-2023 10:50:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:50:55 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:50:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:50:55 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:50:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:50:55 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:50:55 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:50:55 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:50:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:50:56 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:50:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:50:56 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:50:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:50:56 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:50:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:50:56 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:50:57 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:50:57 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 349
+[03-Apr-2023 10:56:51 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:56:51 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:56:51 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:56:51 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:56:51 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:56:51 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:56:52 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:56:52 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:56:52 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:56:52 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:57:01 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:57:02 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:57:02 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:57:02 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:57:02 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:57:02 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 203
+[03-Apr-2023 10:57:02 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 346
+[03-Apr-2023 10:59:06 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:06 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:07 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:13 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:13 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:20 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:22 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:22 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 10:59:56 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 10:59:56 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 11:00:18 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:00:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 11:07:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:07:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 334
+[03-Apr-2023 11:08:02 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 198
+[03-Apr-2023 11:08:02 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 336
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 198
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 336
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 198
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 336
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 198
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 336
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 198
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 336
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 198
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 336
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 198
+[03-Apr-2023 11:08:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 336
+[03-Apr-2023 11:08:05 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 198
+[03-Apr-2023 11:08:05 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 336
+[03-Apr-2023 11:08:05 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 198
+[03-Apr-2023 11:08:05 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 336
+[03-Apr-2023 11:08:38 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:38 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:39 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:39 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:40 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:41 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:41 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:08:41 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 200
+[03-Apr-2023 11:08:41 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 338
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:09:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:09:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:09:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:09:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:09:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:09:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:09:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:10:23 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:10:23 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:10:24 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:11:02 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:11:02 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:11:18 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:11:18 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:15:03 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:15:03 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:15:03 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:15:03 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:15:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:15:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:15:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:15:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:15:04 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:15:04 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:37:48 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:37:48 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[03-Apr-2023 11:38:03 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[03-Apr-2023 11:38:03 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[05-Apr-2023 07:56:14 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[05-Apr-2023 07:56:17 Asia/Manila] PHP Warning:  max(): Array must contain at least one element in C:\xampp\htdocs\wms\packing.php on line 196
+[05-Apr-2023 07:56:17 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[05-Apr-2023 07:57:28 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331
+[11-Apr-2023 10:24:49 Asia/Manila] PHP Notice:  Undefined variable: countedBoxNo in C:\xampp\htdocs\wms\packing.php on line 331

@@ -5,10 +5,11 @@ $ship_to = (isset($_GET['b'])) ? $_GET['b'] : 'x';
 $billto = (isset($_GET['c'])) ? $_GET['c'] : 'x';
 $remarks = (isset($_GET['d'])) ? $_GET['d'] : '';
 $courier = (isset($_GET['e'])) ? $_GET['e'] : 'x';
+$package = (isset($_GET['f'])) ? $_GET['f'] : 'x';
 $slip_id = (isset($_GET['g'])) ? $_GET['g'] : 'x';
 
-$weight_kg = (isset($_GET['w'])) ? $_GET['w'] : 'x';
-$weightPerbox = explode(",",$weight_kg);
+// $weight_kg = (isset($_GET['w'])) ? $_GET['w'] : 'x';
+// $weightPerbox = explode(",",$weight_kg);
 $invoice_num = (isset($_GET['h'])) ? $_GET['h'] : 'x';
 
 require_once "tcpdf_include.php";
@@ -79,12 +80,16 @@ if($courier == "Lalamove") {
     $letter = "PL";
 }
 
-foreach($box_page as $k=>$vv) { $page++; }
+// foreach($box_page as $k=>$vv) { $page++; }
+for ($page = 0; $page <= $package; $page++) { $pages = $page; }
 
 $box = $packing->getAllBoxes($slip_id);
 $b = 0;
-foreach($box as $k=>$v) {
-	
+
+foreach($box as $k=>$v) { $box_number = $v['box_number']; }
+
+// foreach($box as $k=>$v) {
+for ($x = 1; $x <= $package; $x++) {
 	$pdf->AddPage();
 
 	$bMargin = $pdf->getBreakMargin();
@@ -221,7 +226,7 @@ foreach($box as $k=>$v) {
 	?>
 	<table>
 		<tr style="font-size: <?= $responsiveFont ?>px;">
-			<td><b><span style="font-size: 30px;"> <?= $a . " <span style=\"font-size: 15px\">of</span> " . $page ?></b></span></td>
+			<td><b><span style="font-size: 30px;"> <?= $a . " <span style=\"font-size: 15px\">of</span> " . $pages ?></b></span></td>
 		</tr>
 	</table>
 	<?php
@@ -296,7 +301,7 @@ foreach($box as $k=>$v) {
 		'text' => true,
 	);
 
-	$pdf->write1DBarcode($v['box_number'], 'C39E', 7, 51, '', 20, 0.35, $style, 'N');
+	$pdf->write1DBarcode($box_number, 'C39E', 7, 51, '', 20, 0.35, $style, 'N');
 
 	$pdf->SetXY(53, 105);
 	$pdf->writeHTML($date_order_text);

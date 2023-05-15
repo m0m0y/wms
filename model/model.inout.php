@@ -19,7 +19,7 @@ class Inout extends DBHandler {
 
     public function getUnitProduct($product_id)
     {
-        $query = "SELECT p.product_id, u.unit_name, SUM(s.stock_qty) as stock_quantity FROM unit u LEFT JOIN product p ON p.unit_id = u.unit_id LEFT JOIN stock s ON p.product_id = s.product_id WHERE p.product_id = ?";
+        $query = "SELECT p.product_id, u.unit_name, SUM(s.stock_qty) as total_stock_qty FROM unit u LEFT JOIN product p ON p.unit_id = u.unit_id LEFT JOIN stock s ON p.product_id = s.product_id WHERE p.product_id = ?";
 
         $stmt = $this->prepareQuery($this->conn, $query, "i", [$product_id]);
         return $this->fetchAssoc($stmt);
@@ -27,7 +27,7 @@ class Inout extends DBHandler {
 
     public function getLotnumbers($product_id) 
     {
-        $query = "SELECT s.stock_id, s.stock_expiration_date, s.stock_lotno FROM stock s LEFT JOIN product p ON p.product_id = s.product_id WHERE p.product_id = ? AND s.location_type = 'rak'";
+        $query = "SELECT s.stock_id, s.stock_expiration_date, s.stock_lotno, s.stock_serialno FROM stock s LEFT JOIN product p ON p.product_id = s.product_id WHERE p.product_id = ? AND s.location_type = 'rak' AND stock_qty!=0";
 
         $stmt = $this->prepareQuery($this->conn, $query, "i", [$product_id]);
         return $this->fetchAssoc($stmt);
@@ -35,7 +35,7 @@ class Inout extends DBHandler {
 
     public function getTotlaQty($stock_id)
     {
-        $query = "SELECT s.stock_id, s.stock_expiration_date, s.stock_lotno, l.log_id, l.log_type, l.log_qty, l.log_transaction_date FROM stock s LEFT JOIN stock_logs l ON s.stock_id = l.stock_id WHERE s.stock_id = ?";
+        $query = "SELECT s.stock_id, s.stock_expiration_date, s.stock_lotno, s.stock_qty, l.log_id, l.log_type, l.log_qty, l.log_transaction_date FROM stock s LEFT JOIN stock_logs l ON s.stock_id = l.stock_id WHERE s.stock_id = ? AND l.log_type='in' AND s.stock_qty != 0";
 
         $stmt = $this->prepareQuery($this->conn, $query, "i", [$stock_id]);
         return $this->fetchAssoc($stmt);
@@ -59,14 +59,16 @@ class Inout extends DBHandler {
 
     public function searchUnitProduct($product_id)
     {
-        $query = "SELECT p.product_id, u.unit_name, SUM(s.stock_qty) as stock_quantity FROM unit u LEFT JOIN product p ON p.unit_id = u.unit_id LEFT JOIN stock s ON p.product_id = s.product_id WHERE p.product_id like '%$product_id%' LIMIT 1";
+        $query = "SELECT p.product_id, u.unit_name, SUM(s.stock_qty) as stock_quantity FROM unit u LEFT JOIN product p ON p.unit_id = u.unit_id LEFT JOIN stock s ON p.product_id = s.product_id WHERE s.location_type = 'rak' AND p.product_id like '%$product_id%' LIMIT 1";
 
         $stmt = $this->prepareQuery($this->conn, $query);
         return $this->fetchAssoc($stmt);
     }
 
-    public function outQuantity($pcode,$unit,$stockQuantity,$lotno,$expDate,$quantity,$totalQuantity,$transacDate,$user_name)
+    public function outQuantity($pcode,$unit,$stockQuantity,$lotno,$expDate,$qty_per_lot,$quantity,$transacDate,$user_name)
     {
+        $totalQuantity = $qty_per_lot-$quantity;
+
         $query = "UPDATE stock_logs SET log_qty = ?, log_transaction_date = ? WHERE stock_id = ?";
         $stmt = $this->prepareQuery($this->conn, $query, "ssi", array($totalQuantity,$transacDate,$lotno));
         $this->execute($stmt);
@@ -89,7 +91,6 @@ class Inout extends DBHandler {
         $audit_date = date('F d, Y h:i:s');
         $query = "INSERT INTO audit_trail(audit_action, audit_date, audit_user) VALUES(?,?,?)";
         $stmt = $this->prepareQuery($this->conn, $query, "sss", array($audit_action,$audit_date,$user_name));
-        return $this->execute($stmt);
-
+        $this->execute($stmt);
     }
 }

@@ -129,6 +129,8 @@ class Inventory extends DBHandler {
         $stockid = $row[0];
         $new_stock_qty = $row[1] + $stock_qty;
 
+        if($stock_expiration_date=="") {$stock_expiration_date="0000-00-00";}
+
         if($stockid=="" || $stockid==null){
 
             

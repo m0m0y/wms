@@ -168,7 +168,7 @@ switch($mode) {
                     ?>
                 <div class="col mb-4 pick" data-id="<?= $sorter ?>">
                     
-                    <div class="card-panel has-thumb p-4 mb-0 pick-main" data-target="v-<?= $v['product_id'] ?>">
+                    <div class="card-panel has-thumb p-4 mb-0 pick-main" data-target="v-<?= $v['product_id'] .''. $v['quantity_order'] ?>">
                         <img class="thumb" src="<?php echo $prod_image ?>" onError="this.onerror=null;this.src='product_image/dummy.jpg';">
                         <p class="m-0 text-muted"><small><?= $v['product_code'] ?></small></p>
                         <p class="m-0 font-weight-bold mb-2"><?= $v['product_description'] ?></p>
@@ -207,7 +207,7 @@ switch($mode) {
                         
                         ?>
 
-                        <button class="card-panel pick-button border-top-0 mb-0 card-with-lot <?= $virgin ?> v-<?= $v['product_id'] ?>" 
+                        <button class="card-panel pick-button border-top-0 mb-0 card-with-lot <?= $virgin ?> v-<?= $v['product_id'] .''. $v['quantity_order'] ?>" 
                             data-id="<?= $v['id'] ?>"
                             data-from_stock_id="<?= $lv['from_stock_id'] ?>"
                             data-stockid="<?= $lv['stock_id'] ?>"
@@ -228,6 +228,7 @@ switch($mode) {
                                     <b class="text-muted">   
                                     <?= $lv['stock_lotno'].'</b> @ '.$current_location ?>
                                 </small>
+                                <small> <?= $lv['stock_serialno'] ?> </small>
                             </p>
                             <?php if($virgin){ ?>
                             <div class="controls">

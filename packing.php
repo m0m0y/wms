@@ -91,112 +91,130 @@ $slip_no = (isset($_GET["slip_no"]) && !empty($_GET["slip_no"])) ? $_GET["slip_n
             
         <div class="row">
             <?php 
-                foreach($order as $key => $value) {
-                    $order_details = $order[$key]["order_details"];
+              foreach($order as $key => $value) {
+                $order_details = $order[$key]["order_details"];
             ?>
 
-            <div class="col">
-                <div class="pt-5 pb-5">
-                  <input type="hidden" id="id_slip" value="<?= $slip_id ?>">
-                  <input type="hidden" id="no_slip" value="<?= $slip_no ?>">
-                  <div class="r-container">
-                  <div class="receipt bg-white border border-dashed">
-                    <div class="row row-cols-2 m-0">
-                      <div class="p-5 mb-2 bg-light col">
-                        <label class="m-0 text-muted"><small>PO#: <?= $v["po_no"] ?></small></label>
-                        <h5 class="m-0"><b>#<?= $v["slip_no"] ?></b></h5>
+              <div class="col">
+                  <div class="pt-5 pb-5">
+                    <input type="hidden" id="id_slip" value="<?= $slip_id ?>">
+                    <input type="hidden" id="no_slip" value="<?= $slip_no ?>">
+                    
+                    <div class="r-container">
+                      <div class="receipt bg-white border border-dashed">
+                        <div class="row row-cols-2 m-0">
+                          <div class="p-5 mb-2 bg-light col">
+                            <label class="m-0 text-muted"><small>PO#: <?= $v["po_no"] ?></small></label>
+                            <h5 class="m-0"><b>#<?= $v["slip_no"] ?></b></h5>
 
-                        <p class="m-0 mt-2 text-muted"><small>Billed to</small></p>
-                        <p class="m-0 mt-n2 text-muted"><small><b><?= $v["bill_to"] ?></b></small></p>
+                            <p class="m-0 mt-2 text-muted"><small>Billed to</small></p>
+                            <p class="m-0 mt-n2 text-muted"><small><b><?= $v["bill_to"] ?></b></small></p>
 
-                      </div>
-                      <div class="p-5 mb-2 bg-light col text-right">
-                        
-                        <p class="m-0 mt-2 text-muted"><small>Reference</small></p>
-                        <p class="m-0 mt-n2 text-muted"><small><b>#<?= $v["reference"] ?></b></small></p>
-
-                        <p class="m-0 mt-2 text-muted"><small>Order Ship to</small></p>
-                        <p class="m-0 mt-n2 text-muted"><small><b><?= $v["ship_to"] ?></b></small></p>
-                      </div>
-                    </div>
-                    <div class="px-5">
-                      <?php foreach($order_details as $k=>$x){ ?>
-                      <div class="row m-0">
-                        <div class="p-2 m-0 position-relative d-block border-bottom col-8 pack">
-
-                          <div class="pack-action">
-                            <?php if(!$x['box_number']){ $count_unbox++; ?>
-                              
-                              <input 
-                                type="checkbox" 
-                                class="<?= "check-box-".$slip_id ?>" 
-                                name="picking_order_id" 
-                                value="<?= $x['stock_id'] ?>" 
-                                data-detail="<?= $x["product_description"] ?>" 
-                                data-lot="<?= $x["stock_lotno"] ?>"  
-                                data-uom="<?= $x["stock_qty"] . " " . $x["unit_name"] ?>" 
-                                data-name="<?= $x["product_code"] ?>"
-                              />
-
-                              <small>Select item</small>
-                            <?php } else { $count_box++; 
-                              $total_boxes[] = $x['box_number'];
-                              $total_raw_boxes[] = $countedBoxNo = str_replace($v["slip_no"]."-", "", $x['box_number']);
-                              ?>
-                              <button type="button" onclick="undoBox(<?= $x['stock_id'] ?>,<?= $countedBoxNo ?>)" class="btn btn-sm btn-danger"><small>Undo</small></button>
-                              <button class="btn btn-sm btn-primary rounded"><small>@ box <?= $countedBoxNo ?></small></button>
-                            <?php } ?>
                           </div>
+                          <div class="p-5 mb-2 bg-light col text-right">
+                            
+                            <p class="m-0 mt-2 text-muted"><small>Reference</small></p>
+                            <p class="m-0 mt-n2 text-muted"><small><b>#<?= $v["reference"] ?></b></small></p>
 
-                          <p class="m-0 mt-2 text-muted"><small><?= $x["product_code"] ?></small></p>
-                          <p class="m-0 mt-n2 text-muted text-truncate" data-toggle="tooltip" title="<?= $x["product_description"] ?>"><small><b><?= $x["product_description"] ?></b></small></p>
+                            <p class="m-0 mt-2 text-muted"><small>Order Ship to</small></p>
+                            <p class="m-0 mt-n2 text-muted"><small><b><?= $v["ship_to"] ?></b></small></p>
+                          </div>
+                        </div>
 
+                        <div class="px-5">
+                          <?php foreach($order_details as $k=>$x){ ?>
+                            <div class="row m-0">
+                              <div class="p-2 m-0 position-relative d-block border-bottom col-5 pack">
+
+                                <!-- <div class="pack-action">
+                                  <?php if(!$x['box_number']){ $count_unbox++; ?>
+                                    
+                                    <input 
+                                      type="checkbox" 
+                                      class="<?= "check-box-".$slip_id ?>" 
+                                      name="picking_order_id" 
+                                      value="<?= $x['stock_id'] ?>" 
+                                      data-detail="<?= $x["product_description"] ?>" 
+                                      data-lot="<?= $x["stock_lotno"] ?>"  
+                                      data-uom="<?= $x["stock_qty"] . " " . $x["unit_name"] ?>" 
+                                      data-name="<?= $x["product_code"] ?>"
+                                    />
+
+                                    <small>Select item</small>
+                                  <?php } else { $count_box++; 
+                                    $total_boxes[] = $x['box_number'];
+                                    $total_raw_boxes[] = $countedBoxNo = str_replace($v["slip_no"]."-", "", $x['box_number']);
+                                    ?>
+                                    <button type="button" onclick="undoBox(<?= $x['stock_id'] ?>,<?= $countedBoxNo ?>)" class="btn btn-sm btn-danger"><small>Undo</small></button>
+                                    <button class="btn btn-sm btn-primary rounded"><small>@ box <?= $countedBoxNo ?></small></button>
+                                  <?php } ?>
+                                </div> -->
+
+                                <p class="m-0 mt-2 text-muted"><small><?= $x["product_code"] ?></small></p>
+                                <p class="m-0 mt-n2 text-muted text-truncate" data-toggle="tooltip" title="<?= $x["product_description"] ?>"><small><b><?= $x["product_description"] ?></b></small></p>
+
+                              </div>
+
+                              <div class="p-2 m-0 border-bottom col-2">
+                                <p class="m-0 mt-2 text-muted"><small>Ln/Sn</small></p>
+                                <p class="m-0 mt-n2 text-muted" data-toggle="tooltip" title="<?= $x["stock_lotno"] ?>"><small><b><?= $x["stock_lotno"] ?></b></small></p>
+                              </div>
+
+                              <div class="p-2 m-0 border-bottom col-2">
+                                <p class="m-0 mt-2 text-muted"><small>Order</small></p>
+                                <p class="m-0 mt-n2 text-muted"><small><b><?= $x["stock_qty"] . " " . $x["unit_name"] ?></b></small></p>
+                              </div>
+
+                              <div class="p-2 m-0 border-bottom col-3">
+                                <?php
+                                  $total_boxes = array_unique($total_boxes);
+                                  $total_unbox =  $packing->getUnboxitem($slip_id);
+                                  // if(empty($total_raw_boxes)){
+                                  //   $total_raw_boxes = array(0);
+                                  // }
+                                ?>
+
+                                <div class="pack-action">
+                                  <?php if(!$x['box_number']) { $count_unbox++; ?>
+                                    <button type="button" class="mb-2 btn btn-sm btn-outline-primary box-item" name="picking_order_id" data-slip="<?= $v["slip_no"] ?>" data-target="<?= "check-box-".$slip_id ?>"  data-detail="<?= $x["product_description"] ?>" data-lot="<?= $x["stock_lotno"] ?>" data-uom="<?= $x["stock_qty"] . " " . $x["unit_name"] ?>" data-name="<?= $x["product_code"] ?>" data-stockid="<?= $x['stock_id'] ?>">Pack Selected Item(s)</button>
+                                  <?php } else { 
+                                    $count_box++;
+                                    $total_boxes[] = $x['box_number'];
+                                    $total_raw_boxes[] = $countedBoxNo = str_replace($v["slip_no"]."-", "", $x['box_number']);
+                                  ?>
+                                    <button type="button" onclick="undoBox(<?= $x['stock_id'] ?>,<?= $countedBoxNo ?>)" class="btn btn-sm btn-danger"><small>Undo</small></button>
+                                    <button class="btn btn-sm btn-primary rounded"><small>@ box <?= $countedBoxNo ?></small></button>
+                                    <button type="button" class="btn btn-sm btn-outline-success print-label" data-total="<?= $countedBoxNo ?>" data-target="<?= "check-box-".$slip_id ?>" data-slip_no="<?= $v['slip_no'] ?>" data-ship_to="<?= $v['ship_to'] ?>" data-bill_to="<?= $v['bill_to'] ?>" data-invoice_no="<?= $v['invoice_no'] ?>">Print Label</button>
+                                  <?php }?>
+                                </div>
+                              </div>
+                            </div>
+                          <?php } ?>
+
+                          <div class="row m-0 mt-5">
+                            <div class="col col-6 px-0">
+                              <!-- <button type="button" class="mb-2 btn btn-sm btn-outline-primary box-item" data-max="<?= max($total_raw_boxes) ?>" data-slip="<?= $v["slip_no"] ?>" data-target="<?= "check-box-".$slip_id ?>">Pack Selected Item(s)</button>
+                              <button type="button" class="mb-2 btn btn-sm btn-outline-success print-label" data-total="<?= count($total_boxes) ?>" data-target="<?= "check-box-".$slip_id ?>" data-slip_no="<?= $v['slip_no'] ?>" data-ship_to="<?= $v['ship_to'] ?>" data-bill_to="<?= $v['bill_to'] ?>" data-invoice_no="<?= $v['invoice_no'] ?>">Print Label</button> -->
+
+                              <button type="button" class="mb-2 btn btn-sm btn-outline-success print-box-label" data-target="<?= "check-box-".$slip_id ?>" data-slip_id="<?= $slip_id ?>">Print Box Labels</button>
+                              <?php $numberOforder = count($order_details);
+                              if($numberOforder >= 2 AND $x['box_number'] != NULL) {
+                              ?>
+                                <button type="button" class="mb-2 btn btn-sm btn-outline-danger undo-all" data-target="<?= "check-box-".$slip_id ?>" onclick="undoallBox(<?= $slip_id ?>)">Undo All</button>
+                              <?php } ?>
+                            </div>
+                            <div class="col col-6 px-0 text-right">
+                              <button type="button" class="mb-2 btn btn-sm btn-outline-danger" onclick="recheckOrder(<?= $slip_id ?>)"  data-target="<?= "check-box-".$slip_id ?>">Return to Checker</button>
+                            </div>
+                          </div>
                         </div>
-                        <div class="p-2 m-0 border-bottom col-2">
-                          <p class="m-0 mt-2 text-muted"><small>Ln/Sn</small></p>
-                          <p class="m-0 mt-n2 text-muted" data-toggle="tooltip" title="<?= $x["stock_lotno"] ?>"><small><b><?= $x["stock_lotno"] ?></b></small></p>
-                        </div>
-                        <div class="p-2 m-0 border-bottom col-2">
-                          <p class="m-0 mt-2 text-muted"><small>Order</small></p>
-                          <p class="m-0 mt-n2 text-muted"><small><b><?= $x["stock_qty"] . " " . $x["unit_name"] ?></b></small></p>
-                        </div>
+
+                        <button id="btn_send" class="d-block btn btn-primary w-100 mt-5 to-ship" data-total="<?= $total_unbox ?>" data-target="<?= "check-box-".$slip_id ?>" onclick="shipOrder(<?= $slip_id ?>)">Send to shipping</button>
                       </div>
-                      
-                      <?php } 
-                      
-                      $total_boxes = array_unique($total_boxes);
-                      $total_unbox =  $packing->getUnboxitem($slip_id);
-                      if(empty($total_raw_boxes)){
-                        $total_raw_boxes = array(0);
-                      }
-                      ?>
-
-                      <div class="row m-0 mt-5">
-                        <div class="col col-6 px-0">
-                          <button type="button" class="mb-2 btn btn-sm btn-outline-primary box-item" data-max="<?= max($total_raw_boxes) ?>" data-slip="<?= $v["slip_no"] ?>" data-target="<?= "check-box-".$slip_id ?>">Pack Selected Item(s)</button>
-                          <button type="button" class="mb-2 btn btn-sm btn-outline-success print-label" data-total="<?= count($total_boxes) ?>" data-target="<?= "check-box-".$slip_id ?>" data-slip_no="<?= $v['slip_no'] ?>" data-ship_to="<?= $v['ship_to'] ?>" data-bill_to="<?= $v['bill_to'] ?>" data-invoice_no="<?= $v['invoice_no'] ?>">Print Label</button>
-
-                          <button type="button" class="mb-2 btn btn-sm btn-outline-success print-box-label" data-target="<?= "check-box-".$slip_id ?>" data-slip_id="<?= $slip_id ?>">Print Box Labels</button>
-                          <button type="button" class="mb-2 btn btn-sm btn-outline-danger undo-all" data-target="<?= "check-box-".$slip_id ?>" onclick="undoallBox(<?= $slip_id ?>)">Undo All</button>
-                        </div>
-                        <div class="col col-6 px-0 text-right">
-                          <button type="button" class="mb-2 btn btn-sm btn-outline-danger" onclick="recheckOrder(<?= $slip_id ?>)"  data-target="<?= "check-box-".$slip_id ?>">Return to Checker</button>
-                        </div>
-
-                      </div>
-
                     </div>
-                    <button id="btn_send" class="d-block btn btn-primary w-100 mt-5 to-ship" data-total="<?= $total_unbox ?>" data-target="<?= "check-box-".$slip_id ?>" onclick="shipOrder(<?= $slip_id ?>)">Send to shipping</button>
+                    
                   </div>
-                  </div>
-                </div>
-            </div>
-
-
-
-
-
-
+              </div>
 
             <?php } ?>
         </div>
@@ -232,8 +250,11 @@ $slip_no = (isset($_GET["slip_no"]) && !empty($_GET["slip_no"])) ? $_GET["slip_n
       <div class="modal-body pb-0">
         <div class="row" id="selected-to-box-gallery"></div>
         <input type="hidden" id="toBox" class="form-control" />
-        <input type="hidden" id="toName" class="form-control mb-2" readonly>
+        <input type="hidden" id="toName" class="form-control" readonly>
         <input type="hidden" id="noBox" class="form-control">
+        
+        <label>No. of Box(s): </label>
+        <input type="number" step="1" min="0" id="numberOfBox" class="form-control mb-2" placeholder="Type here..."/>
       </div>
 
       <div class="modal-footer">
@@ -287,10 +308,12 @@ $slip_no = (isset($_GET["slip_no"]) && !empty($_GET["slip_no"])) ? $_GET["slip_n
 
       <div class="modal-body" id="shipping_content">
         
-        <input type="hidden" id="slipno" class="form-control mb-2" />
-        <input type="hidden" id="billto" class="form-control mb-2" />
-        <input type="hidden" id="shipto" class="form-control mb-2" />
-        <input type="hidden" id="invoiceno" class="form-control mb-2" />
+        <div class="d-none">
+          <input type="hidden" id="slipno" class="form-control mb-2" />
+          <input type="hidden" id="billto" class="form-control mb-2" />
+          <input type="hidden" id="shipto" class="form-control mb-2" />
+          <input type="hidden" id="invoiceno" class="form-control mb-2" />
+        </div>
 
         <label>Courier: </label>
         <select id="courier" class="form-control custom-selct  mb-2">
@@ -305,16 +328,15 @@ $slip_no = (isset($_GET["slip_no"]) && !empty($_GET["slip_no"])) ? $_GET["slip_n
           <option value="Air">Air</option>
         </select>
 
-        <label style="display: none;">No. of Sticker: </label>
-        <input style="display: none;" type="number" step="1" min="0" id="page" class="form-control mb-2" value="<?= count($total_boxes) ?>" />
+        <input style="d-none" type="hidden" id="page" class="form-control mb-2" value="<?= $countedBoxNo ?>" readonly/>
                       
         <label>Remarks: </label>
         <textarea id="remarks" class="form-control mb-2"></textarea>
 
-        <div class="d-none">
+        <!-- <div class="d-none">
         <label>Box weight: </label>
         <input type="number" step="0.1" name="box-weight[]" id="box-weight" class="form-control mb-2 bw" />
-        </div>
+        </div> -->
         
       </div>
 

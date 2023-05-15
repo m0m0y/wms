@@ -95,16 +95,17 @@ require_once "./component/sidebar.php";
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Order qty:</label>
+                        <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Lot No:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" name="order_qty" id="order_qty" placeholder="Quantity" data-toggle="tooltip" data-placement="bottom" title="Order Quantity">
+                            <select class="form-control" name="lotno" id="lotno"></select>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Lot No:</label>
+                        <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Order qty:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="lotno" id="lotno"></select>
+                            <input type="number" class="form-control" name="order_qty" id="order_qty" placeholder="Quantity" data-toggle="tooltip" data-placement="bottom" title="Order Quantity">
+                            <span class="error-message"></span>
                         </div>
                     </div>
 

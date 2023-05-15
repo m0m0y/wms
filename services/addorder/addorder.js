@@ -1,4 +1,5 @@
 var errorToast = {'position':'top','align':'right', 'duration': 4000, 'class': "bg-danger"}
+var invalidQty = {'width': 0, 'duration': 900, 'position': 'top', 'align': 'right', 'zindex': 99999}
 $(function(){
 	customFileInput();
 	ajaxForm();
@@ -10,7 +11,20 @@ $(function(){
 	$('#product_codes').change(function() {
         var product_id = $(this).val();
 		$('#lotno').load('controller/controller.addorder.php?mode=getLotnumber&product_id='+product_id);
-    })
+    });
+
+	$('#lotno').change(function() {
+		var stock_id = $(this).val();
+		$.ajax({
+			url: "controller/controller.addorder.php?mode=getLotQty&stock_id="+stock_id,
+			method: "GET",
+			data: { stock_id:stock_id },
+			success: function(data) {
+				var stock_qty = JSON.parse(data);
+				$('#order_qty').val(stock_qty);
+			}
+		});
+	});
 
 	$('.pcode').select2({
 		width: "resolve"
@@ -26,46 +40,45 @@ $(function(){
 		var lotno_res = lotname.split(" ");
 
 		if(lot_no == null || lot_no == "" || order_qty == "") {
-
 			$.Toast('Please check required field', errorToast);
-
-		} else if(order_qty <= 0) {
-
-			$.Toast('Invalid Quantity', {
-				'width': 0,
-				'duration': 4000,
-				'position': 'top',
-				'align': 'right',
-				'zindex': 99999
-			});
-
 		} else {
 
 			$('#addorder_btn').removeAttr('disabled');
 
-			$.ajax({
-				url: 'controller/controller.product.php?mode=get&id='+id+'&lot_id='+lot_no,
-				method: 'POST',
-				data: { id:id },
-				success: function(data) {
-					var data = JSON.parse(data);
-					$('.order-container').append('<div id="ss'+data[0]+lot_no+order_qty+'" style="margin-bottom: 3px;"><div class="d-none"><input type="text" name="product_codes[]" value="'+data[0]+'"><input type="text" name="order_qty[]" value="'+order_qty+'"><input type="text" name="lotno[]" value="'+lotno_res[1]+'"><input type="text" name="location[]" value="'+location+'"></div> <span class="bg-primary item-details text-white px-2"><a type="button" id="remove_btn"><i class="material-icons">close</i></a> '+order_qty+' '+data[5]+' <small>('+lotno_res[1]+')</small></span></div> ');
-				}
+			if(order_qty <= 0) {
+				$.Toast('Invalid Quantity', invalidQty);
 
-			});
-
+			// subtotal = stock_qty-order_qty;
+			// $('#stock_qty').val(subtotal);
+	
+			// if(order_qty > stock_qty) {
+			// 	$.Toast('Invalid Quantity', invalidQty);
+			} else {
+				$.ajax({
+					url: 'controller/controller.product.php?mode=get&id='+id+'&lot_id='+lot_no,
+					method: 'POST',
+					data: { id:id },
+					success: function(data) {
+						var data = JSON.parse(data);
+						$('.order-container').append('<div id="ss'+data[0]+lot_no+order_qty+'" style="margin-bottom: 3px;"><div class="d-none"><input type="text" name="product_codes[]" value="'+data[0]+'"><input type="text" name="order_qty[]" value="'+order_qty+'"><input type="text" name="lotno[]" value="'+lotno_res[1]+'"><input type="text" name="location[]" value="'+location+'"></div> <span class="bg-primary item-details text-white px-2"><a type="button" onclick="remove_btn('+data[0]+','+lot_no+','+order_qty+')" id="remove_btn"><i class="material-icons">close</i></a> '+order_qty+' '+data[5]+' <small>('+lotno_res[1]+')</small></span></div> ');
+					}
+		
+				});
+			}
 		}
 	});
-
-	$('.order-container').on('click', '#remove_btn', function(e) {
-		e.preventDefault();
-		var id = $(this).parent().parent().attr('id');
-		$('div #'+id).remove();
-
-		$('#addorder_btn').attr('disabled', 'disabled');
-	})
-
 })
+
+function remove_btn(data, lot_no, order_qty) {
+	var div = 'div #ss'+data+lot_no+order_qty;
+	$(div).remove();
+	var stock_qty = parseInt($('#stock_qty').val());
+	var orderqty = parseInt(order_qty);
+	var quantity = stock_qty+orderqty;
+
+	$('#stock_qty').val(quantity);
+	$('#addorder_btn').attr('disabled', 'disabled');
+}
 
 
 function customFileInput(){
@@ -134,9 +147,9 @@ function ajaxForm(){
 		var type = $(this).attr("method");
 		var formData = new FormData(this);
 
-		var id = $('#product_codes').val();
-		var order_qty = $('#order_qty').val();
-		var lot_no = $('#lotno').val();
+		// var id = $('#product_codes').val();
+		// var order_qty = $('#order_qty').val();
+		// var lot_no = $('#lotno').val();
 
 		// if(id == null || order_qty == null || lot_no == null) {
 		// 	$.Toast('Please check required field', errorToast);

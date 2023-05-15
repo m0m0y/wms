@@ -2,10 +2,10 @@
 
 class DBHandler {
     
-    private $host = "localhost:3324";
+    private $host = "localhost";
 	private $user = "root";
-	private $password = "moy";
-    private $database = "ppi_wms";
+	private $password = "";
+    private $database = "wms";
 
     private $conn;
 	
