@@ -87,6 +87,8 @@ require_once "./component/sidebar.php";
 
                     <hr>
 
+                    <div class="d-none"><input type="hidden" class="form-control" name="stock_qty" id="stock_qty" readonly></div>
+
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label text-right"><span class="text-danger">*</span> Products:</label>
                         <div class="col-sm-10">

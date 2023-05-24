@@ -21,7 +21,13 @@ $(function(){
 			data: { stock_id:stock_id },
 			success: function(data) {
 				var stock_qty = JSON.parse(data);
-				$('#order_qty').val(stock_qty);
+				$('#stock_qty').val(stock_qty);
+				$('#order_qty')
+					.attr('placeholder', stock_qty)
+					.val(stock_qty)
+					.attr("max", stock_qty);
+
+				validateInput('#order_qty');
 			}
 		});
 	});
@@ -41,19 +47,19 @@ $(function(){
 
 		if(lot_no == null || lot_no == "" || order_qty == "") {
 			$.Toast('Please check required field', errorToast);
+			return
 		} else {
-
-			$('#addorder_btn').removeAttr('disabled');
-
-			if(order_qty <= 0) {
-				$.Toast('Invalid Quantity', invalidQty);
-
-			// subtotal = stock_qty-order_qty;
-			// $('#stock_qty').val(subtotal);
-	
-			// if(order_qty > stock_qty) {
-			// 	$.Toast('Invalid Quantity', invalidQty);
-			} else {
+			if(order_qty > stock_qty) {
+				$.Toast('No stocks available', invalidQty);
+				$('#addorder_btn').attr('disabled', 'disabled');
+				return
+			}
+			if (order_qty <= - 0) {
+				$.Toast('Invalid Quantity!', invalidQty);
+				$('#addorder_btn').attr('disabled', 'disabled');
+				return
+			} 
+			else {
 				$.ajax({
 					url: 'controller/controller.product.php?mode=get&id='+id+'&lot_id='+lot_no,
 					method: 'POST',
@@ -62,9 +68,9 @@ $(function(){
 						var data = JSON.parse(data);
 						$('.order-container').append('<div id="ss'+data[0]+lot_no+order_qty+'" style="margin-bottom: 3px;"><div class="d-none"><input type="text" name="product_codes[]" value="'+data[0]+'"><input type="text" name="order_qty[]" value="'+order_qty+'"><input type="text" name="lotno[]" value="'+lotno_res[1]+'"><input type="text" name="location[]" value="'+location+'"></div> <span class="bg-primary item-details text-white px-2"><a type="button" onclick="remove_btn('+data[0]+','+lot_no+','+order_qty+')" id="remove_btn"><i class="material-icons">close</i></a> '+order_qty+' '+data[5]+' <small>('+lotno_res[1]+')</small></span></div> ');
 					}
-		
 				});
 			}
+			$('#addorder_btn').removeAttr('disabled');
 		}
 	});
 })
@@ -72,11 +78,6 @@ $(function(){
 function remove_btn(data, lot_no, order_qty) {
 	var div = 'div #ss'+data+lot_no+order_qty;
 	$(div).remove();
-	var stock_qty = parseInt($('#stock_qty').val());
-	var orderqty = parseInt(order_qty);
-	var quantity = stock_qty+orderqty;
-
-	$('#stock_qty').val(quantity);
 	$('#addorder_btn').attr('disabled', 'disabled');
 }
 
@@ -200,5 +201,20 @@ function ajaxForm(){
 
 function clr_btn() {
 	$('.pcode').val(null).trigger('change');
-	$('#location, #order_qty').val("");
+	$('#location, #order_qty, #stock_qty').val("");
+}
+
+function validateInput (selector) {
+    $(selector).on('input, blur, keyup', function () {
+        const val = $(this).val()
+        const max = $(this).attr('max')
+        if (val > max) { 
+            $.Toast("You are picking items more than what you need!", {
+                'duration': 4000,
+                'position': 'top',
+                'align': 'right',
+            });
+            $(this).val(max)
+        }
+    });
 }
