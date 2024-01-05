@@ -27,7 +27,7 @@ $(function(){
 					.val(stock_qty)
 					.attr("max", stock_qty);
 
-				validateInput('#order_qty');
+				// validateInput('#order_qty');
 			}
 		});
 	});

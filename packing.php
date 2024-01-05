@@ -183,7 +183,7 @@ $slip_no = (isset($_GET["slip_no"]) && !empty($_GET["slip_no"])) ? $_GET["slip_n
                                     $total_raw_boxes[] = $countedBoxNo = str_replace($v["slip_no"]."-", "", $x['box_number']);
                                   ?>
                                     <button type="button" onclick="undoBox(<?= $x['stock_id'] ?>,<?= $countedBoxNo ?>)" class="btn btn-sm btn-danger"><small>Undo</small></button>
-                                    <button class="btn btn-sm btn-primary rounded"><small>@ box <?= $countedBoxNo ?></small></button>
+                                    <button class="btn btn-sm btn-primary rounded"><small>box of <?= $countedBoxNo ?></small></button>
                                     <button type="button" class="btn btn-sm btn-outline-success print-label" data-total="<?= $countedBoxNo ?>" data-target="<?= "check-box-".$slip_id ?>" data-slip_no="<?= $v['slip_no'] ?>" data-ship_to="<?= $v['ship_to'] ?>" data-bill_to="<?= $v['bill_to'] ?>" data-invoice_no="<?= $v['invoice_no'] ?>">Print Label</button>
                                   <?php }?>
                                 </div>

@@ -5,7 +5,7 @@ class DBHandler {
     private $host = "localhost";
 	private $user = "root";
 	private $password = "";
-    private $database = "wms";
+    private $database = "ppi_wms";
 
     private $conn;
 	
